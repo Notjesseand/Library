@@ -115,7 +115,7 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div
-              className="relative z-10 h-screen flex flex-col justify-between"
+              className="relative z-10 h-screen flex flex-col justify-evenly    "
               id="section 1"
             >
               <div className="gap-y-12          ">
