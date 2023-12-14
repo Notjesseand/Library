@@ -146,7 +146,7 @@ export default function Home() {
       {showSection3 && (
         <div className="flex">
           <Link
-            href="/signup"
+            href="/login"
             className="font-custom text-white bg-[#294246] px-0 w-5/6 sm:w-auto justify-center sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute bottom-5 left-1/2 transform -translate-x-1/2"
           >
             Sign Up
