@@ -33,6 +33,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap"
           rel="stylesheet"
         />
+         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></meta>
       </head>
 
       <body >
