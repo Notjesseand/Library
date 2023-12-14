@@ -13,21 +13,27 @@ export default function Page() {
           style={{ opacity: opacity }}
         ></div>
         <div className="z-10 relative px-8 sm:px-12 py-10 sm:py-0">
-          <p className="text-5xl font-bold pt-12">Welcome back</p>
-          <p className="mt-5">Sign in to continue</p>
+          <p className="text-5xl font-bold pt-12">Welcome user</p>
+          <p className="mt-5">Sign up to join</p>
         </div>
       </div>
       <div className="flex-grow bg-white py-5 text-black">
         <div className="sm:w-2/5 mx-auto w-11/12">
           <div className=" py-5 text-black">
-            <label htmlFor="email" className="text-black text-base">
+            <input
+              type="text"
+              // onChange={(e) => setEmail(e.target.value)}
+              placeholder="name"
+              className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg  "
+            />
+            {/* <label htmlFor="email" className="text-black text-base mt-4 flex">
               Email
-            </label>
+            </label> */}
             <input
               type="email"
               // onChange={(e) => setEmail(e.target.value)}
-              placeholder="email@outlook.com"
-              className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg  "
+              placeholder="email"
+              className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg mt-10  "
             />
             {/* {emailError && (
             <p className="text-red-600 sm:w-5/6 mx-auto mt-1 ">{emailError}</p>
