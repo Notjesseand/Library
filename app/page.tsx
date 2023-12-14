@@ -48,7 +48,7 @@ export default function Home() {
             {/* Dark overlay */}
 
             <div
-              className="absolute inset-0 bg-gradient-to-t from-[#454f56] to-black"
+              className="absolute inset-0 bg-gradient-to-t from-[#131414] to-black"
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
@@ -81,7 +81,7 @@ export default function Home() {
             {/* Dark overlay */}
 
             <div
-              className="absolute inset-0 bg-gradient-to-t from-[#454f56] to-black"
+              className="absolute inset-0 bg-gradient-to-t from-[#131414] to-black"
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
@@ -111,7 +111,7 @@ export default function Home() {
             {/* Dark overlay */}
 
             <div
-              className="absolute inset-0 bg-gradient-to-t from-[#454f56] to-black"
+              className="absolute inset-0 bg-gradient-to-t from-[#131414] to-black"
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
