@@ -1,7 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-export default function page() {
-  return (
-    <div className='font-custom text-xl text-center '>page</div>
-  )
-}
+// export default function page() {
+//   return (
+//     <div className='font-custom text-xl text-center '>page</div>
+//   )
+// }
+
+
+
+
