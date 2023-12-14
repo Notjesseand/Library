@@ -66,9 +66,9 @@ export default function Page() {
             </p>
             {/* sign up prompt */}
             <p className="text-center mt-9 sm:mt-4 ">
-              Don&apos;t have an account?{" "}
+              Already have an account?{" "}
               <Link href="" className="text-blue-600">
-                Sign up
+                Sign in
               </Link>
             </p>
           </div>
