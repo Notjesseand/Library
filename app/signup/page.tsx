@@ -6,7 +6,7 @@ export default function Page() {
 
   return (
     <div className="font-custom text-base h-screen flex flex-col">
-      <div className="flex-shrink-0 h-[35%] relative bg-[url(/image2.jpg)] bg-cover sm:bg-contain bg-top bg-opacity-90">
+      <div className="flex-shrink-0 h-[30%] relative bg-[url(/image2.jpg)] bg-cover sm:bg-contain bg-top bg-opacity-90">
         {/* overlay */}
         <div
           className="absolute inset-0 bg-gradient-to-t from-[#131414] to-black h-full m-0 p-0"
@@ -54,7 +54,7 @@ export default function Page() {
             {/* submit */}
             <input
               type="submit"
-              value="Sign in"
+              value="Sign up"
               className="bg-black text-base rounded-md text-white text-center py-5 w-full mt-20 sm:mt-8 cursor-pointer hover:bg-gray-800"
             />
 
