@@ -53,7 +53,7 @@ export default function page() {
           <p className="text-center mt-1">or sign up with Google</p>
           {/* sign up prompt */}
           <p className="text-center mt-9 sm:mt-5 ">
-            Don't have an account? <Link href="" className="text-blue-600">Sign up</Link>
+            Don&apos;t have an account? <Link href="" className="text-blue-600">Sign up</Link>
           </p>
         </div>
       </div>
