@@ -55,12 +55,12 @@ export default function Home() {
               {/* theme toggle */}
 
               {/* icon and hero */}
-              <div className="flex justify-center sm:justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
+              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
               <div className="sm:w-full w-5/6 mx-auto sm:mx-0">
-                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-5xl font-bold">
+                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-4xl sm:text-5xl font-bold">
                   Discover books you love
                 </p>
                 <p className="sm:px-24 my-7 text-2xl ">
@@ -85,7 +85,7 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              <div className="flex justify-center sm:justify-start  sm:px-24 pt-20">
+              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
@@ -115,7 +115,7 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              <div className="flex justify-center sm:justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0 ">
+              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
