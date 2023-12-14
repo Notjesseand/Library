@@ -55,19 +55,19 @@ export default function Home() {
               {/* theme toggle */}
 
               {/* icon and hero */}
-              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
+              <div className="flex justify-start  sm:px-24 pt-12 sm:w-full w-5/6 mx-auto sm:mx-0">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
               <div className="sm:w-full w-5/6 mx-auto sm:mx-0">
-                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-4xl sm:text-5xl font-bold">
+                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-20 sm:mt-7 text-4xl sm:text-5xl font-bold">
                   Discover books you love
                 </p>
-                <p className="sm:px-24 my-7 text-2xl ">
+                <p className="sm:px-24 my-10 text-2xl ">
                   Find all the best books and academic materials for you
                 </p>
               </div>
-              <div className="px-4 mt-20">
+              <div className="px-4 mt-32 ">
                 <Carousel />
               </div>
             </div>
@@ -85,19 +85,19 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
+              <div className="flex justify-start  sm:px-24 pt-12 sm:w-full w-5/6 mx-auto sm:mx-0">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
               <div className="sm:w-full w-5/6 mx-auto sm:mx-0">
-                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-3xl sm:text-5xl font-bold">
+                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-20 sm:mt-7 text-4xl sm:text-5xl font-bold">
                   Give and get recommendations
                 </p>
-                <p className="sm:px-24 my-7 text-2xl ">
+                <p className="sm:px-24 my-10 text-2xl ">
                   Give and get book recommendations from friends and more
                 </p>
               </div>
-              <div className="px-4 mt-20">
+              <div className="px-4 mt-32">
                 <Carousel />
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
+              <div className="flex justify-start  sm:px-24 pt-12 sm:w-full w-5/6 mx-auto sm:mx-0">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
@@ -123,12 +123,12 @@ export default function Home() {
                 <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-3xl sm:text-5xl font-bold">
                   Get started now
                 </p>
-                <p className="sm:px-24 my-7 text-2xl ">
+                <p className="smsm:px-24 my-10 text-2xl:px-24 text-2xl ">
                   sign up for free to gain access to our wide collection of
                   resources
                 </p>
               </div>
-              <div className="px-4 mt-20">
+              <div className="px-4 mt-32">
                 <Carousel />
               </div>
               <div className="flex">
