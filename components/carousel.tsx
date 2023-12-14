@@ -37,7 +37,7 @@ const Carousel = () => {
     >
       {data.map((item, index)=>(
 
-      <SwiperSlide key={index} className="cursor-pointer flex bg-inherit text-white text-center w-full backdrop-blur-3xl rounded-sm    ">
+      <SwiperSlide key={index} className="cursor-pointer flex bg-inherit text-white text-center w-full backdrop-blur-sm rounded-sm    ">
         <p className="py-6">{item.text}</p>
       </SwiperSlide>
       ))}
