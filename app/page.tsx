@@ -115,7 +115,7 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              <div className="flex justify-center sm:justify-start  sm:px-24 pt-20">
+              <div className="flex justify-center sm:justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0 ">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
@@ -132,13 +132,12 @@ export default function Home() {
                 <Carousel />
               </div>
               <div className="flex">
-
-              <Link
-                href="/signup"
-                className="font-custom text-white bg-[#294246] px-32 sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex bottom-5"
-              >
-                Sign Up
-              </Link>
+                <Link
+                  href="/signup"
+                  className="font-custom text-white bg-[#294246] px-32 sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex bottom-5"
+                >
+                  Sign Up
+                </Link>
               </div>
             </div>
           </div>
@@ -148,7 +147,7 @@ export default function Home() {
       {(showSection1 || showSection2) && (
         <button
           onClick={handleNext}
-          className=" font-custom text-white bg-[#294246] px-32 sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute left-1/2 transform -translate-x-1/2 bottom-5"
+          className=" font-custom text-white bg-[#294246] px-0 w-11/12 sm:w-auto text-center justify-center sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute left-1/2 transform -translate-x-1/2 bottom-5"
         >
           Next
         </button>
