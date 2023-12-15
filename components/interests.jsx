@@ -81,10 +81,10 @@ const Interests = () => {
         className="mt-10 grid sm:grid-cols-4 grid-cols-2 justify-between gap-y-14 text-xl px-2"
       >
         {categories.slice(0, itemsToShow).map((category, index) => (
-          <div key={index} className=" mx-auto justify-center">
+          <div key={index} className=" mx-auto justify-center w-full items-center text-center">
             <ToggleGroupItem
               value={category}
-              className={`relative sm:h-72  h-52 w-52 mx-auto sm:w-72 rounded-full  bg-cover hover:opacity-80 `}
+              className={`relative sm:h-72  h-44 w-44 mx-auto sm:w-72 rounded-full  bg-cover hover:opacity-80 `}
               onClick={() => handleToggle(category.category)}
               style={{ backgroundImage: `url(${category.image})` }}
             >
