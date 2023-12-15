@@ -55,7 +55,7 @@ export default function Page() {
             <p className="text-center mt-1">
               or{" "}
               <span className="text-blue-600 cursor-pointer">
-                sign up with Google
+                Continue with Google
               </span>
             </p>
             {/* sign up prompt */}
