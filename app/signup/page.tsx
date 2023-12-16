@@ -1,22 +1,49 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { useRouter } from "next/navigation";
 import { db } from "../../config/firebase";
 import { doc, setDoc, getFirestore, addDoc } from "firebase/firestore";
-import { getAuth, updateProfile } from "firebase/auth";
+import { Spinner } from "@material-tailwind/react";
+
+import {
+  getAuth,
+  setPersistence,
+  browserSessionPersistence,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 export default function Page() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false)
 
   const opacity = 0.7;
 
+  useEffect(() => {
+    const auth = getAuth();
+    setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        // Set up the onAuthStateChanged listener to check the user's authentication status
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            // User is signed in.
+            router.push("/interests");
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Error setting persistence:", error);
+      });
+  }, []); // Run this effect only once on component mount
+
   const handleSignUp = async () => {
+    setLoading(true)
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -85,12 +112,13 @@ export default function Page() {
             </p>
 
             {/* submit */}
-            <input
-              type="submit"
+            <button
               value="Sign up"
               onClick={handleSignUp}
               className="bg-black text-base rounded-md text-white text-center py-5 w-full mt-20 sm:mt-8 cursor-pointer hover:bg-gray-800"
-            />
+            >
+              {loading ? <Spinner className="mx-auto" /> : "Sign up"}
+            </button>
 
             <p className="text-center mt-1">
               or{" "}
