@@ -16,6 +16,7 @@ import { Spinner, spinner } from "@material-tailwind/react";
 
 export default function Page() {
   const [userName, setUserName] = useState(null);
+   const [loading, setLoading] = useState(true);
   const db = getFirestore();
   const user = auth.currentUser;
   const router = useRouter();
@@ -42,12 +43,21 @@ export default function Page() {
         // Redirect to login page or handle authentication logic
         router.push("/login");
       }
+      // Set loading to false once authentication status is determined
+      setLoading(false);
     };
 
     fetchUserName();
   }, [user, db, router]);
 
   // Check if the user object exists before rendering the page
+  if (loading) {
+    return (
+      <div className="min-h-screen min-w-screen bg-gray-100 flex items-center justify-center">
+        <Spinner className="spinner text-5xl h-12 w-12" />
+      </div>
+    );
+  }
   if (!user) {
     return (
       <div className="min-h-screen min-w-screen bg-gray-100 flex items-center justify-center">
