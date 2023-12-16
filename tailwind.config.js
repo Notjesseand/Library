@@ -1,5 +1,7 @@
+const withMT = require("@material-tailwind/react/utils/withMT");
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withMT({
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx,js,jsx}",
@@ -85,7 +87,7 @@ module.exports = {
           "Noto Sans",
           "sans-serif",
         ],
-        poppins: ["Poppins",],
+        poppins: ["Poppins"],
         montserrat: [
           "Montserrat", // Use "Montserrat" for the Montserrat font family
           "Poppins",
@@ -107,4 +109,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+});

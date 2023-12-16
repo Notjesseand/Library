@@ -1,9 +1,35 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
-
+import { getAuth } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase";
+import { useRouter } from "next/navigation";
+import { db } from "../../config/firebase";
+import { doc, setDoc, getFirestore, addDoc } from "firebase/firestore";
+import { Spinner } from "@material-tailwind/react";
 export default function Page() {
   const opacity = 0.7;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
+  const signIn = ()=>{
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        router.push('/interests')
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+
+  }
   return (
     <div className="font-custom text-base h-screen flex flex-col">
       <div className="flex-shrink-0 h-[35%] relative bg-[url(/image2.jpg)] bg-cover sm:bg-contain bg-top bg-opacity-90">
@@ -25,7 +51,7 @@ export default function Page() {
             </label>
             <input
               type="email"
-              // onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="email@outlook.com"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg  "
             />
@@ -37,21 +63,21 @@ export default function Page() {
           </label> */}
             <input
               type="password"
-              // onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="password"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg mt-10 "
             />
             <p className="cursor-pointer text-base text-blue-700 mt-1">
               forgot password?
             </p>
-
             {/* submit */}
-            <input
-              type="submit"
+            <button
               value="Sign in"
-              className="bg-black text-base rounded-md text-white text-center py-5 w-full mt-20 sm:mt-8 cursor-pointer hover:bg-gray-800"
-            />
-
+              onClick={signIn}
+              className="bg-black text-base rounded-md text-white text-center py-5 w-full mt-20 sm:mt-8 cursor-pointer hover:bg-gray-800 flex justify-center"
+            >
+              {loading ? <Spinner className="text-center flex justify-center" /> : "Sign In"}
+            </button>
             <p className="text-center mt-1">
               or{" "}
               <span className="text-blue-600 cursor-pointer">

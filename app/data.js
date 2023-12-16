@@ -122,68 +122,68 @@ export const categories = [
     image: "/adventure.jpg",
   },
   {
-    category: "fiction",
-    image: "/fiction.jpg",
+    category: "horror",
+    image: "/horror.jpg",
   },
   {
-    category: "classics",
-    image: "/classic.jpg",
+    category: "civil rights",
+    image: "/civil.jpg",
   },
   {
-    category: "comedy",
-    image: "/comedy.jpg",
+    category: "travel",
+    image: "/travel.jpg",
   },
   {
-    category: "drama",
-    image: "/drama.jpg",
+    category: "law",
+    image: "/law.jpg",
   },
   {
-    category: "health",
-    image: "/health.jpg",
+    category: "wildlife",
+    image: "/wildlife.jpg",
   },
   {
-    category: "technology",
-    image: "/tech.jpg",
+    category: "sports",
+    image: "/sports.jpg",
   },
   {
-    category: "mathematics",
-    image: "/math.jpg",
+    category: "chess",
+    image: "/chess.jpg",
   },
   {
-    category: "physics",
-    image: "/physics.jpg",
+    category: "music",
+    image: "/music.jpg",
   },
   {
-    category: "engineering",
-    image: "/engineering.jpg",
+    category: "software development",
+    image: "/software.jpg",
   },
   {
-    category: "culinary",
-    image: "/culinary.jpg",
+    category: "ancient civilization",
+    image: "/ancient.jpg",
   },
   {
-    category: "philosophy",
-    image: "/philosophy.jpg",
+    category: "chemistry",
+    image: "/chemistry.jpg",
   },
   {
-    category: "medicine",
-    image: "/medicine.jpg",
+    category: "war",
+    image: "/war.jpg",
   },
-  {
-    category: "culture",
-    image: "/culture.jpg",
-  },
-  {
-    category: "finance",
-    image: "/finance.jpg",
-  },
-  {
-    category: "europe",
-    image: "/europe.jpg",
-  },
-  {
-    category: "fashion",
-    image: "/fashion.jpg",
-  },
+  // {
+  //   category: "culture",
+  //   image: "/culture.jpg",
+  // },
+  // {
+  //   category: "finance",
+  //   image: "/finance.jpg",
+  // },
+  // {
+  //   category: "europe",
+  //   image: "/europe.jpg",
+  // },
+  // {
+  //   category: "fashion",
+  //   image: "/fashion.jpg",
+  // },
 
 ];

@@ -1,12 +1,11 @@
-// "use client"
-// import React from 'react'
-// import Interests from '@/components/interests';
+// "use client";
+// import { auth } from "../../config/firebase";
 // import { useEffect, useState } from "react";
 // import { getAuth } from "firebase/auth";
 // import { getFirestore, doc, getDoc } from "firebase/firestore";
 // import { useRouter } from "next/navigation";
-// import { auth } from "../../config/firebase";
-// export default function page() {
+
+// const UserProfilePage = () => {
 //   const [userName, setUserName] = useState(null);
 //   const auth = getAuth();
 //   const db = getFirestore();
@@ -39,30 +38,19 @@
 
 //     fetchUserName();
 //   }, [user, db, router]);
-//   return (
-//     <div className="min-h-screen text-2xl  sm:text-4xl font-custom pb-20">
-//       <p className="px-8 sm:px-16   pt-10">Choose Interests {userName}</p>
-//       <Interests/>
-//       {/* <Interests/> */}
-//     </div>
-//   );
-// }
-"use client"
-import React from "react";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+//   return <div className="text-white">{userName}</div>;
+// };
+
+// export default UserProfilePage;
+
+"use client";
 import { auth } from "../../config/firebase";
+import { useEffect, useState } from "react";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
-import { db } from "../../config/firebase";
-import { doc, setDoc, getFirestore, addDoc } from "firebase/firestore";
-import { getAuth, updateProfile } from "firebase/auth";
-import { getDoc } from "firebase/firestore";
-import Interests from "@/components/interests";
-import {app} from '../../config/firebase'
 
-export default function Page() {
+const UserProfilePage = () => {
   const [userName, setUserName] = useState(null);
   const db = getFirestore();
   const user = auth.currentUser;
@@ -95,16 +83,7 @@ export default function Page() {
     fetchUserName();
   }, [user, db, router]);
 
-  // Check if the user object exists before rendering the page
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  return <div className="text-white">{userName}</div>;
+};
 
-  return (
-    <div className="min-h-screen text-2xl sm:text-4xl font-custom pb-20">
-      <p className="px-8 sm:px-16   pt-10">Choose Interests {userName}</p>
-      <Interests />
-      {/* <Interests/> */}
-    </div>
-  );
-}
+export default UserProfilePage;

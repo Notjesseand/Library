@@ -1,8 +1,41 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase";
+import { useRouter } from "next/navigation";
+import { db } from "../../config/firebase";
+import { doc, setDoc, getFirestore, addDoc } from "firebase/firestore";
+import { getAuth, updateProfile } from "firebase/auth";
 
 export default function Page() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+
   const opacity = 0.7;
+
+  const handleSignUp = async () => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      const db = getFirestore();
+
+      await setDoc(doc(db, "users", user.uid), {
+        name: name,
+      });
+
+      console.log("User signed up:", user);
+      router.push("/interests");
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
+  };
 
   return (
     <div className="font-custom text-base h-screen flex flex-col">
@@ -22,7 +55,7 @@ export default function Page() {
           <div className=" py-5 text-black">
             <input
               type="text"
-              // onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               placeholder="name"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg  "
             />
@@ -31,7 +64,7 @@ export default function Page() {
             </label> */}
             <input
               type="email"
-              // onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="email"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg mt-10  "
             />
@@ -43,7 +76,7 @@ export default function Page() {
           </label> */}
             <input
               type="password"
-              // onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="password"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg mt-10 "
             />
@@ -55,6 +88,7 @@ export default function Page() {
             <input
               type="submit"
               value="Sign up"
+              onClick={handleSignUp}
               className="bg-black text-base rounded-md text-white text-center py-5 w-full mt-20 sm:mt-8 cursor-pointer hover:bg-gray-800"
             />
 
