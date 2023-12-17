@@ -64,14 +64,14 @@ export default function Page() {
 
   console.log(selectedItems);
   return (
-    <div className="font-custom pb-36 ">
-      <p className="text-4xl font-custom mx-7 pt-12 sm:pt-8 sm:mx-16">
+    <div className="font-custom pb-36  px-5 sm:px-0">
+      <p className="text-4xl font-custom pt-14 sm:pt-8 sm:mx-16">
         Select favourites
       </p>
-      <p className="text-xl font-custom mx-7 mt-3 sm:mx-16 text-gray-500">
-        Choose your favorite 6 books, and we&apos;ll show you what to read next
+      <p className="text-xl font-custom mt-1 sm:mx-16 text-gray-500">
+        Choose your favorite 6 books from the collection, and we&apos;ll tune your recommendations
       </p>
-      <div className="flex  bg-transparent w-5/6 sm:w-2/5 mx-auto sm:justify-start justify-center sm:mx-16 border-2    border-gray-500 rounded-lg sm:px-1 mt-5">
+      <div className="flex  bg-transparent w-full sm:w-2/5 mx-auto sm:justify-start justify-center sm:mx-16 border-2    border-gray-500 rounded-lg sm:px-1 mt-5">
         <input
           type="search"
           placeholder="Title, Author, or Keywords"
@@ -86,7 +86,7 @@ export default function Page() {
 
       <ToggleGroup
         type="multiple"
-        className="grid grid-cols-1 sm:grid-cols-2 pt-8 sm:px-16 gap-x-5 px-3 gap-y-7"
+        className="grid grid-cols-1 sm:grid-cols-2 pt-8 sm:px-16 gap-x-5 gap-y-7"
       >
         {favourites
           .filter(
