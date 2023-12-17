@@ -8,11 +8,14 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { auth } from "../../config/firebase";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
+import { Spinner } from "@material-tailwind/react";
+
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsToShow, setItemsToShow] = useState(20);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
   const user = auth.currentUser;
   const router = useRouter();
 
@@ -34,6 +37,7 @@ export default function Page() {
 
   const handleAddCategories = async (categories) => {
     try {
+      setIsLoading(true);
       // Get the authenticated user
       const user = auth.currentUser;
 
@@ -65,7 +69,7 @@ export default function Page() {
         Select favourites
       </p>
       <p className="text-xl font-custom mx-7 mt-3 sm:mx-16 text-gray-500">
-        Choose your favorite 5 books, and we&apos;ll show you what to read next
+        Choose your favorite 6 books, and we&apos;ll show you what to read next
       </p>
       <div className="flex  bg-transparent w-5/6 sm:w-2/5 mx-auto sm:justify-start justify-center sm:mx-16 border-2    border-gray-500 rounded-lg sm:px-1 mt-5">
         <input
@@ -129,7 +133,12 @@ export default function Page() {
             onClick={handleAddCategories}
             className="text-black px-12 rounded-lg bg-gray-500 py-3 text-[18px] hover:bg-black hover:text-white"
           >
-            Done
+            {isLoading ? (
+              <Spinner className="text-center flex justify-center" />
+            ) : (
+              "Done"
+            )}
+            
           </button>
         </div>
       </div>
