@@ -84,7 +84,6 @@ module.exports = withMT({
           "Roboto",
           "Helvetica Neue",
           "Arial",
-          "Noto Sans",
           "sans-serif",
         ],
         poppins: ["Poppins"],
@@ -105,6 +104,8 @@ module.exports = withMT({
           "Bad Script", // Use "Bad Script" for the Bad Script font family
           "cursive",
         ],
+        noto: ["Noto Sans"],
+        open: ["Open Sans"],
       },
     },
   },

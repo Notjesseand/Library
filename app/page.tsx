@@ -77,6 +77,7 @@ export default function Home() {
           <div
             className="h-screen relative bg-cover bg-top transition-all duration-700 font-custom"
             style={{ backgroundImage: `url(${backgroundImage2})` }}
+            
           >
             {/* Dark overlay */}
 
@@ -153,7 +154,6 @@ export default function Home() {
           </Link>
         </div>
       )}
-      
     </>
   );
 }
