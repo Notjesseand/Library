@@ -4,7 +4,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { GoCircle, GoCheckCircle } from "react-icons/go";
 import { favourites } from "@/app/data";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth } from "../../config/firebase";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
@@ -35,9 +35,36 @@ export default function Page() {
   };
 
 
-  const handleAddCategories = async (categories) => {
+  // const handleAddCategories = async (categories) => {
+  //   try {
+  //     setIsLoading(true);
+  //     // Get the authenticated user
+  //     const user = auth.currentUser;
+
+  //     if (user) {
+  //       // Create a Firestore database reference
+  //       const db = getFirestore();
+
+  //       // Set the userCategories data for the authenticated user
+  //       await setDoc(doc(db, "users", user.uid), {
+  //         books: selectedItems,
+  //       });
+
+  //       console.log("User categories added:", categories);
+  //       // Redirect to the desired page
+  //       router.push("/browse");
+  //     } else {
+  //       console.error("User not authenticated");
+  //       // Handle the case where the user is not authenticated
+  //     }
+  //   } catch (error) {
+  //     console.error("Error adding user categories:", error);
+  //   }
+  // };
+  const handleAddCategories = async () => {
     try {
       setIsLoading(true);
+
       // Get the authenticated user
       const user = auth.currentUser;
 
@@ -45,12 +72,12 @@ export default function Page() {
         // Create a Firestore database reference
         const db = getFirestore();
 
-        // Set the userCategories data for the authenticated user
-        await setDoc(doc(db, "users", user.uid), {
+        // Update the user document with the new books data
+        await updateDoc(doc(db, "users", user.uid), {
           books: selectedItems,
         });
 
-        console.log("User categories added:", categories);
+        console.log("User categories added:", selectedItems);
         // Redirect to the desired page
         router.push("/browse");
       } else {
@@ -59,8 +86,11 @@ export default function Page() {
       }
     } catch (error) {
       console.error("Error adding user categories:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
+
 
   console.log(selectedItems);
   return (
