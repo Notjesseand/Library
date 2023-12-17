@@ -1,27 +1,66 @@
 "use client";
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-  import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { GoCircle, GoCheckCircle } from "react-icons/go";
 import { favourites } from "@/app/data";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { auth } from "../../config/firebase";
+import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsToShow, setItemsToShow] = useState(20);
   const [searchQuery, setSearchQuery] = useState("");
+  const user = auth.currentUser;
+  const router = useRouter();
+
   const handleToggle = (value) => {
     if (selectedItems.includes(value)) {
       setSelectedItems((prevSelected) =>
         prevSelected.filter((item) => item !== value)
       );
     } else {
-      setSelectedItems((prevSelected) => [...prevSelected, value]);
+      // Check if the count of selected items is less than 6
+      if (selectedItems.length < 6) {
+        setSelectedItems((prevSelected) => [...prevSelected, value]);
+      } else {
+        console.log("Maximum number of selections reached (6).");
+      }
+    }
+  };
+
+
+  const handleAddCategories = async (categories) => {
+    try {
+      // Get the authenticated user
+      const user = auth.currentUser;
+
+      if (user) {
+        // Create a Firestore database reference
+        const db = getFirestore();
+
+        // Set the userCategories data for the authenticated user
+        await setDoc(doc(db, "users", user.uid), {
+          books: selectedItems,
+        });
+
+        console.log("User categories added:", categories);
+        // Redirect to the desired page
+        router.push("/browse");
+      } else {
+        console.error("User not authenticated");
+        // Handle the case where the user is not authenticated
+      }
+    } catch (error) {
+      console.error("Error adding user categories:", error);
     }
   };
 
   console.log(selectedItems);
   return (
-    <div className="font-custom pb-12">
+    <div className="font-custom pb-36 ">
       <p className="text-4xl font-custom mx-7 pt-12 sm:pt-8 sm:mx-16">
         Select favourites
       </p>
@@ -81,6 +120,19 @@ export default function Page() {
             </ToggleGroupItem>
           ))}
       </ToggleGroup>
+
+      <div className="w-full h-24 bg-gray-300 bottom-0 fixed flex text-black justify-center flex-col">
+        <div className="flex items-center justify-around sm:justify-center sm:px-14 sm:gap-x-36">
+          <p className="text-xl flex"> {selectedItems.length} of 6 selected</p>
+          <button
+            href="/browse"
+            onClick={handleAddCategories}
+            className="text-black px-12 rounded-lg bg-gray-500 py-3 text-[18px] hover:bg-black hover:text-white"
+          >
+            Done
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
