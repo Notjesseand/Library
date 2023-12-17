@@ -45,7 +45,7 @@ export default function Page() {
 
       <ToggleGroup
         type="multiple"
-        className="grid grid-cols-1 sm:grid-cols-2 pt-8 sm:px-16 gap-x-5 px-6 gap-y-7"
+        className="grid grid-cols-1 sm:grid-cols-2 pt-8 sm:px-16 gap-x-5 px-3 gap-y-7"
       >
         {/* {favourites.map((book, index) => (
           <ToggleGroupItem
@@ -95,7 +95,7 @@ export default function Page() {
                 style={{ backgroundImage: `url(${book.image})` }}
               ></div>
               <div className="pl-4 h-full flex flex-col justify-center text-start w-3/5 text-xl">
-                <p className="text-xl">{book.title}</p>
+                <p className="text-[17px] sm:text-xl">{book.title}</p>
                 <p className="text-base text-gray-400">{book.author}</p>
               </div>
 
