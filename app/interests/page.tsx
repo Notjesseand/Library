@@ -58,13 +58,13 @@ export default function Page() {
       </div>
     );
   }
-  if (!user) {
-    return (
-      <div className="min-h-screen min-w-screen bg-gray-100 flex items-center justify-center">
-        <Spinner className="spinner text-5xl h-12 w-12" />
-      </div>
-    );
-  }
+  // if (!user) {
+  //   return (
+  //     <div className="min-h-screen min-w-screen bg-gray-100 flex items-center justify-center">
+  //       <Spinner className="spinner text-5xl h-12 w-12" />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen text-2xl sm:text-4xl font-custom pb-20">
