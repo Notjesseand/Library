@@ -71,7 +71,7 @@ export default function Page() {
           className="absolute inset-0 bg-gradient-to-t from-[#131414] to-black h-full m-0 p-0"
           style={{ opacity: opacity }}
         ></div>
-        <div className="z-10 relative px-8 sm:px-12 py-10 sm:py-0">
+        <div className="z-10 relative px-8 sm:px-12 py-10 sm:py-0 text-white">
           <p className="text-5xl font-bold pt-12">Welcome back</p>
           <p className="mt-5">Sign in to continue</p>
         </div>
