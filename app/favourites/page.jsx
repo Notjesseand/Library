@@ -4,7 +4,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { categories } from "@/app/data";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { TiTick } from "react-icons/ti";
-import { GoCircle,GoCheckCircle  } from "react-icons/go";
+import { GoCircle, GoCheckCircle } from "react-icons/go";
 import { favourites } from "@/app/data";
 
 export default function Page() {
@@ -20,7 +20,7 @@ export default function Page() {
       setSelectedItems((prevSelected) => [...prevSelected, value]);
     }
   };
-  
+
   console.log(selectedItems);
   return (
     <div className="font-custom pb-12">
@@ -36,7 +36,7 @@ export default function Page() {
         </div>
         <input
           type="search"
-          placeholder="Title or Author"
+          placeholder="Title, Author, or Keywords"
           onChange={(e) => setSearchQuery(e.target.value)}
           className="outline-none  placeholder-gray-600   py-3 px-3 text-xl font-custom  mx-auto w-4/5 sm:w-full flex  border-none bg-transparent rounded-lg cursor:black "
         />
@@ -47,32 +47,6 @@ export default function Page() {
         type="multiple"
         className="grid grid-cols-1 sm:grid-cols-2 pt-8 sm:px-16 gap-x-5 px-3 gap-y-7"
       >
-        {/* {favourites.map((book, index) => (
-          <ToggleGroupItem
-            key={index}
-            onClick={() => handleToggle(book.category)}
-            value={book}
-            className="relative w-full  h-36 flex justify-between px-4 align-center justify-items-center rounded-lg cursor-pointer hover:opacity-70 border-2 py-1"
-          >
-            <div
-              className=" bg-cover h-full w-24 sm:w-36 rounded"
-              style={{ backgroundImage: `url(${book.image})` }}
-            ></div>
-            <div className="pl-4 h-full flex flex-col justify-center text-start w-3/5 text-xl">
-              <p className="text-xl">{book.title}</p>
-              <p className="text-base text-gray-400">{book.author}</p>
-            </div>
-
-            <div className="h-full flex flex-col justify-center">
-              {selectedItems.includes(book.category) ? (
-                <GoCheckCircle className="text-3xl text-[#5fdf9a] opacity-70 " />
-              ) : (
-                <GoCircle className="text-3xl text-[#1e2722] opacity-70" />
-              )}
-            </div>
-          </ToggleGroupItem>
-        ))} */}
-
         {favourites
           .filter(
             (book) =>

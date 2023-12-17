@@ -259,9 +259,9 @@ export const favourites = [
   {
     title: "Software Engineering At Google",
     author: "Titus Winters ",
-    category: "culture",
-    image: "/culture.jpg",
-    tags: ["arts", "culture"],
+    category: "computer",
+    image: "/software.jpg",
+    tags: ["computer", "tech", "software", "programming"],
   },
   {
     title: "Law",
