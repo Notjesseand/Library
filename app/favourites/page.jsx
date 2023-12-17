@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import { categories } from "@/app/data";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { TiTick } from "react-icons/ti";
+  import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { GoCircle, GoCheckCircle } from "react-icons/go";
 import { favourites } from "@/app/data";
 
@@ -65,7 +63,7 @@ export default function Page() {
               className="relative w-full  h-36 flex justify-between px-4 align-center justify-items-center rounded-lg cursor-pointer hover:opacity-70 border-2 py-1"
             >
               <div
-                className=" bg-cover h-full w-24 sm:w-36 rounded"
+                className=" bg-center bg-cover h-full w-24 sm:w-36 rounded"
                 style={{ backgroundImage: `url(${book.image})` }}
               ></div>
               <div className="pl-4 h-full flex flex-col justify-center text-start w-3/5 text-xl">
