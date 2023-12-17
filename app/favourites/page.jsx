@@ -94,7 +94,7 @@ export default function Page() {
 
   console.log(selectedItems);
   return (
-    <div className="font-custom pb-36  px-5 sm:px-0">
+    <div className="font-custom pb-36  px-2 sm:px-0">
       <p className="text-4xl font-custom pt-14 sm:pt-8 sm:mx-16">
         Select favourites
       </p>
