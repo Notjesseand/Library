@@ -73,7 +73,7 @@ export default function Page() {
           style={{ opacity: opacity }}
         ></div>
         <div className="z-10 relative px-8 sm:px-12 py-10 sm:py-0 text-white">
-          <p className="text-5xl font-bold pt-12">Welcome user</p>
+          <p className="text-4xl sm:text-5xl font-bold pt-12">Welcome user</p>
           <p className="mt-5">Sign up to join</p>
         </div>
       </div>
