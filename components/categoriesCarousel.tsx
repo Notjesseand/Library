@@ -18,6 +18,7 @@ const categoriesCarousel = () => {
     <Swiper
       spaceBetween={30}
       // slidesPerView={3}
+
       breakpoints={{
         // when window width is >= 768px
         308: {
@@ -31,6 +32,7 @@ const categoriesCarousel = () => {
       autoplay={{
         delay: 4500,
         disableOnInteraction: false,
+        reverseDirection: true,
       }}
       // pagination={{ type: "progressbar" }}
       modules={[Autoplay, Pagination]}
