@@ -29,7 +29,7 @@ export default function Page() {
         onAuthStateChanged(auth, (user) => {
           if (user) {
             // User is signed in.
-            router.push("/interests");
+            router.push("/browse");
           } else {
             router.push("/login");
           }

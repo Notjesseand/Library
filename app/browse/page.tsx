@@ -4,7 +4,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import BrowseCarousel from "@/components/browseCarousel";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import Categories from "@/components/categoriesCarousel";
-
+import Footer from "@/components/footer";
 export default function Page() {
   return (
     <div className="relative pb-24">
@@ -35,9 +35,7 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="fixed bottom-0 h-12 bg-gray-300 w-full md:hidden flex z-20">
-        uoov
-      </div>
+      <Footer/>
     </div>
   );
 }
