@@ -44,7 +44,7 @@ const BrowseCarousel = () => {
       {favourites.map((item, index) => (
         <SwiperSlide
           key={index}
-          className=" mt-12 h-[40px] inline-block cursor-pointer  text-white text-center w-full backdrop-blur-sm rounded-sm    "
+          className=" mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm    "
           style={{ backgroundImage: "/drama.jpg" }}
         >
           <div
