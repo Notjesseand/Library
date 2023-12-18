@@ -42,11 +42,11 @@ export default function Page() {
       {/* searchbar */}
       {open && (
         <div className="absolute w-full mt-5 flex justify-center z-50 h-full backdrop-blur-lg">
-          <div className="bg-white flex bg-transparent w-4/5 sm:w-3/5 mx-auto justify-center sm:mx-16 border-2 h-14 border-blue-900 rounded-full sm:px-1 mt-8">
+          <div className="bg-white flex bg-transparent w-5/6 sm:w-3/5 mx-auto justify-center sm:mx-16 border-2 h-14 border-blue-900 rounded-full sm:px-1 mt-8">
             <input
               type="search"
               placeholder="Title, Author, or Keywords"
-              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg   py-3 sm:px-4 sm:text-xl font-open mx-auto w-full px-3 sm:w-full flex  border-none rounded-full cursor:black bg-white"
+              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg py-3 sm:px-4 sm:text-xl font-open mx-auto w-full px-3 sm:w-full flex  border-none rounded-full cursor:black bg-white"
             />
             <div className="flex-col justify-center flex items-center rounded-lg pr-2">
               <RxCross2
