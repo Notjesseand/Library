@@ -5,48 +5,52 @@ import BrowseCarousel from "@/components/browseCarousel";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import Categories from "@/components/categoriesCarousel";
 import Footer from "@/components/footer";
-// import Header from "@/components/header";
-import  Sidebar  from "@/components/sidebar";
+// import Header from "@/components/header";`
+import Sidebar from "@/components/sidebar";
 import { RxCross2 } from "react-icons/rx";
 export default function Page() {
   const [open, setOpen] = useState(false);
-  const toggle =()=>{
-    setOpen(!open)
-    console.log(open)
-  }
+  const toggle = () => {
+    setOpen(!open);
+    console.log(open);
+  };
   return (
     <div className="relative pb-24">
-      <div className="flex items-center justify-between pt-6 px-4 sm:px-16 relative">
+      <div className="grid grid-cols-3 pt-6 px-4 sm:px-16 relative">
         <div>
-          <div className="block">
+          <div className="md:block hidden">
             <Sidebar />
           </div>
         </div>
-        <p className="font-custom text-xl sm:text-3xl">Browse</p>
-        {open ? (
-          <RxCross2
-            onClick={toggle}
-            className="text-3xl cursor-pointer hover:text-orange-600 hover:text-4xl transition-all duration-500  "
-          />
-        ) : (
-          <IoSearchOutline
-            onClick={toggle}
-            className="text-3xl cursor-pointer hover:text-orange-600 hover:text-4xl transition-all duration-500  "
-          />
-        )}
+        <div className="w-full">
+          <p className="font-custom text-xl sm:text-3xl text-center ">Browse</p>
+        </div>
+        <div className="flex justify-end">
+          {open ? (
+            <RxCross2
+              onClick={toggle}
+              className="text-3xl cursor-pointer hover:text-orange-600 hover:text-4xl transition-all duration-500 "
+            />
+          ) : (
+            <IoSearchOutline
+              onClick={toggle}
+              className="text-3xl cursor-pointer hover:text-orange-600 hover:text-4xl transition-all duration-500  "
+            />
+          )}
+        </div>
       </div>
       {/* searchbar */}
       {open && (
         <div className="absolute w-full mt-5 flex justify-center z-50 h-full backdrop-blur-lg">
-          <div className="flex bg-transparent w-4/5 sm:w-3/5 mx-auto justify-center sm:mx-16 border-2 h-14 border-gray-500 rounded-full sm:px-1 mt-8">
+          <div className="bg-white flex bg-transparent w-4/5 sm:w-3/5 mx-auto justify-center sm:mx-16 border-2 h-14 border-blue-900 rounded-full sm:px-1 mt-8">
             <input
               type="search"
               placeholder="Title, Author, or Keywords"
-              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg   py-3 sm:px-4 sm:text-xl font-open mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-full cursor:black "
+              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg   py-3 sm:px-4 sm:text-xl font-open mx-auto w-full px-3 sm:w-full flex  border-none rounded-full cursor:black bg-white"
             />
             <div className="flex-col justify-center flex items-center rounded-lg pr-2">
               <RxCross2
-                className="text-3xl flex flex-col justify-center text-bold font-bold cursor-pointer hover:text-orange-600"
+                className="text-3xl flex flex-col justify-center text-bold font-bold cursor-pointer hover:text-orange-600 text-black"
                 onClick={toggle}
               />
             </div>

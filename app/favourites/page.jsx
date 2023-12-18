@@ -68,7 +68,7 @@ export default function Page() {
   console.log(selectedItems);
   return (
     <div className="font-custom pb-36  px-2.5 sm:px-0">
-      <Header/>
+      {/* <Header/> */}
       <p className="text-4xl font-open pt-14 sm:pt-8 sm:mx-16 gradient-text">
         Select favourites
       </p>
