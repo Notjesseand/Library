@@ -13,10 +13,12 @@ export default function Page() {
         <p className="font-custom text-xl sm:text-3xl">Browse</p>
         <IoSearchOutline className="text-3xl cursor-pointer hover:text-orange-600 hover:text-4xl transition-all duration-500  " />
       </div>
+    <div className="px-5">
 
       <BrowseCarousel />
+    </div>
 
-      <div className="px-16 justify-between flex pt-6">
+      <div className="px-6 sm:px-16 justify-between flex pt-6">
         <p className="font-open text-xl">Categories</p>
         <p className="text-gray-400 font-open flex items-center text-lg cursor-pointer hover:text-orange-600">
           See more
@@ -25,7 +27,7 @@ export default function Page() {
       </div>
       <Categories />
 
-      <div className="px-16 justify-between flex pt-10">
+      <div className="px-6 sm:px-16 justify-between flex pt-10">
         <p className="font-open text-xl">Popular Authors</p>
         <p className="text-gray-400 font-open flex items-center text-lg cursor-pointer hover:text-orange-600">
           See more

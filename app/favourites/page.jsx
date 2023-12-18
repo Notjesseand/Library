@@ -106,7 +106,7 @@ export default function Page() {
           type="search"
           placeholder="Title, Author, or Keywords"
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="outline-none  placeholder-gray-600   py-3 sm:px-3 text-xl font-custom  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-lg cursor:black "
+          className="outline-none  placeholder-gray-600   py-3 sm:px-3 text-xl font-custom  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-2xl cursor:black "
         />
         <div className="flex-col justify-center flex items-center rounded-lg pr-2">
           <IoSearchOutline className="text-3xl flex flex-col justify-center text-bold font-bold" />
