@@ -52,18 +52,12 @@ export default function sidebar() {
       <DropdownMenuContent className="w-64  ">
         <div className="px-5 backdrop-blur-3xl rounded-lg font-montserrat py-4 z-20   space-y-5 transition-opacity">
           <p className="cursor-pointer hover:text-orange-600 mt-2 text-[currentColor]">
-            Home{" "}
+            Browse{" "}
           </p>
-          <p className="cursor-pointer hover:text-orange-600">Author</p>
-          <p className="cursor-pointer hover:text-orange-600">Contact</p>
-          <span className="cursor-pointer hover:text-orange-600 flex">
-            <Link
-              href="/signup"
-              className="sm:font-medium font-normal hover:text-[#e4e4e4d3]"
-            >
-              Checkout
-            </Link>
-          </span>
+          <p className="cursor-pointer hover:text-orange-600">Books</p>
+          <p className="cursor-pointer hover:text-orange-600">Favourites</p>
+          <p className="cursor-pointer hover:text-orange-600">Library</p>
+          <p className="cursor-pointer hover:text-orange-600">Profile</p>
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

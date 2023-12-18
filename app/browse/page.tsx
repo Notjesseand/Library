@@ -8,6 +8,8 @@ import Footer from "@/components/footer";
 // import Header from "@/components/header";`
 import Sidebar from "@/components/sidebar";
 import { RxCross2 } from "react-icons/rx";
+import AuthorsCarousel from "@/components/authorsCarousel";
+import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
 export default function Page() {
   const [open, setOpen] = useState(false);
   const toggle = () => {
@@ -46,7 +48,7 @@ export default function Page() {
             <input
               type="search"
               placeholder="Title, Author, or Keywords"
-              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg py-3 sm:px-4 sm:text-xl font-open mx-auto w-full px-3 sm:w-full flex  border-none rounded-full cursor:black bg-white"
+              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg py-3 sm:px-4 sm:text-xl font-montserrat mx-auto w-full px-3 sm:w-full flex  border-none rounded-full cursor:black bg-white"
             />
             <div className="flex-col justify-center flex items-center rounded-lg pr-2">
               <RxCross2
@@ -64,20 +66,36 @@ export default function Page() {
       </div>
 
       <div className="px-6 sm:px-16 justify-between flex pt-6">
-        <p className="font-open text-xl">Categories</p>
-        <p className="text-gray-400 font-open flex items-center text-lg cursor-pointer hover:text-orange-600">
-          See more
+        <p className="font-montserrat text-xl font-semibold">Categories</p>
+        <p className="text-gray-400 font-montserrat flex items-center text-lg cursor-pointer hover:text-orange-600">
+          See all
           <MdOutlineArrowForwardIos className="text-lg ml-1 mt-[1px] flex" />
         </p>
       </div>
       <Categories />
 
       <div className="px-6 sm:px-16 justify-between flex pt-10">
-        <p className="font-open text-xl">Popular Authors</p>
-        <p className="text-gray-400 font-open flex items-center text-lg cursor-pointer hover:text-orange-600">
-          See more
+        <p className="font-montserrat text-xl font-semibold">Popular Authors</p>
+        <p className="text-gray-400 font-montserrat flex items-center text-lg cursor-pointer hover:text-orange-600">
+          See all
           <MdOutlineArrowForwardIos className="text-lg ml-1 mt-[1px] flex" />
         </p>
+      </div>
+      {/* authors */}
+      <div className="px-2">
+        <AuthorsCarousel />
+      </div>
+
+      {/* featured books */}
+      <div className="px-6 sm:px-16 justify-between flex pt-10">
+        <p className="font-montserrat  text-xl font-semibold">Featured Books</p>
+        <p className="text-gray-400 font-montserrat    flex items-center text-lg cursor-pointer hover:text-orange-600">
+          See all
+          <MdOutlineArrowForwardIos className="text-lg ml-1 mt-[1px] flex" />
+        </p>
+      </div>
+      <div>
+        <FeaturedBooksCarousel />
       </div>
 
       <Footer />

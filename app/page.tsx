@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { GiBlackBook } from "react-icons/gi";
-import Carousel from "@/components/carousel";
+import Carousel from "@/components/authorsCarousel";
 import Link from "next/link";
 
 export default function Home() {
@@ -77,7 +77,6 @@ export default function Home() {
           <div
             className="h-screen relative bg-cover bg-top transition-all duration-700 font-custom"
             style={{ backgroundImage: `url(${backgroundImage2})` }}
-            
           >
             {/* Dark overlay */}
 
