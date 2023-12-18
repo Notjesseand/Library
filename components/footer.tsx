@@ -7,7 +7,7 @@ import { FaSearch } from "react-icons/fa";
 
 export default function footer() {
   return (
-    <div className="fixed bottom-0 h-16    w-full md:hidden flex justify-between items-center z-20 px-5 font-open bg-blur backdrop-blur-3xl   ">
+    <div className="fixed bottom-0 h-16 w-full md:hidden flex justify-between items-center z-20 px-5 font-open bg-blur backdrop-blur-3xl pt-1">
       <div className="flex flex-col items-center">
         <FaSearch className="text-3xl font-bold" />
         <p className="text-sm text-gray-400 font-custom">Browse</p>
