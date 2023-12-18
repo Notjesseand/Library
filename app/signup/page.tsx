@@ -22,6 +22,9 @@ export default function Page() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false)
+  const [emailError, setEmailError] = useState<undefined | string>(undefined);
+  const [passwordError, setPasswordError] = useState("")
+
 
   const opacity = 0.7;
 
@@ -42,8 +45,31 @@ export default function Page() {
       });
   }, []); // Run this effect only once on component mount
 
+  // const handleSignUp = async () => {
+  //   setLoading(true)
+  //   try {
+  //     const userCredential = await createUserWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
+  //     const user = userCredential.user;
+  //     const db = getFirestore();
+
+  //     await setDoc(doc(db, "users", user.uid), {
+  //       name: name,
+  //     });
+
+  //     console.log("User signed up:", user);
+  //     router.push("/interests");
+  //   } catch (error) {
+      
+  //     console.error("Error signing up:", error);
+  //   }
+  // };
   const handleSignUp = async () => {
-    setLoading(true)
+    setLoading(true);
+
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -59,10 +85,33 @@ export default function Page() {
 
       console.log("User signed up:", user);
       router.push("/interests");
-    } catch (error) {
-      console.error("Error signing up:", error);
+    } catch (error: any) {
+      // Handle specific error cases
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      switch (errorCode) {
+        case "auth/email-already-in-use":
+          setEmailError("Email address is already in use." as string);
+          break;
+        case "auth/invalid-email":
+          setEmailError("Invalid email address." as string);
+          break;
+        case "auth/weak-password":
+          setPasswordError(
+            "Weak password. Please use a stronger password." as string
+          );
+          break;
+        default:
+          // Handle other errors or log the error
+          console.error("Error signing up:", error);
+          break;
+      }
+    } finally {
+      setLoading(false);
     }
   };
+
 
   return (
     <div className="font-custom text-base h-screen flex flex-col">
@@ -86,18 +135,16 @@ export default function Page() {
               placeholder="name"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg  "
             />
-            {/* <label htmlFor="email" className="text-black text-base mt-4 flex">
-              Email
-            </label> */}
+
             <input
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="email"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg mt-10  "
             />
-            {/* {emailError && (
-            <p className="text-red-600 sm:w-5/6 mx-auto mt-1 ">{emailError}</p>
-          )} */}
+            {emailError && (
+              <p className="text-red-600 mx-auto mt-1 ">{emailError}</p>
+            )}
             {/* <label htmlFor="email" className="text-black text-base">
             Email
           </label> */}
@@ -107,6 +154,9 @@ export default function Page() {
               placeholder="password"
               className="flex outline-none border-black mx-auto border-b-2 w-full  bg-inherit placeholder:text-gray-500 px-1 py-1.5 text-lg mt-10 "
             />
+            {emailError && (
+              <p className="text-red-600 mx-auto mt-1 ">{passwordError}</p>
+            )}
             <p className="cursor-pointer text-base text-blue-700 mt-1">
               forgot password?
             </p>

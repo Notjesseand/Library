@@ -7,15 +7,14 @@ import { favourites } from "@/app/data";
 import { getFirestore, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth } from "../../config/firebase";
 import Link from "next/link";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Spinner } from "@material-tailwind/react";
-
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsToShow, setItemsToShow] = useState(20);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const user = auth.currentUser;
   const router = useRouter();
 
@@ -33,7 +32,6 @@ export default function Page() {
       }
     }
   };
-
 
   // const handleAddCategories = async (categories) => {
   //   try {
@@ -91,22 +89,23 @@ export default function Page() {
     }
   };
 
-
   console.log(selectedItems);
   return (
     <div className="font-custom pb-36  px-2.5 sm:px-0">
-      <p className="text-4xl font-custom pt-14 sm:pt-8 sm:mx-16">
+      <p className="text-4xl font-open pt-14 sm:pt-8 sm:mx-16 gradient-text">
         Select favourites
       </p>
+
       <p className="text-xl font-custom mt-1 sm:mx-16 text-gray-500">
-        Choose your favorite 6 books from the collection, and we&apos;ll tune your recommendations
+        Choose your favorite 6 books from the collection, and we&apos;ll tune
+        your recommendations
       </p>
-      <div className="flex  bg-transparent w-full sm:w-2/5 mx-auto sm:justify-start justify-center sm:mx-16 border-2    border-gray-500 rounded-lg sm:px-1 mt-5">
+      <div className="flex  bg-transparent w-full sm:w-2/5 mx-auto sm:justify-start justify-center sm:mx-16 border-2    border-gray-500 rounded-full sm:px-1 mt-5">
         <input
           type="search"
           placeholder="Title, Author, or Keywords"
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="outline-none  placeholder-gray-600   py-3 sm:px-3 text-xl font-custom  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-2xl cursor:black "
+          className="outline-none  placeholder-gray-600 placeholder:text-base   py-3 sm:px-3 text-xl font-open  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-full cursor:black "
         />
         <div className="flex-col justify-center flex items-center rounded-lg pr-2">
           <IoSearchOutline className="text-3xl flex flex-col justify-center text-bold font-bold" />
@@ -168,7 +167,6 @@ export default function Page() {
             ) : (
               "Done"
             )}
-            
           </button>
         </div>
       </div>
