@@ -105,7 +105,7 @@ export default function Page() {
           type="search"
           placeholder="Title, Author, or Keywords"
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="outline-none  placeholder-gray-600 placeholder:text-base   py-3 sm:px-3 text-xl font-open  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-full cursor:black "
+          className="outline-none  placeholder-gray-600 placeholder:text-base text-lg   py-3 sm:px-3 sm:text-xl font-open  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-full cursor:black "
         />
         <div className="flex-col justify-center flex items-center rounded-lg pr-2">
           <IoSearchOutline className="text-3xl flex flex-col justify-center text-bold font-bold" />
@@ -127,12 +127,11 @@ export default function Page() {
               )
           )
           .map((book, index) => (
-            // ... the rest of your code"""
             <ToggleGroupItem
               key={index}
               onClick={() => handleToggle(book.category)}
               value={book}
-              className="relative w-full  h-36 flex justify-between px-4 align-center justify-items-center rounded-lg cursor-pointer hover:opacity-70 border-2 py-1"
+              className="relative w-full  h-36 flex justify-between px-0 pr-3  sm:px-4 align-center justify-items-center rounded-lg cursor-pointer hover:opacity-70 border-2 sm:py-1"
             >
               <div
                 className=" bg-center bg-cover h-full w-24 sm:w-36 rounded"
