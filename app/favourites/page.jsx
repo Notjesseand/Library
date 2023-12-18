@@ -9,6 +9,7 @@ import { auth } from "../../config/firebase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@material-tailwind/react";
+import Header from "@/components/header";
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -33,32 +34,7 @@ export default function Page() {
     }
   };
 
-  // const handleAddCategories = async (categories) => {
-  //   try {
-  //     setIsLoading(true);
-  //     // Get the authenticated user
-  //     const user = auth.currentUser;
-
-  //     if (user) {
-  //       // Create a Firestore database reference
-  //       const db = getFirestore();
-
-  //       // Set the userCategories data for the authenticated user
-  //       await setDoc(doc(db, "users", user.uid), {
-  //         books: selectedItems,
-  //       });
-
-  //       console.log("User categories added:", categories);
-  //       // Redirect to the desired page
-  //       router.push("/browse");
-  //     } else {
-  //       console.error("User not authenticated");
-  //       // Handle the case where the user is not authenticated
-  //     }
-  //   } catch (error) {
-  //     console.error("Error adding user categories:", error);
-  //   }
-  // };
+  
   const handleAddCategories = async () => {
     try {
       setIsLoading(true);
@@ -92,6 +68,7 @@ export default function Page() {
   console.log(selectedItems);
   return (
     <div className="font-custom pb-36  px-2.5 sm:px-0">
+      <Header/>
       <p className="text-4xl font-open pt-14 sm:pt-8 sm:mx-16 gradient-text">
         Select favourites
       </p>
@@ -105,7 +82,7 @@ export default function Page() {
           type="search"
           placeholder="Title, Author, or Keywords"
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg   py-3 sm:px-3 sm:text-xl font-open  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-full cursor:black "
+          className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg   py-3 sm:px-3 sm:text-xl font-open  mx-auto w-full px-3 sm:w-full flex  border-none bg-transparent rounded-full cursor:black "
         />
         <div className="flex-col justify-center flex items-center rounded-lg pr-2">
           <IoSearchOutline className="text-3xl flex flex-col justify-center text-bold font-bold" />
@@ -131,7 +108,7 @@ export default function Page() {
               key={index}
               onClick={() => handleToggle(book.category)}
               value={book}
-              className="relative w-full  h-36 flex justify-between px-0 pr-3  sm:px-3 align-center justify-items-center rounded-lg cursor-pointer hover:opacity-70 border-2 sm:py-1"
+              className="relative w-full  h-36 flex justify-between px-0 pr-3 align-center justify-items-center rounded-lg cursor-pointer hover:opacity-70 border-2 sm:py-1"
             >
               <div
                 className=" bg-center bg-cover h-full w-24 sm:w-36 rounded"

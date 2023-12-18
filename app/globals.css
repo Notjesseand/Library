@@ -113,3 +113,7 @@
     background-position: 200% 0;
   }
 }
+
+body {
+  overflow-x: hidden; 
+}
