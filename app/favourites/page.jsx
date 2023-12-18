@@ -9,7 +9,6 @@ import { auth } from "../../config/firebase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@material-tailwind/react";
-import Header from "@/components/header";
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -68,7 +67,6 @@ export default function Page() {
   console.log(selectedItems);
   return (
     <div className="font-custom pb-36  px-2.5 sm:px-0">
-      {/* <Header/> */}
       <p className="text-4xl font-open pt-14 sm:pt-8 sm:mx-16 gradient-text">
         Select favourites
       </p>
