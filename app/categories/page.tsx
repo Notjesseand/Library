@@ -61,7 +61,7 @@ export default function Page() {
             >
               {/* overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-[#6d6d6d] to-black opacity-50 rounded-lg"></div>
-              <p className="font-montserrat text-xl capitalize md:px-10 py-5 px-5 md:py-7 z-20">
+              <p className="font-montserrat text-xl capitalize md:px-10 py-5 px-5 md:py-7 z-20 text-white">
                 {item.category}
               </p>
             </div>
