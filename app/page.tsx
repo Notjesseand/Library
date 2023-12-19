@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { GiBlackBook } from "react-icons/gi";
-import Carousel from "@/components/authorsCarousel";
+import Carousel from "@/components/introCarousel";
 import Link from "next/link";
 
 export default function Home() {
@@ -67,7 +67,7 @@ export default function Home() {
                   Find all the best books and academic materials for you
                 </p>
               </div>
-              <div className="px-4 mt-20">
+              <div className="px-4 mt-20 flex">
                 <Carousel />
               </div>
             </div>

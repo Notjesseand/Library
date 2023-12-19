@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import React from "react";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { useRouter } from "next/navigation";
 import { db } from "../../config/firebase";
@@ -11,12 +10,12 @@ import { doc, setDoc, getFirestore, addDoc } from "firebase/firestore";
 import { getAuth, updateProfile } from "firebase/auth";
 import { getDoc } from "firebase/firestore";
 import Interests from "@/components/interests";
-import {app} from '../../config/firebase'
+import { app } from "../../config/firebase";
 import { Spinner, spinner } from "@material-tailwind/react";
 
 export default function Page() {
   const [userName, setUserName] = useState(null);
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const db = getFirestore();
   const user = auth.currentUser;
   const router = useRouter();

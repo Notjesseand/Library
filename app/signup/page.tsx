@@ -21,10 +21,9 @@ export default function Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState<undefined | string>(undefined);
-  const [passwordError, setPasswordError] = useState("")
-
+  const [passwordError, setPasswordError] = useState("");
 
   const opacity = 0.7;
 
@@ -45,28 +44,6 @@ export default function Page() {
       });
   }, []); // Run this effect only once on component mount
 
-  // const handleSignUp = async () => {
-  //   setLoading(true)
-  //   try {
-  //     const userCredential = await createUserWithEmailAndPassword(
-  //       auth,
-  //       email,
-  //       password
-  //     );
-  //     const user = userCredential.user;
-  //     const db = getFirestore();
-
-  //     await setDoc(doc(db, "users", user.uid), {
-  //       name: name,
-  //     });
-
-  //     console.log("User signed up:", user);
-  //     router.push("/interests");
-  //   } catch (error) {
-      
-  //     console.error("Error signing up:", error);
-  //   }
-  // };
   const handleSignUp = async () => {
     setLoading(true);
 
@@ -82,6 +59,8 @@ export default function Page() {
       await setDoc(doc(db, "users", user.uid), {
         name: name,
       });
+
+      localStorage.setItem("username", name);
 
       console.log("User signed up:", user);
       router.push("/interests");
@@ -111,7 +90,6 @@ export default function Page() {
       setLoading(false);
     }
   };
-
 
   return (
     <div className="font-custom text-base h-screen flex flex-col">
