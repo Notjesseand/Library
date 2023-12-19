@@ -32,7 +32,7 @@ export default function Page() {
       </div>
       {/* searchbar */}
       {open && (
-        <div className="absolute w-full mt-16 flex justify-center z-50 h-full backdrop-blur-lg">
+        <div className="absolute w-full  flex justify-center z-50 h-full backdrop-blur-lg">
           <div className="bg-white flex bg-transparent w-11/12 sm:w-3/5 mx-auto justify-center sm:mx-16 border-2 h-14 border-blue-900 rounded-full sm:px-1 mt-8">
             <input
               type="search"
