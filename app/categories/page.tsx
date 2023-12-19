@@ -32,7 +32,7 @@ export default function Page() {
       </div>
       {/* searchbar */}
       {open && (
-        <div className="absolute w-full mt-12 flex justify-center z-50 h-full backdrop-blur-lg">
+        <div className="absolute w-full mt-16 flex justify-center z-50 h-full backdrop-blur-lg">
           <div className="bg-white flex bg-transparent w-11/12 sm:w-3/5 mx-auto justify-center sm:mx-16 border-2 h-14 border-blue-900 rounded-full sm:px-1 mt-8">
             <input
               type="search"
@@ -59,7 +59,8 @@ export default function Page() {
               className="bg-pink-400 h-36   md:h-64   w-full rounded-lg flex flex-col justify-end bg-cover bg-center backdrop-blur-3xl relative cursor-pointer"
               style={{ backgroundImage: `url(${item.image})` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#6d6d6d] to-black opacity-30 rounded-lg"></div>
+              {/* overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#6d6d6d] to-black opacity-50 rounded-lg"></div>
               <p className="font-montserrat text-xl capitalize md:px-10 py-5 px-5 md:py-7 z-20">
                 {item.category}
               </p>
