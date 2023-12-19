@@ -28,7 +28,7 @@ export default function Page() {
         router.push("/signup");
       }
     }
-    setLoading(false)
+    setLoading(false);
   }, [router]);
 
   const [read, setRead] = useState(false);
