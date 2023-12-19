@@ -4,6 +4,7 @@ import { LuLibrary } from "react-icons/lu";
 import { IoPerson } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import Link from "next/link";
 
 export default function footer() {
   return (
@@ -13,8 +14,10 @@ export default function footer() {
         <p className="text-sm text-gray-400 font-custom">Browse</p>
       </div>
       <div className="flex flex-col items-center">
-        <IoBookSharp className="text-3xl" />
-        <p className="text-sm text-gray-400 font-custom">Books</p>
+        <Link href="/categories">
+          <IoBookSharp className="text-3xl" />
+          <p className="text-sm text-gray-400 font-custom">Books</p>
+        </Link>
       </div>
       <div className="flex flex-col items-center">
         <FaStar className="text-3xl" />

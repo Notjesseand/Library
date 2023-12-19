@@ -34,19 +34,12 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
 export default function sidebar() {
-  // const [dropdown, setDropdown] = useState(false);
-  // const toggle = () => {
-  //   setDropdown(!dropdown);
-  //   console.log;
-  // };
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="font-custom bg-transparent text-gray-500 hover:text-orange-600 hover:rotate-90 outline-none focus:outline-none hover:bg-transparent">
-          <FaBars className={`text-2xl cursor-pointer `} />
+        <Button className="font-custom bg-transparent text-gray-500 hover:text-orange-600 outline-none focus:outline-none hover:bg-transparent">
+          <FaBars className="text-2xl cursor-pointer" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-64  ">
@@ -54,7 +47,9 @@ export default function sidebar() {
           <p className="cursor-pointer hover:text-orange-600 mt-2 text-[currentColor]">
             Browse{" "}
           </p>
-          <p className="cursor-pointer hover:text-orange-600">Books</p>
+          <p className="cursor-pointer hover:text-orange-600">
+            <Link href="/categories">Categories</Link>{" "}
+          </p>
           <p className="cursor-pointer hover:text-orange-600">Favourites</p>
           <p className="cursor-pointer hover:text-orange-600">Library</p>
           <p className="cursor-pointer hover:text-orange-600">Profile</p>
