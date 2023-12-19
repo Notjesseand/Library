@@ -25,7 +25,7 @@ export default function Page() {
           </div>
         </div>
         <div className="w-full">
-          <p className="font-custom text-xl sm:text-3xl text-center ">Browse</p>
+          <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">Browse</p>
         </div>
         <div className="flex justify-end">
           {open ? (
