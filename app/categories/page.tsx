@@ -14,7 +14,7 @@ export default function Page() {
   };
   return (
     <div className="pb-12">
-      <div className="pt-7 md:py-9 px-8 sm:px-20 flex justify-between">
+      <div className="pt-7 md:py-9 px-4 sm:px-20 flex justify-between">
         <Link href="/browse">
           <IoIosArrowBack className="text-4xl" />
         </Link>
