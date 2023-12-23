@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function footer() {
   return (
-    <div className="fixed bottom-0 h-16 w-full md:hidden flex justify-between items-center z-20 px-5 font-open bg-blur backdrop-blur-3xl pt-2">
+    <div className="fixed bottom-0 h-16 w-full md:hidden z-20 px-2 font-open backdrop-blur-3xl     pt-2 grid grid-cols-5">
       <div className="flex flex-col items-center">
         <FaSearch className="text-3xl font-bold" />
         <p className="text-sm text-gray-400 font-custom">Browse</p>
@@ -22,7 +22,7 @@ export default function footer() {
         <Link href="/favourites">
       <div className="flex flex-col items-center">
           <FaStar className="text-3xl" />
-          <p className="text-sm text-gray-400 font-custom">Favourites</p>
+          <p className="text-sm text-gray-400 font-custom">Faves</p>
       </div>
         </Link>
       {/* <div className="flex flex-col items-center">
