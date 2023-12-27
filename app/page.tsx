@@ -67,7 +67,7 @@ export default function Home() {
                   Find all the best books and academic materials for you
                 </p>
               </div>
-              <div className="px-4 mt-20 flex">
+              <div className="px-4 mt-20 sm:mt-12 flex ">
                 <Carousel />
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function Home() {
                   Give and get book recommendations from friends and more
                 </p>
               </div>
-              <div className="px-4 mt-20">
+              <div className="px-4 mt-20 sm:mt-12 flex">
                 <Carousel />
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function Home() {
                   resources
                 </p>
               </div>
-              <div className="px-4 mt-20">
+              <div className="px-4 mt-20 sm:mt-12 flex">
                 <Carousel />
               </div>
             </div>
@@ -138,7 +138,7 @@ export default function Home() {
       {(showSection1 || showSection2) && (
         <button
           onClick={handleNext}
-          className=" font-custom text-white bg-[#294246] px-0 w-5/6 sm:w-auto text-center justify-center sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute left-1/2 transform -translate-x-1/2 bottom-5"
+          className=" font-custom text-white bg-[#294246] px-0 w-5/6 sm:w-1/2 text-center justify-center sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute left-1/2 transform -translate-x-1/2 bottom-5 sm:bottom-4"
         >
           Next
         </button>
@@ -147,7 +147,7 @@ export default function Home() {
         <div className="flex">
           <Link
             href="/login"
-            className="font-custom text-white bg-[#294246] px-0 w-5/6 sm:w-auto justify-center sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute bottom-5 left-1/2 transform -translate-x-1/2"
+            className="font-custom text-white bg-[#294246] px-0 w-5/6 sm:w-1/2 justify-center sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute bottom-5 left-1/2 transform -translate-x-1/2"
           >
             Sign Up
           </Link>

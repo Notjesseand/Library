@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function footer() {
   return (
-    <div className="fixed bottom-0 h-16 w-full md:hidden z-20 px-2 font-open backdrop-blur-3xl     pt-2 grid grid-cols-5">
+    <div className="fixed bottom-0 h-16 w-full md:hidden z-20 px-2 font-open backdrop-blur-3xl     pt-2.5  grid grid-cols-5">
       <div className="flex flex-col items-center">
         <FaSearch className="text-3xl font-bold" />
         <p className="text-[12px] text-gray-400 font-custom">Browse</p>

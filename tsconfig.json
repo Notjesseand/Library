@@ -30,8 +30,11 @@
     "components/authorsCarousel.tsx",
     "components/interests.jsx",
     "app/favourites/page.jsx",
+    "app/authors/search/page.ts",
     "hooks/useSelected.ts",
-    "components/sidebar.tsx"
+    "components/sidebar.tsx",
+    "app/authors/page.jsx",
+    "app/authors/search/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

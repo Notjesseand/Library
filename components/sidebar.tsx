@@ -50,7 +50,9 @@ export default function sidebar() {
           <p className="cursor-pointer hover:text-orange-600">
             <Link href="/categories">Categories</Link>{" "}
           </p>
-          <p className="cursor-pointer hover:text-orange-600">Favourites</p>
+          <p className="cursor-pointer hover:text-orange-600">
+            <Link href="/favourites">Favourites</Link> 
+          </p>
           <p className="cursor-pointer hover:text-orange-600">Library</p>
           <p className="cursor-pointer hover:text-orange-600">Profile</p>
         </div>

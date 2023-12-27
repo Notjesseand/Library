@@ -42,14 +42,15 @@ const authorsCarousel = () => {
       {authors.map((item, index) => (
         <SwiperSlide
           key={index}
-          className=" mt-5 md:mt-12  inline-block cursor-pointer text-center backdrop-blur-sm rounded-full    "
-          // style={{ backgroundImage: "/drama.jpg" }}
+          className="flex mt-12   cursor-pointer text-center backdrop-blur-sm rounded-full    "
         >
           <div
-            className="h-24   sm:h-56 bg-gray-500 bg-cover w-24 sm:w-56 bg-center mx-auto rounded-full"
+            className=" aspect-square flex sm:h-56 bg-gray-500 bg-cover w-11/12 sm:w-56 bg-center mx-auto rounded-full"
             style={{ backgroundImage: `url(${item.image})` }}
           ></div>
-          <p className="mt-3 capitalize text-base font-custom md:text-xl">{item.author}</p>
+          <p className="mt-3 capitalize text-base font-custom md:text-xl">
+            {item.author}
+          </p>
         </SwiperSlide>
       ))}
     </Swiper>
