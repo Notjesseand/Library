@@ -20,7 +20,7 @@ export default function Page() {
     <div className="relative pb-24">
       <div className="grid grid-cols-3 pt-6 px-4 sm:px-16 relative">
         <div>
-          <div className="md:block hidden">
+          <div className="md:block ">
             <Sidebar />
           </div>
         </div>

@@ -13,10 +13,10 @@ export default function footer() {
         <FaSearch className="text-3xl font-bold" />
         <p className="text-[12px] text-gray-400 font-custom">Browse</p>
       </div>
-        <Link href="/categories">
+        <Link href="/books">
       <div className="flex flex-col items-center">
           <IoBookSharp className="text-3xl" />
-          <p className="text-[12px] text-gray-400 font-custom">Categories</p>
+          <p className="text-[12px] text-gray-400 font-custom">Books</p>
       </div>
         </Link>
         <Link href="/favourites">

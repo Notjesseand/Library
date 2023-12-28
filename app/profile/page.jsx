@@ -55,7 +55,10 @@ export default function Page() {
         <div className="space-y-3">
           {["Fiction", "Science Fiction", "Mystery", "Horror", "Romance"].map(
             (item, index) => (
-              <div key={index} className="inline-block border-2 border-white rounded-3xl  px-5 py-1 mr-2 sm:mr-5 hover:border-deep-orange-500 cursor-pointer">
+              <div
+                key={index}
+                className="inline-block border-2 border-white rounded-3xl  px-5 py-1 mr-2 sm:mr-5 hover:border-deep-orange-500 cursor-pointer"
+              >
                 {item}
               </div>
             )
@@ -64,10 +67,17 @@ export default function Page() {
         {/* about */}
         <p className="z-10 relative font-semibold mb-1 mt-8 md:mt-16">About </p>
         <p>
-          Amanda is an American writer, best known for her romantic novels. She&apos;s
-          the bestselling photo alive and the 4th bestselling fiction author of
-          all time, with over 800 million copies sold. She has written over 200 books...{" "}
+          Amanda is an American writer, best known for her romantic novels.
+          She&apos;s the bestselling photo alive and the 4th bestselling fiction
+          author of all time, with over 800 million copies sold. She has written
+          over 200 books...{" "}
         </p>
+        {/* books */}
+        <section>
+          <p className="z-10 relative font-semibold mb-1 mt-8 md:mt-16">
+            Books{" "}
+          </p>
+        </section>
       </div>
     </div>
   );
