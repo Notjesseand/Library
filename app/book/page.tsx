@@ -10,13 +10,13 @@ export default function book() {
         <div className="backdrop-blur-2xl pb-6">
           {/* navigation */}
           <div className="grid grid-cols-3 text-center pt-4">
-            <div className="sm:pl-10">
+            <div className="sm:pl-10 pl-3">
               <IoIosArrowBack className="text-4xl cursor-pointer" />
             </div>
             <div className="text-2xl font-custom text-gray-300 ">
               The Rebublic
             </div>
-            <div className="flex justify-end pr-11">
+            <div className="flex justify-end sm:pr-11 pr-3">
               <PiDotsThreeOutlineLight className="text-3xl cursor-pointer" />
             </div>
           </div>
