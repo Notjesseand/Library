@@ -45,13 +45,13 @@ export default function sidebar() {
       <DropdownMenuContent className="w-64  ">
         <div className="px-5 backdrop-blur-3xl rounded-lg font-montserrat py-4 z-20   space-y-5 transition-opacity">
           <p className="cursor-pointer hover:text-orange-600 mt-2 text-[currentColor]">
-            Browse{" "}
+            <Link href="/authors">Authors</Link>{" "}
           </p>
           <p className="cursor-pointer hover:text-orange-600">
             <Link href="/categories">Categories</Link>{" "}
           </p>
           <p className="cursor-pointer hover:text-orange-600">
-            <Link href="/favourites">Favourites</Link> 
+            <Link href="/favourites">Favourites</Link>
           </p>
           <p className="cursor-pointer hover:text-orange-600">Library</p>
           <p className="cursor-pointer hover:text-orange-600">Profile</p>
@@ -60,3 +60,5 @@ export default function sidebar() {
     </DropdownMenu>
   );
 }
+
+

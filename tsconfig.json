@@ -35,6 +35,6 @@
     "components/sidebar.tsx",
     "app/authors/page.jsx",
     "app/authors/search/page.jsx"
-  ],
+, "app/viewpdf/page.jsx", "components/featuredBooksCarousel.tsx"  ],
   "exclude": ["node_modules"]
 }

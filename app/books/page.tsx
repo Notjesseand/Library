@@ -1,9 +1,11 @@
 import React from 'react'
-
+import PDFViewer from '../../components/viewPdf'
+import FeaturedBooksCarousel from '@/components/featuredBooksCarousel'
 export default function Page() {
   return (
     <div>
-      Books
+      <FeaturedBooksCarousel/>
+      jaja
     </div>
   )
 }
