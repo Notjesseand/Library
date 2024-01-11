@@ -13,7 +13,7 @@ export default function book() {
             <div className="sm:pl-10 pl-3">
               <IoIosArrowBack className="text-4xl cursor-pointer" />
             </div>
-            <div className="text-2xl font-custom text-gray-300 ">
+            <div className="text-2xl font-custom text-gray-300 pt-10">
               The Rebublic
             </div>
             <div className="flex justify-end sm:pr-11 pr-5">
