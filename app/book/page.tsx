@@ -16,7 +16,7 @@ export default function book() {
             <div className="text-2xl font-custom text-gray-300 ">
               The Rebublic
             </div>
-            <div className="flex justify-end sm:pr-11 pr-3">
+            <div className="flex justify-end sm:pr-11 pr-5">
               <PiDotsThreeOutlineLight className="text-3xl cursor-pointer" />
             </div>
           </div>
