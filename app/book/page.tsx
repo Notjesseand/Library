@@ -4,7 +4,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { PiDotsThreeOutlineLight } from "react-icons/pi";
 import FeaturedBooksCarousel from "./featuredBooksCarousel";
 
-export default function book() {
+export default function Page() {
   const [following, setFollowing] = useState(false);
   const toggle = () => {
     setFollowing(!following);
@@ -88,7 +88,7 @@ export default function book() {
           {/* tags */}
           <div className="flex gap-2 sm:gap-4 pt-5">
             {["Drama", "Philosophy", "History"].map((item, index) => (
-              <button className="bg-[#183D3D] rounded-full px-6 py-2 border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600">
+              <button className="bg-[#183D3D] rounded-full px-6 py-2 border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600" key={index}>
                 {item}
               </button>
             ))}
