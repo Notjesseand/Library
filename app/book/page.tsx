@@ -1,10 +1,17 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { PiDotsThreeOutlineLight } from "react-icons/pi";
+import FeaturedBooksCarousel from "./featuredBooksCarousel";
 
 export default function book() {
+  const [following, setFollowing] = useState(false);
+  const toggle = () => {
+    setFollowing(!following);
+  };
+
   return (
-    <div>
+    <div className="pb-20 ">
       <div className="w-full bg-cover bg-center bg-[url('/philosophy.jpg')]">
         {/* blur */}
         <div className="backdrop-blur-2xl pb-6">
@@ -30,12 +37,65 @@ export default function book() {
       <div className="">
         {/* buttons */}
         <div className="pt-4 flex justify-center gap-3 ;sm:gap-10">
-          <button className="text-lg px-12 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]">
+          <button className="text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]">
             Read{" "}
           </button>
-          <button className="text-lg px-12 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]">
+          <button className="text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]">
             Add to Library{" "}
           </button>
+        </div>
+        {/* Metadata */}
+
+        <hr className="mt-5" />
+        <div className="flex justify-between pt-3 px-8 md:px-24 items-center">
+          <div className="flex ">
+            <div className="h-24 w-24 rounded-full bg-pink-400"></div>
+            {/* name and followers */}
+            <div className="flex flex-col justify-center pl-3 font-montserrat">
+              <p className="text-2xl">Plato</p>
+              <p>0 followers</p>
+            </div>
+          </div>
+          <button
+            onClick={toggle}
+            className=" justify-end px-6 py-2 bg-[#1D2B53] rounded-sm"
+          >
+            {following ? "Unfollow" : "Follow"}
+          </button>
+        </div>
+        <div className="px-6 md:px-24 pt-4">
+          <p className="font-bold text-lg">Summary</p>
+          <p className="   ">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, ex
+            modi omnis nemo explicabo sint debitis voluptatum ad? Quasi iusto
+            mollitia sit excepturi eaque laboriosam maxime molestias ab eligendi
+            cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Tempora impedit tempore quo voluptates molestias, ipsam accusamus
+            quis maiores labore hic iste magnam doloribus explicabo, tenetur
+            repudiandae error, neque maxime laborum. Laudantium, consectetur
+            natus enim eum maiores praesentium provident. In vero ratione dicta
+            illum, deserunt corrupti suscipit, saepe illo aperiam quis esse
+            libero iusto nulla quo itaque. Adipisci maxime possimus rem! Natus
+            expedita assumenda molestias deleniti explicabo dolores quibusdam
+            adipisci vero. Reprehenderit nostrum nesciunt illum quibusdam,
+            accusantium ex minima nihil cumque aut quam libero, fuga nam
+            deserunt dolore tempore a ullam. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Atque odio placeat laborum quae
+            tenetur repellendus quidem quia laudantium voluptatum velit
+            reiciendis itaque amet, in, optio sed voluptate, iste doloribus
+            necessitatibus?{" "}
+          </p>
+          {/* tags */}
+          <div className="flex gap-2 sm:gap-4 pt-5">
+            {["Drama", "Philosophy", "History"].map((item, index) => (
+              <button className="bg-[#183D3D] rounded-full px-6 py-2 border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600">
+                {item}
+              </button>
+            ))}
+          </div>
+
+          {/* featuredbooks */}
+          <FeaturedBooksCarousel />
         </div>
       </div>
     </div>
