@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { PiDotsThreeOutlineLight } from "react-icons/pi";
 import FeaturedBooksCarousel from "./featuredBooksCarousel";
+import Link from "next/link";
+import Sidebar from "@/components/sidebar";
+import Footer from "./footer";
 
 export default function Page() {
   const [following, setFollowing] = useState(false);
@@ -12,23 +15,25 @@ export default function Page() {
 
   return (
     <div className="pb-20 ">
-      <div className="w-full bg-cover bg-center bg-[url('/philosophy.jpg')]">
+      <div className="w-full bg-cover bg-center bg-[url('/black.jpg')]">
         {/* blur */}
         <div className="backdrop-blur-2xl pb-6">
           {/* navigation */}
           <div className="grid grid-cols-3 text-center pt-4">
             <div className="sm:pl-10 pl-3">
-              <IoIosArrowBack className="text-4xl cursor-pointer" />
+              <Link href="/browse">
+                <IoIosArrowBack className="text-4xl cursor-pointer" />
+              </Link>
             </div>
             <div className="text-2xl font-custom text-gray-300 pt-10">
               The Rebublic
             </div>
             <div className="flex justify-end sm:pr-11 pr-5">
-              <PiDotsThreeOutlineLight className="text-3xl cursor-pointer" />
+              <Sidebar />
             </div>
           </div>
           {/* Book Image  */}
-          <div className="cursor-pointer flex mx-auto h-64 w-52 bg-center mt-4 rounded bg-[url('/philosophy.jpg')] bg-cover"></div>
+          <div className="cursor-pointer flex mx-auto h-64 w-52 bg-center mt-4 rounded bg-[url('/black.jpg')] bg-cover"></div>
           {/* Author */}
           <p className="text-2xl text-center mt-1">Plato</p>
         </div>
@@ -58,7 +63,7 @@ export default function Page() {
           </div>
           <button
             onClick={toggle}
-            className=" justify-end px-6 py-2 bg-[#1D2B53] rounded-sm"
+            className=" justify-end px-6 py-2 bg-[#527853] md:hover:border-deep-orange-500 border-2 hover:bg-transparent border-transparent  rounded-md"
           >
             {following ? "Unfollow" : "Follow"}
           </button>
@@ -88,7 +93,10 @@ export default function Page() {
           {/* tags */}
           <div className="flex gap-2 sm:gap-4 pt-5">
             {["Drama", "Philosophy", "History"].map((item, index) => (
-              <button className="bg-[#183D3D] rounded-full px-6 py-2 border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600" key={index}>
+              <button
+                className="bg-[#183D3D] rounded-full px-6 py-2 border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600"
+                key={index}
+              >
                 {item}
               </button>
             ))}
@@ -98,6 +106,7 @@ export default function Page() {
           <FeaturedBooksCarousel />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

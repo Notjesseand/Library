@@ -71,7 +71,7 @@ const FeaturedBooksCarousel = () => {
             ></div>
             <p className="mt-3 capitalize text-xl">{item.title}</p>
             <p className="capitalize text-base text-gray-400">{item.author}</p>
-            <p className="text-base text-gray-400">{item.url}</p>
+            {/* <p className="text-base text-gray-400">{item.url}</p> */}
 
           </SwiperSlide>
         ))}

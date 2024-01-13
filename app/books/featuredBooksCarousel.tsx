@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,30 +7,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import PDFViewer from "./viewPdf";
+import PDFViewer from "@/components/viewPdf";
 
-// import required modules
-// import { Pagination, Navigation } from "swiper/modules";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import { favourites } from "../app/data";
+import { favourites } from "../data";
 
 const FeaturedBooksCarousel = () => {
   const [open, setOpen] = useState(true);
-//   const [url, setUrl] = useState(null);
+  //   const [url, setUrl] = useState(null);
 
-//  const toggle = (newUrl: string) => {
-//    setOpen(!open);
-//    console.log(open);
-//    console.log(newUrl);
-//  };
+  //  const toggle = (newUrl: string) => {
+  //    setOpen(!open);
+  //    console.log(open);
+  //    console.log(newUrl);
+  //  };
   // const toggle =()=>{
   //   setOpen(!open)
   //   console.log(open)
   // }
 
-  const pdf = ["/neck.pdf"]
-
+  const pdf = ["/neck.pdf"];
 
   return (
     <div>
@@ -71,14 +68,10 @@ const FeaturedBooksCarousel = () => {
             ></div>
             <p className="mt-3 capitalize text-xl">{item.title}</p>
             <p className="capitalize text-base text-gray-400">{item.author}</p>
-            <p className="text-base text-gray-400">{item.url}</p>
-
+            {/* <p className="text-base text-gray-400">{item.url}</p> */}
           </SwiperSlide>
         ))}
-           
       </Swiper>
-
-     
 
       {/* {open ? (
         <iframe
@@ -89,7 +82,7 @@ const FeaturedBooksCarousel = () => {
       ) : (
         ""
       )} */}
-     
+
       {/* <iframe
         title="PDF Viewer"
         src={pdf[0]}

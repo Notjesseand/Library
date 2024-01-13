@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@material-tailwind/react";
 import AuthorsCarousel from "./authorsCarousel";
-import Footer from '../../components/footer'   
+import Footer from './footer'   
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);

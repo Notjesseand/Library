@@ -4,7 +4,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import BrowseCarousel from "@/components/browseCarousel";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import Categories from "@/components/categoriesCarousel";
-import Footer from "@/components/footer";
+import Footer from "./footer";
 import Sidebar from "@/components/sidebar";
 import { RxCross2 } from "react-icons/rx";
 import AuthorsCarousel from "@/components/authorsCarousel";
