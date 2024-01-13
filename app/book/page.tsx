@@ -19,9 +19,9 @@ export default function Page() {
         {/* blur */}
         <div className="backdrop-blur-2xl pb-6">
           {/* navigation */}
-          <div className="grid grid-cols-3 text-center pt-4">
+          <div className="grid grid-cols-3 text-center pt-9">
             <div className="sm:pl-10 pl-3">
-              <Link href="/browse">
+              <Link href="/books">
                 <IoIosArrowBack className="text-4xl cursor-pointer" />
               </Link>
             </div>
