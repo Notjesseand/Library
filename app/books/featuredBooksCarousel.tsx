@@ -58,7 +58,7 @@ const FeaturedBooksCarousel = () => {
         {favourites.map((item, index) => (
           <SwiperSlide
             key={index}
-            className=" mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm   relative "
+            className=" mt-6 md:mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm   relative "
             style={{ backgroundImage: "/drama.jpg" }}
           >
             <div
