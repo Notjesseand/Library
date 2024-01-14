@@ -22,7 +22,7 @@ export default function Page() {
         </div>
         <Searchbar />
       </div>
-      <section className=" px-7 md:px-10 pt-8">
+      <section className=" px-4 md:px-10 pt-8">
         <p className="text-2xl md:text-3xl font-bold">My Library</p>
         {/* books */}
         <div className="grid md:grid-cols-3 sm:grid-cols-2 pt-6 gap-x-5 gap-y-6">
@@ -45,7 +45,7 @@ export default function Page() {
                   <p className="">{item.title}</p>
                   <p className="text-[15px]">{item.author}</p>
                 </div>
-                <div>
+                <div className="flex pl-1">
                   {isLiked ? (
                     <IoIosHeart
                       onClick={toggle}
