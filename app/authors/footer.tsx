@@ -12,25 +12,25 @@ export default function footer() {
       <Link href="browse">
       <div className="flex flex-col items-center">
         <FaSearch className="text-3xl font-bold" />
-        <p className="text-[12px] text-gray-400 font-custom">Browse</p>
+        <p className="text-[12px] font-custom">Browse</p>
       </div>
       </Link>
         <Link href="/books">
       <div className="flex flex-col items-center">
           <IoBookSharp className="text-3xl" />
-          <p className="text-[12px] text-gray-400 font-custom">Books</p>
+          <p className="text-[12px] font-custom">Books</p>
       </div>
         </Link>
               
       <Link href="library">
       <div className="flex flex-col items-center">
         <LuLibrary className="text-3xl" />
-        <p className="text-[12px] text-gray-400 font-custom">Library</p>
+        <p className="text-[12px]  font-custom">Library</p>
       </div>
       </Link>
       <div className="flex flex-col items-center">
         <IoPerson className="text-3xl" />
-        <p className="text-[12px] text-gray-400 font-custom">Profile</p>
+        <p className="text-[12px] font-custom">Profile</p>
       </div>
     </div>
   );
