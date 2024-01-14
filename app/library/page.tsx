@@ -9,9 +9,13 @@ import { GoHeartFill } from "react-icons/go";
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { favourites } from "../data";
 export default function Page() {
-  const [isLiked, setIsLiked] = useState(false);
-  const toggle = () => {
-    setIsLiked(!isLiked);
+  const [likeStates, setLikeStates] = useState(favourites.map(() => false));
+  const toggleLike = (index : number) => {
+    setLikeStates((prevStates) => {
+      const newStates = [...prevStates];
+      newStates[index] = !newStates[index];
+      return newStates;
+    });
   };
   return (
     <div className="pt-7 pb-20">
@@ -46,14 +50,14 @@ export default function Page() {
                   <p className="text-[15px]">{item.author}</p>
                 </div>
                 <div className="flex pl-1">
-                  {isLiked ? (
+                  {likeStates[index] ? (
                     <IoIosHeart
-                      onClick={toggle}
+                      onClick={() => toggleLike(index)}
                       className="text-3xl cursor-pointer mr-2 text-red-600"
                     />
                   ) : (
                     <IoIosHeartEmpty
-                      onClick={toggle}
+                      onClick={() => toggleLike(index)}
                       className="text-3xl cursor-pointer mr-2"
                     />
                   )}
