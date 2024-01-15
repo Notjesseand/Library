@@ -9,6 +9,7 @@ import { auth } from "../../config/firebase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@material-tailwind/react";
+import Sidebar from "@/components/sidebar";
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -33,7 +34,6 @@ export default function Page() {
     }
   };
 
-  
   const handleAddCategories = async () => {
     try {
       setIsLoading(true);
@@ -66,8 +66,13 @@ export default function Page() {
 
   console.log(selectedItems);
   return (
-    <div className="font-custom pb-36  px-2.5 sm:px-0">
-      <p className="text-4xl font-open pt-14 sm:pt-8 sm:mx-16 gradient-text">
+    <div className="font-custom pb-36  sm:px-0 pt-7">
+      <div className="sm:px-16">
+        <Sidebar className="" />
+      </div>
+      <div className="px-2.5">
+
+      <p className="text-4xl font-open pt-4 sm:pt-5 sm:mx-16 gradient-text">
         Select favourites
       </p>
 
@@ -127,7 +132,9 @@ export default function Page() {
             </ToggleGroupItem>
           ))}
       </ToggleGroup>
+      </div>
 
+      {/* count */}
       <div className="w-full h-24 bg-gray-300 bottom-0 fixed flex text-black justify-center flex-col">
         <div className="flex items-center justify-around sm:justify-center sm:px-14 sm:gap-x-36">
           <p className="text-xl flex"> {selectedItems.length} of 6 selected</p>

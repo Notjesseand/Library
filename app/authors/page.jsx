@@ -8,9 +8,10 @@ import { getFirestore, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth } from "../../config/firebase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Spinner } from "@material-tailwind/react";
 import AuthorsCarousel from "./authorsCarousel";
 import Footer from './footer'   
+import Sidebar from "@/components/sidebar";
+import Searchbar from "@/components/searchbar";
 
 export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -67,7 +68,14 @@ export default function Page() {
 
   console.log(selectedItems);
   return (
-    <div className="pb-14">
+    <div className="pb-14 pt-7">
+      {/* search */}
+      <div className=" items-center flex justify-between">
+        <div className="absolute sm:left-7 left-5 z-50">
+          <Sidebar />
+        </div>
+        <Searchbar />
+      </div>
       {/* <p></p> */}
       {/* searchbar */}
       <div className="flex bg-transparent w-11/12 sm:w-2/5 mx-auto sm:justify-start justify-center sm:mx-16 border-2    border-gray-500 rounded-full sm:px-1 mt-9 md:mt-12">
@@ -89,7 +97,12 @@ export default function Page() {
       </div>
       {/* end of searchbar */}
       <div className="px-3 md:px-14 pt-5">
-        <Link href="/authors/search" className="font-montserrate text-2xl font-semibold mt-5">Authors</Link>
+        <Link
+          href="/authors/search"
+          className="font-montserrate text-2xl font-semibold mt-5"
+        >
+          Authors
+        </Link>
         {/* <AuthorsCarousel/> */}
         <AuthorsCarousel />
 

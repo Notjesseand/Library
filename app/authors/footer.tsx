@@ -28,10 +28,10 @@ export default function footer() {
         <p className="text-[12px]  font-custom">Library</p>
       </div>
       </Link>
-      <div className="flex flex-col items-center">
+      <Link  href="profile" className="flex flex-col items-center">
         <IoPerson className="text-3xl" />
         <p className="text-[12px] font-custom">Profile</p>
-      </div>
+      </Link>
     </div>
   );
 }

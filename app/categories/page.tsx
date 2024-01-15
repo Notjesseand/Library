@@ -5,6 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import { IoSearchOutline } from "react-icons/io5";
 import { categories } from "../data";
 import Link from "next/link";
+import Sidebar from "@/components/sidebar";
 
 export default function Page() {
   const [open, setOpen] = useState(false);
@@ -15,9 +16,8 @@ export default function Page() {
   return (
     <div className="pb-12">
       <div className="pt-7 md:py-9 px-4 sm:px-20 flex justify-between">
-        <Link href="/browse">
-          <IoIosArrowBack className="text-4xl" />
-        </Link>
+        <Sidebar/>
+          
         {open ? (
           <RxCross2
             onClick={toggle}
