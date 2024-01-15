@@ -42,7 +42,7 @@ const introCarousel = () => {
       {data.map((item, index) => (
         <SwiperSlide
           key={index}
-          className="mt-12 sm:mt-6 cursor-pointer text-center backdrop-blur-3xl  h-[200px]  rounded-lg py-6 px-3"
+          className="mt-12 sm:mt-6 cursor-pointer text-center backdrop-blur-3xl  h-[200px]  rounded-lg py-6 px-3 text-white"
         >
          
           <p className="mt-3 text-base font-custom md:text-xl">

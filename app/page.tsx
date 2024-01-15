@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div className="">
         {/* section 1 */}
         {showSection1 && (
           <div
@@ -52,20 +52,21 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              {/* theme toggle */}
+             
 
               {/* icon and hero */}
-              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
+              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0 text-white">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
-                <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
+                <p className="px-3 text-3xl sm:text-5xl text-white">Digital Library</p>
               </div>
               <div className="sm:w-full w-5/6 mx-auto sm:mx-0">
-                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-4xl sm:text-5xl font-bold">
+                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-4xl sm:text-5xl font-bold text-white">
                   Discover books you love
                 </p>
-                <p className="sm:px-24 my-7 text-2xl font-custom">
+                <p className="sm:px-24 my-7 text-2xl font-custom text-white">
                   Find all the best books and academic materials for you
                 </p>
+                
               </div>
               <div className="px-4 mt-20 sm:mt-12 flex ">
                 <Carousel />
@@ -85,15 +86,15 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
+              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0 text-white">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
-                <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
+                <p className="px-3 text-3xl sm:text-5xl text-white">Digital Library</p>
               </div>
               <div className="sm:w-full w-5/6 mx-auto sm:mx-0">
-                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-3xl sm:text-5xl font-bold">
+                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-3xl sm:text-5xl font-bold text-white">
                   Give and get recommendations
                 </p>
-                <p className="sm:px-24 my-7 text-2xl font-custom">
+                <p className="sm:px-24 my-7 text-2xl font-custom text-white">
                   Give and get book recommendations from friends and more
                 </p>
               </div>
@@ -115,15 +116,15 @@ export default function Home() {
               style={{ opacity: opacity }}
             ></div>
             <div className="relative z-10" id="section 1">
-              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0">
+              <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0 text-white">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 <p className="px-3 text-3xl sm:text-5xl">Digital Library</p>
               </div>
               <div className="sm:w-full w-5/6 mx-auto sm:mx-0">
-                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-3xl sm:text-5xl font-bold">
+                <p className="sm:px-24 justify-left mx-auto flex sm:text-left mt-7 text-3xl sm:text-5xl font-bold text-white">
                   Get started now
                 </p>
-                <p className="sm:px-24 my-7 text-2xl font-custom">
+                <p className="sm:px-24 my-7 text-2xl font-custom text-white">
                   Sign up for free to gain access to a wide collection of
                   resources
                 </p>
