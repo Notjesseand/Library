@@ -4,13 +4,15 @@ import Footer from "./footer";
 import { GrSettingsOption } from "react-icons/gr";
 import Searchbar from "@/components/searchbar";
 import Sidebar from "@/components/sidebar";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
+import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
 export default function Page() {
   return (
     <div>
       <section>
-        <div className=" items-center flex justify-between pt-7 px-4 sm:px-9">
+        <div className="items-center flex justify-between pt-7 px-2 sm:px-9">
           <Sidebar />
-          <GrSettingsOption className="text-3xl cursor-pointer hover:rotate-90 transition-all duration-500  " />
+          <GrSettingsOption className="text-3xl cursor-pointer hover:rotate-90 transition-all duration-500 mr-4 " />
         </div>
         {/* profile*/}
         <div className="flex pt-7 px-7 md:px-16 items-center">
@@ -27,18 +29,17 @@ export default function Page() {
             <p className="text-lg pr-5">
               <span className="font-bold pr-1">0</span> Bookmarks{" "}
             </p>
-           
           </div>
 
           <div className="">
             <p className="text-lg pr-5">
               <span className="font-bold pr-1">0</span> Following{" "}
             </p>
-           
           </div>
 
           <p className="text-lg pr-5">
-            <span className="font-bold pr-1 md:inline flex">0</span> Finished books{" "}
+            <span className="font-bold pr-1 md:inline flex">0</span> Finished
+            books{" "}
           </p>
         </div>
       </section>
@@ -63,6 +64,16 @@ export default function Page() {
             </button>
           ))}
         </div>
+
+        {/* favourites */}
+        <div className="flex justify-between pr-3">
+          <p className="font-bold text-2xl pt-5 px-3">Favourites</p>
+          <p className="flex items-center cursor-pointer hover:text-deep-purple-900  ">
+            see more
+            <MdOutlineArrowForwardIos classname="text-3xl" />
+          </p>
+        </div>
+          <FeaturedBooksCarousel />
       </section>
       <Footer />
     </div>
