@@ -43,8 +43,8 @@ export default function Page() {
         </div>
       </section>
       {/* favourite genres */}
-      <section className="md:px-20 px-4">
-        <p className="font-bold text-2xl pt-5">Favourite Genres</p>
+      <section className="md:px-20 px-0">
+        <p className="font-bold text-2xl pt-5 px-3">Favourite Genres</p>
         <div className="pt-3 space-y-1.5">
           {[
             "Thrillers",
