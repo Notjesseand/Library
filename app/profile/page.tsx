@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div>
       <section>
-        <div className=" items-center flex justify-between pt-7 px-6 sm:px-9">
+        <div className=" items-center flex justify-between pt-7 px-4 sm:px-9">
           <Sidebar />
           <GrSettingsOption className="text-3xl cursor-pointer hover:rotate-90 transition-all duration-500  " />
         </div>
