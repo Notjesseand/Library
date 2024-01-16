@@ -57,7 +57,7 @@ export default function Page() {
             (item, index) => (
               <div
                 key={index}
-                className="inline-block border-2 border-white rounded-3xl  px-5 py-1 mr-2 sm:mr-5 hover:border-deep-orange-500 cursor-pointer"
+                className="inline-block border-2 rounded-3xl  px-5 py-1.5 mr-2 sm:mr-5 hover:border-deep-orange-500 cursor-pointer"
               >
                 {item}
               </div>
