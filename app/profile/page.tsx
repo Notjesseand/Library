@@ -8,7 +8,7 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
 export default function Page() {
   return (
-    <div>
+    <div className="pb-20">
       <section>
         <div className="items-center flex justify-between pt-7 px-2 sm:px-9">
           <Sidebar />
@@ -58,7 +58,7 @@ export default function Page() {
           ].map((item, index) => (
             <button
               key={index}
-              className="py-1 md:py-1.5 mx-2 md:mx-3 px-3 rounded-full border-2 hover:border-[#527853]"
+              className="py-1 md:py-1.5 mx-1 md:mx-3 px-3 rounded-full border-2 hover:border-[#527853]"
             >
               {item}
             </button>
