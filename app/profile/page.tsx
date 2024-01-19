@@ -70,7 +70,7 @@ export default function Page() {
           <p className="font-bold text-2xl pt-5 px-3">Favourites</p>
           <p className="flex items-center cursor-pointer hover:text-deep-purple-900  ">
             see more
-            <MdOutlineArrowForwardIos classname="text-3xl" />
+            <MdOutlineArrowForwardIos className="text-xl" />
           </p>
         </div>
           <FeaturedBooksCarousel />

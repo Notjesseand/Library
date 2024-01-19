@@ -29,12 +29,14 @@
     ".next/types/**/*.ts",
     "components/authorsCarousel.tsx",
     "components/interests.jsx",
-    "app/favourites/page.jsx",
+    "app/favourites/choose/page.jsx",
     "app/authors/search/page.ts",
     "hooks/useSelected.ts",
     "components/sidebar.tsx",
     "app/authors/page.jsx",
-    "app/authors/search/page.jsx"
-, "app/viewpdf/page.jsx", "components/featuredBooksCarousel.tsx"  ],
+    "app/authors/search/page.jsx",
+    "app/viewpdf/page.jsx",
+    "components/featuredBooksCarousel.tsx"
+, "app/favourites/page.jsx"  ],
   "exclude": ["node_modules"]
 }

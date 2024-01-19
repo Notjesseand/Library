@@ -17,17 +17,6 @@ import { favourites } from "../app/data";
 
 const FeaturedBooksCarousel = () => {
   const [open, setOpen] = useState(true);
-//   const [url, setUrl] = useState(null);
-
-//  const toggle = (newUrl: string) => {
-//    setOpen(!open);
-//    console.log(open);
-//    console.log(newUrl);
-//  };
-  // const toggle =()=>{
-  //   setOpen(!open)
-  //   console.log(open)
-  // }
 
   const pdf = ["/neck.pdf"]
 
@@ -71,7 +60,6 @@ const FeaturedBooksCarousel = () => {
             ></div>
             <p className="mt-3 capitalize text-xl">{item.title}</p>
             <p className="capitalize text-base text-gray-400">{item.author}</p>
-            <p className="text-base text-gray-400">{item.url}</p>
 
           </SwiperSlide>
         ))}

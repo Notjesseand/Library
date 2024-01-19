@@ -35,7 +35,7 @@ export default function Page() {
           {favourites.map((item, index) => (
             <div
               key={index}
-              className="h-[9rem] sm:h-48 border-[2.5px] border-[#527853] rounded-lg flex p-1 backdrop-blur-2xl cursor-pointer hover:bg-gray-100  transition-colors duration-400   "
+              className="h-[9rem] sm:h-48 border-[2.5px] border-[#527853] rounded-lg flex p-1 backdrop-blur-2xl cursor-pointer hover:border-deep-orange-500  transition-colors duration-400   "
             >
               {/* book image */}
               <img
