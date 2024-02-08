@@ -12,12 +12,13 @@ import { Switch } from "@/components/ui/switch";
 
 export default function Page() {
   return (
-    <div>
+    <div className="pt-9 sm:pt-11">
       {" "}
-      <div className="items-center flex justify-between pt-7 px-2 sm:px-9">
-        <Link href="/settings" className="">
+      {/* search */}
+      <div className=" items-center flex justify-between w-full px-0">
+        <div className="absolute sm:left-7 left-5 z-50">
           <Sidebar />
-        </Link>
+        </div>
         <Searchbar />
       </div>
       <div className=" pt-7 px-3 sm:px-9">
