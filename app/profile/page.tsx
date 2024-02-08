@@ -6,13 +6,16 @@ import Searchbar from "@/components/searchbar";
 import Sidebar from "@/components/sidebar";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
+import Link from "next/link";
 export default function Page() {
   return (
     <div className="pb-20">
       <section>
         <div className="items-center flex justify-between pt-7 px-2 sm:px-9">
           <Sidebar />
+          <Link href="/settings" className="">
           <GrSettingsOption className="text-3xl cursor-pointer hover:rotate-90 transition-all duration-500 mr-4 " />
+          </Link>
         </div>
         {/* profile*/}
         <div className="flex pt-7 px-7 md:px-16 items-center">
