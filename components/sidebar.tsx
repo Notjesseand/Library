@@ -47,6 +47,9 @@ export default function sidebar() {
           <p className="cursor-pointer hover:text-orange-600 mt-2 text-[currentColor]">
             <Link href="/authors">Authors</Link>{" "}
           </p>
+          <p className="cursor-pointer hover:text-orange-600 mt-2 text-[currentColor]">
+            <Link href="/browse">Browse</Link>{" "}
+          </p>
           <p className="cursor-pointer hover:text-orange-600">
             <Link href="/categories">Categories</Link>{" "}
           </p>
