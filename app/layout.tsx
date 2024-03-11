@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,8 +34,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap"
           rel="stylesheet"
         />
-        <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet"></link>
-         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></meta>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans&family=Satisfy&display=swap"
+          rel="stylesheet"
+        ></link>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        ></meta>
       </head>
 
       <body className="font-custom">
@@ -47,6 +54,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

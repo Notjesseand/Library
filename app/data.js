@@ -293,7 +293,7 @@ export const authors = [
     category: "Physics",
     image: "/profile.jpg",
     tags: ["physics", "science", "space"],
-    followers: "7901"
+    followers: "7901",
   },
   {
     title: "Pulp Fiction",
@@ -301,7 +301,7 @@ export const authors = [
     category: "Fiction",
     image: "/profile.jpg",
     tags: ["drama", "fiction", "action"],
-    followers: "9873"
+    followers: "9873",
   },
   {
     title: "The Republic",
@@ -309,7 +309,7 @@ export const authors = [
     category: "philosophy",
     image: "/profile.jpg",
     tags: ["philosophy", "plato"],
-    followers: "2.8M"
+    followers: "2.8M",
   },
   {
     title: "The Diary Of A Wimpy Kid",
@@ -317,7 +317,7 @@ export const authors = [
     category: "comedy",
     image: "/profile.jpg",
     tags: ["comedy", "coming of age", "america", "funny"],
-    followers: "178"
+    followers: "178",
   },
   {
     title: "Artificial Intelligence Basics",
@@ -325,7 +325,7 @@ export const authors = [
     category: "tech",
     image: "/profile.jpg",
     tags: ["tech", "computer", "artificial intelligence"],
-    followers: "1078"
+    followers: "1078",
   },
   {
     title: "I Have A Dream",
@@ -334,7 +334,7 @@ export const authors = [
     image: "/profile.jpg",
     tags: ["human rights", "inspirational", "social justice"],
 
-    followers: "234K"
+    followers: "234K",
   },
   {
     title: "The Queens Gambit",
@@ -342,7 +342,7 @@ export const authors = [
     category: "drama",
     image: "/profile.jpg",
     tags: ["chess", "drama", "games"],
-    followers: "1"
+    followers: "1",
   },
   {
     title: "The Simple Path to Wealth",
@@ -350,7 +350,7 @@ export const authors = [
     category: "Finance",
     image: "/profile.jpg",
     tags: ["wealth", "finance", "economics", "money"],
-    followers: "300K"
+    followers: "300K",
   },
   {
     title: "The Little Dictionary Of Fashion",
@@ -358,7 +358,7 @@ export const authors = [
     category: "Fashion",
     image: "/profile.jpg",
     tags: ["fashion", "dior", "style"],
-    followers: "3.2M"
+    followers: "3.2M",
   },
   {
     title: "The Culture Map",
@@ -367,7 +367,7 @@ export const authors = [
     image: "/profile.jpg",
     tags: ["culture", "arts", "people"],
 
-    followers: "170k"
+    followers: "170k",
   },
   {
     title: "Deep Nutrition",
@@ -375,7 +375,7 @@ export const authors = [
     category: "health",
     image: "/profile.jpg",
     tags: ["health", "nutrition"],
-    followers: "490k"
+    followers: "490k",
   },
   {
     title: "Secret War In South Asia",
@@ -383,7 +383,7 @@ export const authors = [
     category: "war",
     image: "/profile.jpg",
     tags: ["history", "war", "asia"],
-    followers: "148"
+    followers: "148",
   },
   {
     title: "Software Engineering At Google",
@@ -391,7 +391,7 @@ export const authors = [
     category: "computer",
     image: "/profile.jpg",
     tags: ["computer", "tech", "software", "programming"],
-    followers: "22k"
+    followers: "22k",
   },
   {
     title: "Law",
@@ -399,6 +399,6 @@ export const authors = [
     category: "law",
     image: "/profile.jpg",
     tags: ["arts", "law"],
-    followers: "100k"
+    followers: "100k",
   },
 ];
