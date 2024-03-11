@@ -30,8 +30,21 @@ const PageById = ({ params }: { params: any }) => {
 
   const { toast } = useToast();
 
+  const [open, setOpen] = useState(false);
+  const toggleBook = () => {
+    setOpen(!open);
+  };
+  
   return (
-    <div className="pb-20 ">
+    <div className="pb-8 md:pb-20 ">
+      {open && (
+        <iframe
+          title="PDF Viewer"
+          src={filteredFavourites[0].url}
+          className="h-screen w-screen absolute z-50 top-0 "
+        />
+      )}
+
       <div
         className="w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${imageurl})` }}
@@ -67,7 +80,11 @@ const PageById = ({ params }: { params: any }) => {
       <div className="">
         {/* buttons */}
         <div className="pt-4 flex justify-center gap-3 ;sm:gap-10">
-          <button className="text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]">
+          {/* read button */}
+          <button
+            className="text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]"
+            onClick={toggleBook}
+          >
             Read{" "}
           </button>
 
