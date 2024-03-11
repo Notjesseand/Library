@@ -34,7 +34,7 @@ const PageById = ({ params }: { params: any }) => {
   const toggleBook = () => {
     setOpen(!open);
   };
-  
+
   return (
     <div className="pb-8 md:pb-20 ">
       {open && (
@@ -65,31 +65,31 @@ const PageById = ({ params }: { params: any }) => {
               <Sidebar />
             </div>
           </div>
+
           {/* Book Image  */}
           <div
             className="cursor-pointer flex mx-auto h-64 w-52 bg-center mt-4 rounded bg-cover"
             style={{ backgroundImage: `url(${imageurl})` }}
-          >
-            {" "}
-          </div>
+          ></div>
           {/* Author */}
           <p className="text-2xl text-center mt-1"> {author} </p>
         </div>
       </div>
+
       {/* end of header */}
       <div className="">
         {/* buttons */}
         <div className="pt-4 flex justify-center gap-3 ;sm:gap-10">
           {/* read button */}
           <button
-            className="text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]"
+            className="text-ba  md:text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]"
             onClick={toggleBook}
           >
             Read{" "}
           </button>
 
           <button
-            className="text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
+            className="text-base md:text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
             onClick={() => {
               toast({
                 title: "Success",
@@ -108,7 +108,8 @@ const PageById = ({ params }: { params: any }) => {
             <div className="h-24 w-24 rounded-full bg-pink-400"></div>
             {/* name and followers */}
             <div className="flex flex-col justify-center pl-3 font-montserrat">
-              <p className="text-2xl">{author}</p>
+              {/* author name */}
+              <p className=" text-lg md:text-2xl">{author}</p>
               <p>0 followers</p>
             </div>
           </div>
@@ -121,7 +122,7 @@ const PageById = ({ params }: { params: any }) => {
         </div>
         <div className="px-6 md:px-24 pt-4">
           <p className="font-bold text-lg">Summary</p>
-          <p className="   ">
+          <p className="text-base">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, ex
             modi omnis nemo explicabo sint debitis voluptatum ad? Quasi iusto
             mollitia sit excepturi eaque laboriosam maxime molestias ab eligendi
