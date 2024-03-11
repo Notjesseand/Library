@@ -36,7 +36,7 @@ const PageById = ({ params }: { params: any }) => {
   };
 
   return (
-    <div className="pb-8 md:pb-20 ">
+    <div className="pb-20">
       {open && (
         <iframe
           title="PDF Viewer"
@@ -52,7 +52,7 @@ const PageById = ({ params }: { params: any }) => {
         {/* blur */}
         <div className="backdrop-blur-2xl pb-6">
           {/* navigation */}
-          <div className="grid grid-cols-3 text-center pt-9">
+          <div className="grid grid-cols-3 text-center pt-4 md:pt-9">
             <div className="sm:pl-10 pl-3">
               <Link href="/browse">
                 <IoIosArrowBack className="text-4xl cursor-pointer" />
