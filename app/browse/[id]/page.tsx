@@ -32,7 +32,10 @@ const PageById = ({ params }: { params: any }) => {
 
   return (
     <div className="pb-20 ">
-      <div className="w-full bg-cover bg-center" style={{backgroundImage : `url(${imageurl})`}}>
+      <div
+        className="w-full bg-cover bg-center"
+        style={{ backgroundImage: `url(${imageurl})` }}
+      >
         {/* blur */}
         <div className="backdrop-blur-2xl pb-6">
           {/* navigation */}
@@ -42,7 +45,7 @@ const PageById = ({ params }: { params: any }) => {
                 <IoIosArrowBack className="text-4xl cursor-pointer" />
               </Link>
             </div>
-            <div className="text-2xl font-custom text-gray-300 pt-10">
+            <div className="text-2xl font-custom pt-10">
               {filteredFavourites[0].title}{" "}
             </div>
             <div className="flex justify-end sm:pr-11 pr-5">

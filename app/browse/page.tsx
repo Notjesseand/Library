@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import BrowseCarousel from "@/components/browseCarousel";
+import BrowseCarousel from "./browseCarousel";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import Categories from "@/components/categoriesCarousel";
 import Footer from "./footer";
