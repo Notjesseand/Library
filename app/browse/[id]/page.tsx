@@ -52,18 +52,21 @@ const PageById = ({ params }: { params: any }) => {
         {/* blur */}
         <div className="backdrop-blur-2xl pb-6">
           {/* navigation */}
-          <div className="grid grid-cols-3 text-center pt-4 md:pt-9">
+          <div className="text-center flex justify-between pt-5 md:pt-9 ">
             <div className="sm:pl-10 pl-3">
               <Link href="/browse">
                 <IoIosArrowBack className="text-4xl cursor-pointer" />
               </Link>
             </div>
-            <div className="text-2xl font-custom pt-10">
+            {/* <div className="text-2xl font-custom pt-10">
               {filteredFavourites[0].title}{" "}
-            </div>
-            <div className="flex justify-end sm:pr-11 pr-5">
+            </div> */}
+            <div className="flex justify-end sm:pr-11 pr-4">
               <Sidebar />
             </div>
+          </div>
+          <div className="text-2xl font-custom pt-10 px-5 text-center">
+            {filteredFavourites[0].title}{" "}
           </div>
 
           {/* Book Image  */}
