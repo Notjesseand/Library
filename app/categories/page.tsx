@@ -8,6 +8,13 @@ import Link from "next/link";
 import Sidebar from "@/components/sidebar";
 
 export default function Page() {
+   const categorieswithId = categories.map((item, index) => ({
+     ...item,
+     id: item.category.toLowerCase().replace(/\s+/g, "_"),
+   }));
+
+   console.log(categorieswithId, "data");
+
   const [open, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!open);
@@ -54,9 +61,9 @@ export default function Page() {
 
         <div className="grid sm:grid-cols-3 grid-cols-2 pt-5 gap-4 gap-y-8 md:gap-7">
           {categories.map((item, index) => (
-            <div
+            <Link href={`/categories/${item.category}`}
             key={index}
-              className="bg-pink-400 h-36   md:h-64   w-full rounded-lg flex flex-col justify-end bg-cover bg-center backdrop-blur-3xl relative cursor-pointer"
+              className="bg-pink-400 h-36 md:h-64 w-full rounded-lg flex flex-col justify-end bg-cover bg-center backdrop-blur-3xl relative cursor-pointer"
               style={{ backgroundImage: `url(${item.image})` }}
             >
               {/* overlay */}
@@ -64,11 +71,9 @@ export default function Page() {
               <p className="font-montserrat text-xl capitalize md:px-10 py-5 px-5 md:py-7 z-20 text-white">
                 {item.category}
               </p>
-            </div>
+            </Link>
           ))}
-          {/* <div className="bg-pink-400 h-64   w-full rounded-lg flex flex-col justify-end">
-            <p>jaja</p>
-          </div> */}
+         
         </div>
       </div>
     </div>

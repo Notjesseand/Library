@@ -110,7 +110,7 @@ export const categories = [
     image: "/biology.jpg",
   },
   {
-    category: "black history",
+    category: "black-history",
     image: "/black.jpg",
   },
   {

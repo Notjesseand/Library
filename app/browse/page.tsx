@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import BrowseCarousel from "./browseCarousel";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import Categories from "@/components/categoriesCarousel";
+import Categories from "../categories/categoriesCarousel"
 import Footer from "./footer";
 import Sidebar from "@/components/sidebar";
 import { RxCross2 } from "react-icons/rx";
@@ -25,7 +25,9 @@ export default function Page() {
           </div>
         </div>
         <div className="w-full">
-          <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">Browse</p>
+          <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">
+            Browse
+          </p>
         </div>
         <div className="flex justify-end">
           {open ? (
@@ -67,10 +69,13 @@ export default function Page() {
 
       <div className="px-6 sm:px-16 justify-between flex pt-6">
         <p className="font-montserrat text-xl font-semibold">Categories</p>
-        <p className="text-gray-400 font-montserrat flex items-center text-lg cursor-pointer hover:text-orange-600">
+        <Link
+          href="/categories"
+          className="text-gray-400 font-montserrat flex items-center text-lg cursor-pointer hover:text-orange-600"
+        >
           See all
           <MdOutlineArrowForwardIos className="text-lg ml-1 mt-[1px] flex" />
-        </p>
+        </Link>
       </div>
       <Categories />
 
