@@ -59,7 +59,7 @@ const BrowseCarousel = () => {
             style={{ backgroundImage: `url(${item.image})` }}
           ></Link>
           <Link href={`/browse/${item.id}`}>
-            <p className="mt-3 capitalize text-xl">{item.title}</p>
+            <p className="mt-3 capitalize text-base md:text-xl">{item.title}</p>
             <p className="capitalize text-base text-gray-400">{item.author}</p>
           </Link>
         </SwiperSlide>
