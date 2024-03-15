@@ -1,11 +1,25 @@
 import React from "react";
+import { authors } from "@/app/data";
 import { IoIosArrowBack } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { IoSearchOutline } from "react-icons/io5";
 import Link from "next/link";
 import { PiDotsThreeOutlineVerticalLight } from "react-icons/pi";
 
-export default function Page() {
+export default function PageById({ params }: { params: any }) {
+  const authorsWithId = authors.map((item, index) => ({
+    ...item,
+    id: item.author.toLowerCase().replace(/\s+/g, ""),
+  }));
+  const filteredAuthors = authorsWithId.filter((item) => item.id === params.id);
+
+  console.log(filteredAuthors[0].id);
+
+  const author = filteredAuthors[0].author
+  const tags = filteredAuthors[0].tags
+  const image = filteredAuthors[0].image
+  const followers = filteredAuthors[0].followers
+
   return (
     <div className="pb-20">
       <div className="flex-shrink-0 pb-8 relative bg-[url(/image2.jpg)] bg-cover sm:bg-contain bg-top ">
@@ -32,17 +46,17 @@ export default function Page() {
           {/* profile */}
           <div className="flex items-center justify-center">
             <img
-              src="profile.jpg"
+              src={image}
               className="h-44 rounded-full aspect-square mx-4"
             />{" "}
           </div>
           {/* name and followers */}
           <div className=" justify-center text-center">
-            <p className="text-center mt-1 text-lg">Amanda Lockwood</p>
+            <p className="text-center mt-1 text-lg">{author}</p>
             <p className="cursor-pointer hover:text-deep-orange-500  inline-block">
               0 books
             </p>
-            <p className="text-center">2 Followers</p>
+            <p className="text-center"> {followers} Followers</p>
             <button className="flex mx-auto px-12 rounded border-white py-1.5 border-[1.4px] mt-4 hover:bg-black hover:border-deep-orange-500 ">
               Follow
             </button>
@@ -53,7 +67,7 @@ export default function Page() {
         {/* genres */}
         <p className="z-10 relative font-semibold m-3">Genres</p>
         <div className="space-y-3">
-          {["Fiction", "Science Fiction", "Mystery", "Horror", "Romance"].map(
+          {tags.map(
             (item, index) => (
               <div
                 key={index}
