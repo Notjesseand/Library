@@ -22,7 +22,7 @@ const authorsCarousel = () => {
 
   return (
     <Swiper
-      spaceBetween={30}
+      spaceBetween={22}
       // slidesPerView={3}
       breakpoints={{
         350: {
