@@ -27,7 +27,7 @@ const PageById = ({ params }: { params: any }) => {
   const [addToLibrary, setAddToLibrary] = useState(false);
   const toggleAddToLib = () => {
     setAddToLibrary(!addToLibrary);
-    console.log("tezting")
+    console.log("tezting");
   };
 
   const imageurl = filteredFavourites[0].image;
@@ -52,34 +52,37 @@ const PageById = ({ params }: { params: any }) => {
       )}
 
       <div
-        className="w-full bg-cover bg-center"
+        className="w-full bg-cover bg-center relative"
         style={{ backgroundImage: `url(${imageurl})` }}
       >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+
         {/* blur */}
-        <div className="backdrop-blur-2xl pb-6">
+        <div className="backdrop-blur-2xl pb-6 relative">
           {/* navigation */}
-          <div className="text-center flex justify-between pt-5 md:pt-9 ">
+          <div className="text-center flex justify-between pt-5 md:pt-9 z-50 ">
             <div className="sm:pl-10 pl-3">
               <Link href="/browse">
                 <IoIosArrowBack className="text-4xl cursor-pointer" />
               </Link>
             </div>
-            {/* <div className="text-2xl font-custom pt-10">
-              {filteredFavourites[0].title}{" "}
-            </div> */}
+
             <div className="flex justify-end sm:pr-11 pr-4">
               <Sidebar />
             </div>
           </div>
-          <div className="text-2xl font-custom pt-10 px-5 text-center">
-            {filteredFavourites[0].title}{" "}
+
+          <div className="text-2xl font-custom pt-10 px-5 text-center z-50">
+            {filteredFavourites[0].title}
           </div>
 
-          {/* Book Image  */}
+          {/* Book Image */}
           <div
             className="cursor-pointer flex mx-auto h-64 w-52 bg-center mt-4 rounded bg-cover"
             style={{ backgroundImage: `url(${imageurl})` }}
           ></div>
+
           {/* Author */}
           <p className="text-2xl text-center mt-1"> {author} </p>
         </div>
@@ -104,7 +107,7 @@ const PageById = ({ params }: { params: any }) => {
               toast({
                 title: "Success",
                 description: "Added to Library",
-              }); 
+              });
             }}
           >
             {addToLibrary ? "Remove from Library" : "Add to Library"}
