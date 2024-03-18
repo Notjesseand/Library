@@ -24,6 +24,12 @@ const PageById = ({ params }: { params: any }) => {
     setFollowing(!following);
   };
 
+  const [addToLibrary, setAddToLibrary] = useState(false);
+  const toggleAddToLib = () => {
+    setAddToLibrary(!addToLibrary);
+    console.log("tezting")
+  };
+
   const imageurl = filteredFavourites[0].image;
   const author = filteredFavourites[0].author;
   const tags = filteredFavourites[0].tags;
@@ -85,22 +91,23 @@ const PageById = ({ params }: { params: any }) => {
         <div className="pt-4 flex justify-center gap-3 ;sm:gap-10">
           {/* read button */}
           <button
-            className="text-ba  md:text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]"
+            className="text-white  md:text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]"
             onClick={toggleBook}
           >
             Read{" "}
           </button>
 
           <button
-            className="text-base md:text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
+            className="text-base hover:text-white md:text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
             onClick={() => {
+              toggleAddToLib;
               toast({
                 title: "Success",
                 description: "Added to Library",
-              });
+              }); 
             }}
           >
-            Add to Library{" "}
+            {addToLibrary ? "Remove from Library" : "Add to Library"}
           </button>
         </div>
         {/* Metadata */}
@@ -118,7 +125,7 @@ const PageById = ({ params }: { params: any }) => {
           </div>
           <button
             onClick={toggle}
-            className=" justify-end px-6 py-2 bg-[#527853] md:hover:border-deep-orange-500 border-2 hover:bg-transparent border-transparent  rounded-md"
+            className="text-white justify-end px-6 py-2 bg-[#527853] md:hover:border-deep-orange-500 border-2 hover:bg-transparent border-transparent  rounded-md"
           >
             {following ? "Unfollow" : "Follow"}
           </button>
@@ -149,7 +156,7 @@ const PageById = ({ params }: { params: any }) => {
           <div className="flex gap-2 sm:gap-4 pt-5">
             {tags.map((item, index) => (
               <button
-                className="bg-[#183D3D] rounded-full px-6 py-2 border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600"
+                className="bg-[#183D3D] rounded-full px-6 py-1 md:py-1.5 text-white border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600"
                 key={index}
               >
                 {item}

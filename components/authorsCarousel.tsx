@@ -53,14 +53,14 @@ const authorsCarousel = () => {
           <Link
             href={`/author/${String(item.author)
               .toLowerCase()
-              .replace(/\s+/g, "")}`}
+              .replace(/\s+/g, "_")}`}
             className="aspect-square flex sm:h-56 bg-gray-500 bg-cover w-11/12 sm:w-56 bg-center mx-auto rounded-full"
             style={{ backgroundImage: `url(${item.image})` }}
           ></Link>
           <Link
             href={`/author/${String(item.author)
               .toLowerCase()
-              .replace(/\s+/g, "")}`}
+              .replace(/\s+/g, "_")}`}
             className="mt-3 capitalize text-base font-custom md:text-xl"
           >
             {item.author}

@@ -1,9 +1,19 @@
-import React from 'react'
-import Header from '@/components/header'
-import {IoIosHeartEmpty} from 'react-icons/io'
-import {IoIosHeart} from 'react-icons/io'
+"use client";
+import React, { useState } from "react";
+import Header from "@/components/header";
+import { IoIosHeartEmpty } from "react-icons/io";
+import { IoIosHeart } from "react-icons/io";
+import { favourites } from "../data";
 
 export default function Page() {
+  const [likeStates, setLikeStates] = useState(favourites.map(() => false));
+  const toggleLike = (index) => {
+    setLikeStates((prevStates) => {
+      const newStates = [...prevStates];
+      newStates[index] = !newStates[index];
+      return newStates;
+    });
+  };
   return (
     <>
       <div className="w-full pt-8">
@@ -11,7 +21,7 @@ export default function Page() {
       </div>
       <p className="px-12 font-bold text-2xl md:text-3xl mt-7"> Favourites</p>
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 pt-6 gap-x-5 gap-y-6">
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 pt-6 gap-x-5 gap-y-6 px-5 md:px-10 ">
         {[
           { title: "The Queens Gambit", image: "drama.jpg", author: "Thugger" },
           { title: "The Queens Gambit", image: "drama.jpg" },
@@ -33,7 +43,7 @@ export default function Page() {
                 <p className="text-[15px]">{item.author}</p>
               </div>
               <div className="flex pl-1">
-                {/* {likeStates[index] ? (
+                {likeStates[index] ? (
                   <IoIosHeart
                     onClick={() => toggleLike(index)}
                     className="text-3xl cursor-pointer mr-2 text-red-600"
@@ -43,7 +53,7 @@ export default function Page() {
                     onClick={() => toggleLike(index)}
                     className="text-3xl cursor-pointer mr-2"
                   />
-                )} */}
+                )}
               </div>
             </div>
           </div>

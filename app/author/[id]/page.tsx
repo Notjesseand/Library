@@ -9,16 +9,19 @@ import { PiDotsThreeOutlineVerticalLight } from "react-icons/pi";
 export default function PageById({ params }: { params: any }) {
   const authorsWithId = authors.map((item, index) => ({
     ...item,
-    id: item.author.toLowerCase().replace(/\s+/g, ""),
+    id: item.author.toLowerCase().replace(/\s+/g, "_"),
   }));
   const filteredAuthors = authorsWithId.filter((item) => item.id === params.id);
 
   console.log(filteredAuthors[0].id);
 
-  const author = filteredAuthors[0].author
-  const tags = filteredAuthors[0].tags
-  const image = filteredAuthors[0].image
-  const followers = filteredAuthors[0].followers
+  const author = filteredAuthors[0].author;
+  const tags = filteredAuthors[0].tags;
+  const image = filteredAuthors[0].image;
+  const followers = filteredAuthors[0].followers;
+
+  //  title: "Brief Answers To The Big Questions",
+  //   category: "Physics",
 
   return (
     <div className="pb-20">
@@ -27,7 +30,7 @@ export default function PageById({ params }: { params: any }) {
         <div className="opacity-70 absolute inset-0 bg-gradient-to-b from-[#282a2a] to-black h-full m-0 p-0"></div>
         <div className="z-10 relative px-0 sm:px-12 py-10 sm:py-0 text-white">
           {/* navigation */}
-          <div className="pt-7 md:pt-9 px-4 sm:px-0 flex justify-between">
+          <div className="pt-3 md:pt-9 px-4 sm:px-0 flex justify-between">
             <Link href="/browse">
               <IoIosArrowBack className="text-4xl" />
             </Link>
@@ -45,10 +48,7 @@ export default function PageById({ params }: { params: any }) {
           </div>
           {/* profile */}
           <div className="flex items-center justify-center">
-            <img
-              src={image}
-              className="h-44 rounded-full aspect-square mx-4"
-            />{" "}
+            <img src={image} className="h-44 rounded-full aspect-square mx-4" />{" "}
           </div>
           {/* name and followers */}
           <div className=" justify-center text-center">
@@ -67,16 +67,14 @@ export default function PageById({ params }: { params: any }) {
         {/* genres */}
         <p className="z-10 relative font-semibold m-3">Genres</p>
         <div className="space-y-3">
-          {tags.map(
-            (item, index) => (
-              <div
-                key={index}
-                className="inline-block border-2 rounded-3xl  px-5 py-1.5 mr-2 sm:mr-5 hover:border-deep-orange-500 cursor-pointer"
-              >
-                {item}
-              </div>
-            )
-          )}
+          {tags.map((item, index) => (
+            <div
+              key={index}
+              className="inline-block border-2 rounded-3xl  px-5 py-1.5 mr-2 sm:mr-5 hover:border-deep-orange-500 cursor-pointer"
+            >
+              {item}
+            </div>
+          ))}
         </div>
         {/* about */}
         <p className="z-10 relative font-semibold mb-1 mt-8 md:mt-16">About </p>

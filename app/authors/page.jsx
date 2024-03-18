@@ -8,7 +8,7 @@ import { getFirestore, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth } from "../../config/firebase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import AuthorsCarousel from "./authorsCarousel";
+import AuthorsCarousel from "@/components/authorsCarousel";
 import Footer from './footer'   
 import Sidebar from "@/components/sidebar";
 import Searchbar from "@/components/searchbar";
