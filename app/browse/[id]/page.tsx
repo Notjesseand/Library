@@ -56,7 +56,7 @@ const PageById = ({ params }: { params: any }) => {
         style={{ backgroundImage: `url(${imageurl})` }}
       >
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-black opacity-40"></div>
 
         {/* blur */}
         <div className="backdrop-blur-2xl pb-6 relative">
@@ -68,7 +68,7 @@ const PageById = ({ params }: { params: any }) => {
               </Link>
             </div>
 
-            <div className="flex justify-end sm:pr-11 pr-4">
+            <div className="flex justify-end sm:pr-11 pr-4 text-white">
               <Sidebar />
             </div>
           </div>
