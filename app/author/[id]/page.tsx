@@ -30,7 +30,7 @@ export default function PageById({ params }: { params: any }) {
         <div className="opacity-70 absolute inset-0 bg-gradient-to-b from-[#282a2a] to-black h-full m-0 p-0"></div>
         <div className="z-10 relative px-0 sm:px-12 py-10 sm:py-0 text-white">
           {/* navigation */}
-          <div className="pt-3 md:pt-9 px-4 sm:px-0 flex justify-between">
+          <div className="pt-0 md:pt-9 px-4 sm:px-0 flex justify-between">
             <Link href="/browse">
               <IoIosArrowBack className="text-4xl" />
             </Link>
