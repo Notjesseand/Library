@@ -3,19 +3,101 @@ import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import BrowseCarousel from "./browseCarousel";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import Categories from "../categories/categoriesCarousel"
+import Categories from "../categories/categoriesCarousel";
 import Footer from "./footer";
 import Sidebar from "@/components/sidebar";
 import { RxCross2 } from "react-icons/rx";
 import AuthorsCarousel from "@/components/authorsCarousel";
 import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
 import Link from "next/link";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/config/firebase";
+import firebase from "firebase/app";
+import { categories } from "../data";
+
 export default function Page() {
   const [open, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!open);
     console.log(open);
   };
+
+  // const addData = async () => {
+  //   authors.forEach(async (author) => {
+  //     try {
+  //       await setDoc(doc(db, "authors", author.author), {
+  //         books: author.title,
+  //         author: author.author,
+  //         category: author.category,
+  //         image: author.image,
+  //         tags: author.tags,
+  //         followers: author.followers,
+  //       });
+  //       console.log(`${author.author} added successfully`);
+  //     } catch (error) {
+  //       console.error(`Error adding ${author.author}:`, error);
+  //     }
+  //   });
+  // };
+
+  const addData = async () => {
+    categories.forEach(async (category) => {
+      try {
+        await setDoc(doc(db, "authors", category.category), {
+          category: category.category,
+          image: category.image,
+         
+        });
+        console.log(`${category.category} added successfully`);
+      } catch (error) {
+        console.error(`Error adding ${category.category}:`, error);
+      }
+    });
+  };
+
+  // fetching data from firebase
+  interface Author {
+    books: string;
+    author: string;
+    category: string;
+    image: string;
+    tags: string[];
+    followers: string;
+  }
+
+  const fetchData = async (): Promise<Author[]> => {
+    try {
+      // Get a reference to the "Authors" collection
+      const authorsCollection = collection(db, "Authors");
+
+      // Get all documents from the "Authors" collection
+      const querySnapshot = await getDocs(authorsCollection);
+
+      // Initialize an array to store the fetched data
+      const fetchedAuthors: Author[] = [];
+
+      // Loop through each document in the querySnapshot
+      querySnapshot.forEach((doc) => {
+        // Extract the data from each document
+        const authorData = doc.data() as Author;
+        // Push the data to the fetchedAuthors array
+        fetchedAuthors.push(authorData);
+      });
+
+      // Use the fetchedAuthors array in your application
+      console.log("Fetched authors data:", fetchedAuthors);
+
+      // Return the fetchedAuthors array
+      return fetchedAuthors;
+    } catch (error) {
+      console.error("Error fetching authors data:", error);
+      // Handle errors if necessary
+      return []; // Return an empty array in case of error
+    }
+  };
+
+
   return (
     <div className="relative pb-24">
       <div className="grid grid-cols-3 pt-6 px-4 sm:px-16 relative">
@@ -103,7 +185,7 @@ export default function Page() {
         <FeaturedBooksCarousel />
       </div>
       <Link href="/continuereading">Continue Reading </Link>
-
+      <button onClick={addData}>click me!</button>
       <Footer />
     </div>
   );

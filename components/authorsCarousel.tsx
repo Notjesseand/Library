@@ -1,21 +1,48 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+"use client";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-// import required modules
-// import { Pagination, Navigation } from "swiper/modules";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
-import { authors } from "../app/data";
 import Link from "next/link";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/config/firebase";
+import firebase from "firebase/app";
 
-const authorsCarousel = () => {
-  const selectedAuthors = authors.map((item, index) => ({
+interface Author {
+  books: string;
+  author: string;
+  category: string;
+  image: string;
+  tags: string[];
+  followers: string;
+}
+
+const AuthorsCarousel = () => {
+  const [fetchedAuthors, setFetchedAuthors] = useState<Author[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const authorsCollection = collection(db, "Authors");
+        const querySnapshot = await getDocs(authorsCollection);
+        const fetchedAuthorsData: Author[] = [];
+        querySnapshot.forEach((doc) => {
+          const authorData = doc.data() as Author;
+          fetchedAuthorsData.push(authorData);
+        });
+        setFetchedAuthors(fetchedAuthorsData);
+      } catch (error) {
+        console.error("Error fetching authors data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const selectedAuthors = fetchedAuthors.map((item, index) => ({
     ...item,
     id: item.category,
   }));
@@ -45,7 +72,7 @@ const authorsCarousel = () => {
       modules={[Autoplay, Pagination]}
       className="mySwiper flex font-open gap-0"
     >
-      {authors.map((item, index) => (
+      {fetchedAuthors.map((item, index) => (
         <SwiperSlide
           key={index}
           className="flex mt-12 cursor-pointer text-center backdrop-blur-sm rounded-full"
@@ -71,4 +98,4 @@ const authorsCarousel = () => {
   );
 };
 
-export default authorsCarousel;
+export default AuthorsCarousel;

@@ -178,7 +178,7 @@ export const favourites = [
     category: "Physics",
     image: "/physics.jpg",
     tags: ["physics", "science", "space"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "Pulp Fiction",
@@ -186,7 +186,7 @@ export const favourites = [
     category: "Fiction",
     image: "/fiction.jpg",
     tags: ["drama", "fiction", "action"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "The Republic",
@@ -194,7 +194,7 @@ export const favourites = [
     category: "philosophy",
     image: "/philosophy.jpg",
     tags: ["philosophy", "plato"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "The Diary Of A Wimpy Kid",
@@ -202,7 +202,7 @@ export const favourites = [
     category: "comedy",
     image: "/comedy.jpg",
     tags: ["comedy", "coming of age", "america", "funny"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "Artificial Intelligence Basics",
@@ -210,7 +210,7 @@ export const favourites = [
     category: "Science",
     image: "/tech.jpg",
     tags: ["tech", "computer", "artificial intelligence"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "I Have A Dream",
@@ -218,7 +218,7 @@ export const favourites = [
     category: "civil",
     image: "/civil.jpg",
     tags: ["human rights", "inspirational", "social justice"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "The Queens Gambit",
@@ -226,7 +226,7 @@ export const favourites = [
     category: "drama",
     image: "/drama.jpg",
     tags: ["chess", "drama", "games"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "The Simple Path to Wealth",
@@ -234,7 +234,7 @@ export const favourites = [
     category: "Finance",
     image: "/finance.jpg",
     tags: ["wealth", "finance", "economics", "money"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "The Little Dictionary Of Fashion",
@@ -242,7 +242,7 @@ export const favourites = [
     category: "Fashion",
     image: "/fashion.jpg",
     tags: ["fashion", "dior", "style"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "The Culture Map",
@@ -250,7 +250,7 @@ export const favourites = [
     category: "culture",
     image: "/culture.jpg",
     tags: ["culture", "arts", "people"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "Deep Nutrition",
@@ -258,7 +258,7 @@ export const favourites = [
     category: "health",
     image: "/health.jpg",
     tags: ["health", "nutrition"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "Secret War In South Asia",
@@ -266,7 +266,7 @@ export const favourites = [
     category: "war",
     image: "/war.jpg",
     tags: ["history", "war", "asia"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "Software Engineering At Google",
@@ -274,7 +274,7 @@ export const favourites = [
     category: "computer",
     image: "/software.jpg",
     tags: ["computer", "tech", "software", "programming"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
   {
     title: "Law",
@@ -282,7 +282,7 @@ export const favourites = [
     category: "law",
     image: "/law2.jpg",
     tags: ["arts", "law"],
-    url: "/neck.pdf"
+    url: "/neck.pdf",
   },
 ];
 
@@ -402,3 +402,4 @@ export const authors = [
     followers: "100k",
   },
 ];
+

@@ -61,7 +61,7 @@ const Interests = () => {
       {itemsToShow >= categories.length && (
         <div className="text-center">
           <Link
-            href="favourites"
+            href="/browse"
             className="inline-block text-black bg-white mt-14 cursor-pointer px-10 text-lg border-gray-500 border py-3 rounded-lg mx-auto"
           >
             Continue
