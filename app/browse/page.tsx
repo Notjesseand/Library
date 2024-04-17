@@ -184,8 +184,8 @@ export default function Page() {
       <div>
         <FeaturedBooksCarousel />
       </div>
-      <Link href="/continuereading">Continue Reading </Link>
-      <button onClick={addData}>click me!</button>
+      {/* <Link href="/continuereading">Continue Reading </Link>
+      <button onClick={addData}>click me!</button> */}
       <Footer />
     </div>
   );
