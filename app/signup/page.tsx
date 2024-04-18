@@ -148,12 +148,12 @@ export default function Page() {
               {loading ? <Spinner className="mx-auto" /> : "Sign up"}
             </button>
 
-            <p className="text-center mt-1">
+            {/* <p className="text-center mt-1">
               or{" "}
               <span className="text-blue-600 cursor-pointer">
                 sign up with Google
               </span>
-            </p>
+            </p> */}
             {/* sign up prompt */}
             <p className="text-center mt-9 sm:mt-4 ">
               Already have an account?{" "}

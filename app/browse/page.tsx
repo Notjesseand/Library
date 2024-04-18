@@ -15,6 +15,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import firebase from "firebase/app";
 import { categories } from "../data";
+import DesktopFooter from "@/components/desktopFooter";
 
 export default function Page() {
   const [open, setOpen] = useState(false);
@@ -47,7 +48,6 @@ export default function Page() {
         await setDoc(doc(db, "authors", category.category), {
           category: category.category,
           image: category.image,
-         
         });
         console.log(`${category.category} added successfully`);
       } catch (error) {
@@ -97,9 +97,8 @@ export default function Page() {
     }
   };
 
-
   return (
-    <div className="relative pb-24">
+    <div className="relative pb-24 md:pb-0">
       <div className="grid grid-cols-3 pt-6 px-4 sm:px-16 relative">
         <div>
           <div className="md:block ">
@@ -187,6 +186,7 @@ export default function Page() {
       {/* <Link href="/continuereading">Continue Reading </Link>
       <button onClick={addData}>click me!</button> */}
       <Footer />
+      <DesktopFooter />
     </div>
   );
 }
