@@ -37,7 +37,7 @@ export default function desktopFooter() {
 
       <p className=" flex text-center justify-center pt-1">
         {" "}
-        &copy;Jesse's Digital Library
+        &copy;Jesse&apos;s Digital Library
       </p>
     </div>
   );
