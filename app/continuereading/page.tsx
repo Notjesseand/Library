@@ -47,46 +47,7 @@ export default function Page() {
   }
   return (
     <>
-      {username ? (
-        <div className="">
-          {/* navbar */}{" "}
-          <div className="flex justify-between px-7 sm:px-16 pt-8">
-            <FaBell className="text-3xl hover:text-orange-600 cursor-pointer" />{" "}
-            <div className="flex space-x-6">
-              {" "}
-              <PiMagnifyingGlass className="text-3xl hover:text-orange-600 cursor-pointer" />{" "}
-              <AiOutlineBars className="text-3xl hover:text-orange-600 cursor-pointer" />{" "}
-            </div>{" "}
-          </div>{" "}
-          <div>
-            <p className="font-custom px-14 mt-9 text-lg">Hi, {username}</p>{" "}
-            <p className="font-custom px-14 gont-bold text-4xl">
-              Continue reading
-            </p>{" "}
-          </div>
-          <button
-            className="px-8 py-3 font-custom rounded-md bg-[#153a1d] text-white mx-14 mt-6"
-            onClick={toggle}
-          >
-            click me
-          </button>{" "}
-          {/* {read ? (
-//         <p>jajajja</p>
-//       ) : (
-//         <iframe
-//           src={`https://docs.google.com/gview?url=${encodeURIComponent(
-//             window.location.origin + pdfUrl
-//           )}&embedded=true`}
-//           width="100%"
-//           height="500px"
-//           title="Google Docs Viewer"
-//         />
-//       )} */}{" "}
-        </div>
-      ) : (
-        // router.push("/signup")
-        ""
-      )}
+     
     </>
   );
 }

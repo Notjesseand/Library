@@ -84,7 +84,7 @@ const PageById = ({ params }: { params: any }) => {
           ></div>
 
           {/* Author */}
-          <p className="text-2xl text-center mt-1"> {author} </p>
+          <p className="text-2xl text-center mt-1"> by {author} </p>
         </div>
       </div>
 
@@ -118,12 +118,13 @@ const PageById = ({ params }: { params: any }) => {
         <hr className="mt-5" />
         <div className="flex justify-between pt-3 px-8 md:px-24 items-center">
           <div className="flex ">
-            <div className="h-24 w-24 rounded-full bg-pink-400"></div>
+            <div className="h-24 w-24 rounded-full bg-[url(/dior-profile.png)] bg-contain"></div>
+
             {/* name and followers */}
             <div className="flex flex-col justify-center pl-3 font-montserrat">
               {/* author name */}
               <p className=" text-lg md:text-2xl">{author}</p>
-              <p>0 followers</p>
+              <p>70k followers</p>
             </div>
           </div>
           <button
@@ -136,24 +137,15 @@ const PageById = ({ params }: { params: any }) => {
         <div className="px-6 md:px-24 pt-4">
           <p className="font-bold text-lg">Summary</p>
           <p className="text-base">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, ex
-            modi omnis nemo explicabo sint debitis voluptatum ad? Quasi iusto
-            mollitia sit excepturi eaque laboriosam maxime molestias ab eligendi
-            cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Tempora impedit tempore quo voluptates molestias, ipsam accusamus
-            quis maiores labore hic iste magnam doloribus explicabo, tenetur
-            repudiandae error, neque maxime laborum. Laudantium, consectetur
-            natus enim eum maiores praesentium provident. In vero ratione dicta
-            illum, deserunt corrupti suscipit, saepe illo aperiam quis esse
-            libero iusto nulla quo itaque. Adipisci maxime possimus rem! Natus
-            expedita assumenda molestias deleniti explicabo dolores quibusdam
-            adipisci vero. Reprehenderit nostrum nesciunt illum quibusdam,
-            accusantium ex minima nihil cumque aut quam libero, fuga nam
-            deserunt dolore tempore a ullam. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Atque odio placeat laborum quae
-            tenetur repellendus quidem quia laudantium voluptatum velit
-            reiciendis itaque amet, in, optio sed voluptate, iste doloribus
-            necessitatibus?{" "}
+            The Dictionary of Fashion by Christian Dior is a comprehensive guide
+            that delves into the rich history, terminology, and iconic styles
+            within the world of fashion. Written by the legendary fashion
+            designer himself, this authoritative reference book provides
+            insights into the evolution of fashion from past to present,
+            exploring key concepts, trends, and influences that have shaped the
+            industry. From haute couture to ready-to-wear, Dior offers
+            invaluable knowledge and expertise, making this book a must-read for
+            fashion enthusiasts, historians, and industry professionals alike.
           </p>
           {/* tags */}
           <div className="flex gap-2 sm:gap-4 pt-5">
