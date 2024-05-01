@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import BrowseCarousel from "./browseCarousel";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
@@ -16,6 +16,12 @@ import { db } from "@/config/firebase";
 import firebase from "firebase/app";
 import { categories } from "../data";
 import DesktopFooter from "@/components/desktopFooter";
+import BrowseCarousel2 from "@/components/browseCarousel2";
+import { fetchBookById } from "@/components/fetchBooks";
+import { Spinner } from "@material-tailwind/react";
+import axios from "axios";
+
+import imgplace from "@/public/booklogo.png"
 
 export default function Page() {
   const [open, setOpen] = useState(false);
@@ -24,23 +30,43 @@ export default function Page() {
     console.log(open);
   };
 
-  // const addData = async () => {
-  //   authors.forEach(async (author) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredBooks, setFilteredBooks] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
   //     try {
-  //       await setDoc(doc(db, "authors", author.author), {
-  //         books: author.title,
-  //         author: author.author,
-  //         category: author.category,
-  //         image: author.image,
-  //         tags: author.tags,
-  //         followers: author.followers,
-  //       });
-  //       console.log(`${author.author} added successfully`);
+  //       // Fetch books based on the search query
+  //       const books = await fetchBookById(searchQuery);
+  //       setFilteredBooks(books);
   //     } catch (error) {
-  //       console.error(`Error adding ${author.author}:`, error);
+  //       console.error("Error fetching books:", error);
   //     }
-  //   });
-  // };
+  //   };
+
+  //   fetchData();
+  // }, [searchQuery]);
+
+  const [search, setSearch] = useState("");
+  const [bookData, setData] = useState([]);
+  const [searchBook, setDataSearch] = useState([]);
+
+  useEffect(() => {
+    const searchBook = () => {
+      axios
+        .get(
+          `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=AIzaSyC6vXLjqb1qYL49z7ZB4Rt4MZcDwTl15uI&maxResults=40`
+        )
+        .then((res) => setDataSearch(res.data.items))
+        .catch((err) => console.log(err));
+    };
+    searchBook();
+  }, [searchQuery]);
+
+  console.log(bookData);
+  console.log(searchBook, "sea");
+  console.log(searchQuery);
+  console.log(open, "open");
 
   const addData = async () => {
     categories.forEach(async (category) => {
@@ -97,6 +123,8 @@ export default function Page() {
     }
   };
 
+  const placeholder = ""
+
   return (
     <div className="relative pb-24 md:pb-0">
       <div className="grid grid-cols-3 pt-6 px-4 sm:px-16 relative">
@@ -106,9 +134,10 @@ export default function Page() {
           </div>
         </div>
         <div className="w-full">
-          <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">
+          {/* <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">
             Browse
-          </p>
+          </p> */}
+          <img src="nacos.png" alt="" className="h-20 flex mx-auto" />
         </div>
         <div className="flex justify-end">
           {open ? (
@@ -126,12 +155,14 @@ export default function Page() {
       </div>
       {/* searchbar */}
       {open && (
-        <div className="absolute w-full mt-5 flex justify-center z-50 h-full backdrop-blur-lg">
-          <div className="bg-white flex bg-transparent w-11/12 sm:w-3/5 mx-auto justify-center sm:mx-16 border-2 h-14 border-blue-900 rounded-full sm:px-1 mt-8">
+        <div className="absolute w-full mt-5 justify-center z-50 h-full backdrop-blur-lg mx-auto">
+          <div className="bg-white flex bg-transparent w-11/12 sm:w-[5/6] mx-auto justify-center sm:mx-16 border-2 h-14 border-blue-900 rounded-full sm:px-1 mt-8">
             <input
               type="search"
               placeholder="Title, Author, or Keywords"
-              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg py-3 sm:px-4 sm:text-xl font-montserrat mx-auto w-full px-3 sm:w-full flex  border-none rounded-full cursor:black bg-white text-gray-800"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="placeholder:normal-case  lowercase outline-none  placeholder-gray-600 placeholder:text-base text-lg py-3 sm:px-4 sm:text-xl font-montserrat mx-auto w-full px-3 sm:w-full flex  border-none rounded-full cursor:black bg-white text-gray-800 justify-center "
             />
             <div className="flex-col justify-center flex items-center rounded-lg pr-2">
               <IoSearchOutline
@@ -140,12 +171,73 @@ export default function Page() {
               />
             </div>
           </div>
+          {searchQuery !== "" &&
+            (searchBook && searchBook.length > 0 ? (
+              <div className="grid grid-cols-4 gap-4 w-full mt-10">
+                {searchBook.map((item, index) => (
+                  // grid
+                  <div>
+                    <div
+                      className="h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-100"
+                      style={{
+                        backgroundImage: `url(${
+                          item.volumeInfo?.imageLinks?.thumbnail || imgplace
+                        })`,
+                      }}
+                    ></div>
+                    <Link href={`/browse/google/${item.id}`}>
+                      <p className="mt-3 capitalize text-xl text-center">
+                        {item.volumeInfo.title}
+                      </p>
+                      <p className="capitalize text-base text-gray-400 text-center">
+                        {item.volumeInfo.authors}
+                      </p>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div>
+                <h4>no books with {searchQuery} found</h4>
+              </div>
+            ))}
         </div>
       )}
 
       {/* end of searchbar */}
       <div className="px-5">
+        {/* {searchQuery !== "" &&
+          (searchBook && searchBook.length > 0 ? (
+            <div>
+              {searchBook.map((item, index) => (
+                // grid
+                <div className="grid grid-cols-4 gap-4">
+                  <div
+                    key={index}
+                    className=" mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm   relative "
+                    style={{ backgroundImage: "/drama.jpg" }}
+                  >
+                    <div
+                      className="h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-600"
+                      style={{ backgroundImage: `url(${item.thumbnail})` }}
+                    ></div>
+                    <Link href={`/browse/google/${item.id}`}>
+                      <p className="mt-3 capitalize text-xl">{item.volumeInfo.title}</p>
+                      <p className="capitalize text-base text-gray-400">
+                        {item.authors}
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>
+              <h4>no books with {searchQuery} found</h4>
+            </div>
+          ))} */}
         <BrowseCarousel />
+        <BrowseCarousel2 />
       </div>
 
       <div className="px-6 sm:px-16 justify-between flex pt-6">

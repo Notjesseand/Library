@@ -2,27 +2,28 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { PiDotsThreeOutlineLight } from "react-icons/pi";
-import FeaturedBooksCarousel from "./featuredBooksCarousel";
+import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
 import Link from "next/link";
 import Sidebar from "@/components/sidebar";
-import Footer from "../footer";
+import Footer from "../../footer";
 import { favourites } from "@/app/data";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchBookById } from "@/components/fetchBooks";
 import { Spinner } from "@material-tailwind/react";
+import BrowseCarousel2 from "@/components/browseCarousel2";
 
 const PageById = ({ params }: { params: any }) => {
   console.log(params);
-  const favouritesWithId = favourites.map((item, index) => ({
-    ...item,
-    id: item.title.toLowerCase().replace(/\s+/g, "_"),
-  }));
-  const filteredFavourites = favouritesWithId.filter(
-    (item) => item.id === params.id
-  );
+  // const favouritesWithId = favourites.map((item, index) => ({
+  //   ...item,
+  //   id: item.title.toLowerCase().replace(/\s+/g, "_"),
+  // }));
+  // const filteredFavourites = favouritesWithId.filter(
+  //   (item) => item.id === params.id
+  // );
 
   // API data
-  const [bookData, setBookData] = useState(null);
+  const [bookData, setBookData] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,11 +38,12 @@ const PageById = ({ params }: { params: any }) => {
     fetchData();
   }, [params.id]);
 
-  
+  console.log(bookData);
 
-  const imageurl = filteredFavourites[0].image || "" ;
-  const author = filteredFavourites[0].author || "";
-  const tags = filteredFavourites[0].tags || "";
+  const imageurl = bookData && bookData[0].thumbnail;
+  const author = bookData && bookData[0].authors;
+  const tags = "";
+  const description = bookData && bookData[0].description
 
   const [following, setFollowing] = useState(false);
   const toggle = () => {
@@ -73,7 +75,7 @@ const PageById = ({ params }: { params: any }) => {
       {open && (
         <iframe
           title="PDF Viewer"
-          src={filteredFavourites[0].url}
+          // src={filteredFavourites[0].url}
           className="h-screen w-screen absolute z-50 top-0 "
         />
       )}
@@ -100,8 +102,9 @@ const PageById = ({ params }: { params: any }) => {
             </div>
           </div>
 
+          {/* title */}
           <div className="text-2xl font-custom pt-10 px-5 text-center z-50">
-            {filteredFavourites[0].title}
+            {bookData[0].title}
           </div>
 
           {/* Book Image */}
@@ -125,7 +128,7 @@ const PageById = ({ params }: { params: any }) => {
             onClick={toggleBook}
           >
             Read{" "}
-          </button> 
+          </button>
 
           <button
             className="text-base hover:text-white md:text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
@@ -145,7 +148,8 @@ const PageById = ({ params }: { params: any }) => {
         <hr className="mt-5" />
         <div className="flex justify-between pt-3 px-8 md:px-24 items-center">
           <div className="flex ">
-            <div className="h-24 w-24 rounded-full bg-[url(/dior-profile.png)] bg-contain"></div>
+            {/* <div className="h-24 w-24 rounded-full bg-[url(/dior-profile.png)] bg-contain"></div> */}
+            <img src={imageurl} className="h-24 w-24 rounded-full bg-contain" alt="" />
 
             {/* name and followers */}
             <div className="flex flex-col justify-center pl-3 font-montserrat">
@@ -164,30 +168,24 @@ const PageById = ({ params }: { params: any }) => {
         <div className="px-6 md:px-24 pt-4">
           <p className="font-bold text-lg">Summary</p>
           <p className="text-base">
-            The Dictionary of Fashion by Christian Dior is a comprehensive guide
-            that delves into the rich history, terminology, and iconic styles
-            within the world of fashion. Written by the legendary fashion
-            designer himself, this authoritative reference book provides
-            insights into the evolution of fashion from past to present,
-            exploring key concepts, trends, and influences that have shaped the
-            industry. From haute couture to ready-to-wear, Dior offers
-            invaluable knowledge and expertise, making this book a must-read for
-            fashion enthusiasts, historians, and industry professionals alike.
+            {description}
           </p>
           {/* tags */}
           <div className="flex gap-2 sm:gap-4 pt-5">
-            {tags.map((item, index) => (
+            {/* {tags.map((item, index) => (
               <button
                 className="bg-[#183D3D] rounded-full px-6 py-1 md:py-1.5 text-white border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600"
                 key={index}
               >
                 {item}
               </button>
-            ))}
+            ))} */}
           </div>
 
           {/* featuredbooks */}
-          <FeaturedBooksCarousel />
+          <p className="text-center text-lg mt-10">More Books</p>
+
+          <BrowseCarousel2/>
         </div>
       </div>
       <Footer />
