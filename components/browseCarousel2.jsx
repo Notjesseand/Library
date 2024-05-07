@@ -14,7 +14,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import { favourites } from "../app/data";
 
-export default function browseCarousel2() {
+export default function BrowseCarousel2() {
   const [open, setOpen] = useState(true);
 
   const pdf = ["/neck.pdf"];

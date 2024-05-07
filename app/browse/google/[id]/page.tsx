@@ -14,13 +14,6 @@ import BrowseCarousel2 from "@/components/browseCarousel2";
 
 const PageById = ({ params }: { params: any }) => {
   console.log(params);
-  // const favouritesWithId = favourites.map((item, index) => ({
-  //   ...item,
-  //   id: item.title.toLowerCase().replace(/\s+/g, "_"),
-  // }));
-  // const filteredFavourites = favouritesWithId.filter(
-  //   (item) => item.id === params.id
-  // );
 
   // API data
   const [bookData, setBookData] = useState<any>(null);

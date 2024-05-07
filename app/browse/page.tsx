@@ -50,6 +50,7 @@ export default function Page() {
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
   const [searchBook, setDataSearch] = useState([]);
+  // const [searchBook, setDataSearch] = useState<Book[]>([]);
 
   useEffect(() => {
     const searchBook = () => {
@@ -173,24 +174,24 @@ export default function Page() {
           </div>
           {searchQuery !== "" &&
             (searchBook && searchBook.length > 0 ? (
-              <div className="grid grid-cols-4 gap-4 w-full mt-10">
-                {searchBook.map((item, index) => (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-10">
+                {searchBook.map((item:any, index) => (
                   // grid
-                  <div>
+                  <div key={index}>
                     <div
                       className="h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-100"
                       style={{
                         backgroundImage: `url(${
-                          item.volumeInfo?.imageLinks?.thumbnail || imgplace
+                          item?.volumeInfo?.imageLinks?.thumbnail || imgplace
                         })`,
                       }}
                     ></div>
                     <Link href={`/browse/google/${item.id}`}>
                       <p className="mt-3 capitalize text-xl text-center">
-                        {item.volumeInfo.title}
+                        {item?.volumeInfo?.title}
                       </p>
                       <p className="capitalize text-base text-gray-400 text-center">
-                        {item.volumeInfo.authors}
+                        {item?.volumeInfo?.authors}
                       </p>
                     </Link>
                   </div>
