@@ -178,14 +178,15 @@ export default function Page() {
                 {searchBook.map((item:any, index) => (
                   // grid
                   <div key={index}>
-                    <div
-                      className="h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-100"
+                    
+                    <Link href={`/browse/google/${item.id}`}
+                      className="flex h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-100"
                       style={{
                         backgroundImage: `url(${
                           item?.volumeInfo?.imageLinks?.thumbnail || imgplace
                         })`,
                       }}
-                    ></div>
+                    ></Link>
                     <Link href={`/browse/google/${item.id}`}>
                       <p className="mt-3 capitalize text-xl text-center">
                         {item?.volumeInfo?.title}

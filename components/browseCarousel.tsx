@@ -53,10 +53,11 @@ const BrowseCarousel = () => {
           className=" mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm    "
           style={{ backgroundImage: "/drama.jpg" }}
         >
-          <div
-            className="h-44 sm:h-56 bg-gray-500 bg-cover w-36 sm:w-44 bg-center mx-auto rounded"
+          <Link
+            href={`/browse/${item.id}`}
+            className="flex h-44 sm:h-56 bg-gray-500 bg-cover w-36 sm:w-44 bg-center mx-auto rounded"
             style={{ backgroundImage: `url(${item.image})` }}
-          ></div>
+          ></Link>
           <Link href={`/browse/${item.id}`}>
             <p className="mt-3 capitalize text-xl">{item.title}</p>
             <p className="capitalize text-base text-gray-400">{item.author}</p>
