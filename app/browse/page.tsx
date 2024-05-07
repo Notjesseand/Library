@@ -175,11 +175,11 @@ export default function Page() {
           {searchQuery !== "" &&
             (searchBook && searchBook.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-10">
-                {searchBook.map((item:any, index) => (
+                {searchBook.map((item: any, index) => (
                   // grid
                   <div key={index}>
-                    
-                    <Link href={`/browse/google/${item.id}`}
+                    <Link
+                      href={`/browse/google/${item.id}`}
                       className="flex h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-100"
                       style={{
                         backgroundImage: `url(${
@@ -200,7 +200,10 @@ export default function Page() {
               </div>
             ) : (
               <div>
-                <h4>no books with {searchQuery} found</h4>
+                <p className="flex text-center justify-center">
+                  no books with <span className="px-2">{searchQuery}</span>{" "}
+                  found
+                </p>
               </div>
             ))}
         </div>
