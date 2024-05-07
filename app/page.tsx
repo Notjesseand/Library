@@ -54,8 +54,8 @@ export default function Home() {
             <div className="relative z-10" id="section 1">
               {/* icon and hero */}
               <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0 text-white">
-                {/* <GiBlackBook className="text-3xl sm:text-5xl " />{" "} */}
-                <img src="nacos.png" alt="" className="h-20 mt-3" />
+                <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
+                {/* <img src="nacos.png" alt="" className="h-20 mt-3" /> */}
 
                 <p className="px-3 text-3xl flex justify-center items-center sm:text-5xl text-white">
                   Digital Library

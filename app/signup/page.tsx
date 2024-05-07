@@ -100,8 +100,8 @@ export default function Page() {
           style={{ opacity: opacity }}
         ></div>
         <div className="z-10 relative px-8 sm:px-12 py-10 sm:py-0 text-white">
-          <img src="nacos.png" alt="" className="h-20 flex mt-3 mb-1" />
-          <p className="text-4xl sm:text-5xl font-bold">Welcome user</p>
+          {/* <img src="nacos.png" alt="" className="h-20 flex mt-3 mb-1" /> */}
+          <p className="text-4xl sm:text-5xl font-bold mt-3">Welcome user</p>
           <p className="mt-5">Sign up to join</p>
         </div>
       </div>

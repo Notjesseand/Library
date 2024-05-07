@@ -135,10 +135,10 @@ export default function Page() {
           </div>
         </div>
         <div className="w-full">
-          {/* <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">
+          <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">
             Browse
-          </p> */}
-          <img src="nacos.png" alt="" className="h-20 flex mx-auto" />
+          </p>
+          {/* <img src="nacos.png" alt="" className="h-20 flex mx-auto" /> */}
         </div>
         <div className="flex justify-end">
           {open ? (
