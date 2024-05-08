@@ -33,10 +33,17 @@ const PageById = ({ params }: { params: any }) => {
 
   console.log(bookData);
 
-  const imageurl = bookData && bookData[0].thumbnail;
-  const author = bookData && bookData[0].authors;
   const tags = "";
-  const description = bookData && bookData[0].description
+  const author = bookData && bookData[0].authors;
+  const description = bookData && bookData[0].description;
+  const publishedDate = bookData && bookData[0].publishedDate;
+  const category = bookData && bookData[0].categories;
+  const pageCount = bookData && bookData[0].pageCount;
+  const status = bookData && bookData[0].saleInfo;
+
+  console.log(status)
+
+  const imageurl = bookData && bookData[0].thumbnail;
 
   const [following, setFollowing] = useState(false);
   const toggle = () => {
@@ -142,13 +149,17 @@ const PageById = ({ params }: { params: any }) => {
         <div className="flex justify-between pt-3 px-8 md:px-24 items-center">
           <div className="flex ">
             {/* <div className="h-24 w-24 rounded-full bg-[url(/dior-profile.png)] bg-contain"></div> */}
-            <img src={imageurl} className="h-24 w-24 rounded-full bg-contain" alt="" />
+            <img
+              src={imageurl}
+              className="h-24 w-24 rounded-full bg-contain"
+              alt=""
+            />
 
             {/* name and followers */}
             <div className="flex flex-col justify-center pl-3 font-montserrat">
               {/* author name */}
               <p className=" text-lg md:text-2xl">{author}</p>
-              <p>70k followers</p>
+              {/* <p>70k followers</p> */}
             </div>
           </div>
           <button
@@ -160,25 +171,39 @@ const PageById = ({ params }: { params: any }) => {
         </div>
         <div className="px-6 md:px-24 pt-4">
           <p className="font-bold text-lg">Summary</p>
-          <p className="text-base">
-            {description}
-          </p>
+          <p className="text-base">{description}</p>
           {/* tags */}
-          <div className="flex gap-2 sm:gap-4 pt-5">
-            {/* {tags.map((item, index) => (
-              <button
-                className="bg-[#183D3D] rounded-full px-6 py-1 md:py-1.5 text-white border-2 border-[#183d3d] hover:bg-transparent hover:border-deep-orange-600"
-                key={index}
-              >
-                {item}
-              </button>
-            ))} */}
+          <div className=" gap-2 sm:gap-4 pt-5">
+            <p className="text-lg">
+              {" "}
+              <span className="border-b border-[#527853] mr-2">
+                {" "}
+                Published on:{" "}
+              </span>
+              {publishedDate}
+            </p>
+            <p className="text-lg">
+              <span className="border-b border-[#527853] mr-2"> Category:</span>
+              {category}
+            </p>
+            <p className="text-lg">
+              <span className="border-b border-[#527853] mr-2"> Pages:</span>
+              {pageCount}
+            </p>
+            <p className="text-lg">
+              <span className="border-b border-[#527853] mr-2"> Status:</span>
+              {status == true ? (
+                <span>Available {`(Ebook)`}</span>
+              ) : (
+                <span>Unavailable {`(Not an Ebook)`}</span>
+              )}
+            </p>
           </div>
 
           {/* featuredbooks */}
           <p className="text-center text-lg mt-10">More Books</p>
 
-          <BrowseCarousel2/>
+          <BrowseCarousel2 />
         </div>
       </div>
       <Footer />

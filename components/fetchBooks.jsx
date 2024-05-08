@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import { categories } from '@/app/data';
 
 export const fetchBookById = async (search) => {
   try {
@@ -11,6 +12,10 @@ export const fetchBookById = async (search) => {
     const books = response.data.items.map((item) => ({
       id: item.id,
       title: item.volumeInfo.title,
+      categories: item.volumeInfo.categories,
+      pageCount: item.volumeInfo.pageCount,
+      publishedDate: item.volumeInfo.publishedDate,
+      saleInfo: item.saleInfo.isEbook,
       authors: item.volumeInfo.authors || ["Unknown"],
       description: item.volumeInfo.description || "No description available",
       thumbnail:
