@@ -11,12 +11,17 @@ import { useToast } from "@/components/ui/use-toast";
 import { fetchBookById } from "@/components/fetchBooks";
 import { Spinner } from "@material-tailwind/react";
 import BrowseCarousel2 from "@/components/browseCarousel2";
+import axios from "axios";
+import { google } from "googleapis";
+import DynamicCarousel from "@/components/dynamicCarousel";
 
 const PageById = ({ params }: { params: any }) => {
   console.log(params);
 
-  // API data
+  // Fetching data about the selected book by ID
   const [bookData, setBookData] = useState<any>(null);
+  const [books, setBooks] = useState([]);
+  const [bookCategory, setBookCategory] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,19 +36,36 @@ const PageById = ({ params }: { params: any }) => {
     fetchData();
   }, [params.id]);
 
-  console.log(bookData);
+  // deconstructing data from the API
+  const id = bookData && bookData.length > 0 && bookData[0].id;
+  const author = bookData && bookData.length > 0 && bookData[0].authors;
+  const description =
+    bookData && bookData.length > 0 && bookData[0].description;
+  const publishedDate =
+    bookData && bookData.length > 0 && bookData[0].publishedDate;
+  const category = bookData && bookData.length > 0 && bookData[0].categories;
+  const pageCount = bookData && bookData.length > 0 && bookData[0].pageCount;
+  const status = bookData && bookData.length > 0 && bookData[0].saleInfo;
+  const title = bookData && bookData.length > 0 && bookData[0].title;
 
-  const tags = "";
-  const author = bookData && bookData[0].authors;
-  const description = bookData && bookData[0].description;
-  const publishedDate = bookData && bookData[0].publishedDate;
-  const category = bookData && bookData[0].categories;
-  const pageCount = bookData && bookData[0].pageCount;
-  const status = bookData && bookData[0].saleInfo;
+  console.log("this is the" + bookData);
 
-  console.log(status)
+  // fetching data based on categories
+  useEffect(() => {
+    const bookCategory = () => {
+      axios
+        .get(
+          `https://www.googleapis.com/books/v1/volumes?q=subject:${category}&key=AIzaSyC6vXLjqb1qYL49z7ZB4Rt4MZcDwTl15uI&maxResults=40`
+        )
+        .then((res) => setBookCategory(res.data.items))
+        .catch((err) => console.log(err));
+    };
+    bookCategory();
+  }, [category]);
 
-  const imageurl = bookData && bookData[0].thumbnail;
+  console.log(bookCategory);
+
+  const imageurl = bookData && bookData.length > 0 && bookData[0].thumbnail;
 
   const [following, setFollowing] = useState(false);
   const toggle = () => {
@@ -104,7 +126,7 @@ const PageById = ({ params }: { params: any }) => {
 
           {/* title */}
           <div className="text-2xl font-custom pt-10 px-5 text-center z-50">
-            {bookData[0].title}
+            {title}
           </div>
 
           {/* Book Image */}
@@ -121,17 +143,24 @@ const PageById = ({ params }: { params: any }) => {
       {/* end of header */}
       <div className="">
         {/* buttons */}
-        <div className="pt-4 flex justify-center gap-3 ;sm:gap-10">
+        <div className="pt-4 flex justify-center gap-2 px-3 sm:gap-10">
           {/* read button */}
-          <button
-            className="text-white  md:text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]"
-            onClick={toggleBook}
-          >
-            Read{" "}
-          </button>
+
+          {status == true ? (
+            <button
+              className="text-white  md:text-lg px-12 sm:px-20 py-3 rounded bg-[#527853] hover:bg-transparent border-2 border-[#527853]"
+              onClick={toggleBook}
+            >
+              Read{" "}
+            </button>
+          ) : (
+            <span className="flex items-center text-center">
+              Unavailable {`(Not an Ebook)`}
+            </span>
+          )}
 
           <button
-            className="text-base hover:text-white md:text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
+            className="text-base hover:text-white md:text-lg px-4 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
             onClick={() => {
               toggleAddToLib;
               toast({
@@ -201,9 +230,10 @@ const PageById = ({ params }: { params: any }) => {
           </div>
 
           {/* featuredbooks */}
-          <p className="text-center text-lg mt-10">More Books</p>
+          <p className="text-center text-lg mt-10">More {category} Books</p>
 
-          <BrowseCarousel2 />
+          {/* <BrowseCarousel2 /> */}
+          <DynamicCarousel variable={category} />
         </div>
       </div>
       <Footer />

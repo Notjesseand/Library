@@ -1,6 +1,6 @@
-import React from 'react'
-import axios from 'axios';
-import { categories } from '@/app/data';
+import React from "react";
+import axios from "axios";
+import { categories } from "@/app/data";
 
 export const fetchBookById = async (search) => {
   try {
