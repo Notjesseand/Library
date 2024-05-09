@@ -6,60 +6,61 @@ import { favourites } from "@/app/data";
 import { useToast } from "@/components/ui/use-toast";
 import { IoIosArrowBack } from "react-icons/io";
 import { PiDotsThreeOutlineLight } from "react-icons/pi";
+import Header from "@/components/header";
 
-
-export default function PageById({ params }: { params: any }) {
-  const categoriesWithId = categories.map((item, index) => ({
-    ...item,
-    id: item.category.toLowerCase().replace(/\s+/g, "_"),
-  }));
-  const filteredCategories = categoriesWithId.filter(
-    (item) => item.id === params.id
+async function getData(category: string) {
+  const res = await fetch(
+    `https://www.googleapis.com/books/v1/volumes?q=subject:${category}&key=AIzaSyC6vXLjqb1qYL49z7ZB4Rt4MZcDwTl15uI&maxResults=40`
   );
 
-  const image = filteredCategories[0].image;
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    console.log("Failed to fetch data");
+  }
 
+  return res.json();
+}
+
+export default async function Page({ params }: any) {
+  const data = await getData(params.id);
+  console.log(params);
+
+  // console.log(data);
   return (
-    <div>
-      {/* <p className="text-xl md:text-2xl text-center capitalize md:pt-8 pt-4 ">
-        {filteredCategories[0].category}
+    <div className="pt-9 md:pt-12">
+      <Header />
+      <p className="text-2xl text-center capitalize pt-4 md:pt-5 gradient-text font-semibold font-custom">
+        {params.id}
       </p>
-      <div
-        style={{ backgroundImage: `url(${image})` }}
-        className="flex mx-auto mt-3 rounded  h-[50vh] w-64 bg-center bg-cover"
-      ></div> */}
-      <div
-        className="w-full bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
-      >
-        {/* blur */}
-        <div className="backdrop-blur-2xl pb-6">
-          {/* navigation */}
-          <div className="text-center flex justify-between pt-5 md:pt-9 ">
-            <div className="sm:pl-10 pl-3">
-              <Link href="/browse">
-                <IoIosArrowBack className="text-4xl cursor-pointer" />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 gap-y-8 md:gap-y-12  pt-12 md:pt-20 px-3">
+        {data.items.map((item: any, index: any) => {
+          return (
+            <div
+              key={index}
+              className="text-white justify-center w-4/5 inline mx-auto"
+            >
+              <Link
+                href={`/browse/google/${item.id}`}
+                className="aspect-[3/4] justify-center w-full rounded bg-purple-300 flex mx-auto "
+                style={{
+                  backgroundImage: `url(${item.volumeInfo.imageLinks?.thumbnail})`,
+                }}
+              ></Link>
+              <Link
+                href={`/browse/google/${item.id}`}
+                className="text-center flex justify-center text-lg"
+              >
+                {item.volumeInfo.title}
+              </Link>
+              <Link
+                href={`/browse/google/${item.id}`}
+                className="text-center flex justify-center gradient-text font-custom text-lg font-medium   "
+              >
+                {item.volumeInfo.authors}
               </Link>
             </div>
-            {/* <div className="text-2xl font-custom pt-10">
-              {filteredFavourites[0].title}{" "}
-            </div> */}
-            <div className="flex justify-end sm:pr-11 pr-4">
-              <Sidebar />
-            </div>
-          </div>
-          <div className="text-2xl font-custom pt-10 px-5 text-center">
-            {filteredCategories[0].category}{" "}
-          </div>
-
-          {/* Book Image  */}
-          <div
-            className="cursor-pointer flex mx-auto h-64 w-52 bg-center mt-4 rounded bg-cover"
-            style={{ backgroundImage: `url(${image})` }}
-          ></div>
-          {/* Author */}
-          {/* <p className="text-2xl text-center mt-1"> {author} </p> */}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
