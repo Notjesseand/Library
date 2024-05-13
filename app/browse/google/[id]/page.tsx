@@ -5,7 +5,7 @@ import { PiDotsThreeOutlineLight } from "react-icons/pi";
 import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
 import Link from "next/link";
 import Sidebar from "@/components/sidebar";
-import Footer from "../../footer";
+import DesktopFooter from "@/components/desktopFooter";
 import { favourites } from "@/app/data";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchBookById } from "@/components/fetchBooks";
@@ -87,13 +87,13 @@ const PageById = ({ params }: { params: any }) => {
 
   if (!bookData) {
     return (
-      <div className="h-full flex justify-center items-center">
-        <Spinner className="mx-auto mt-[22%]" />
+      <div className="h-screen flex justify-center items-center">
+        <Spinner className="mx-auto text-3xl h-20" />
       </div>
     );
   }
   return (
-    <div className="pb-20">
+    <div className="">
       {open && (
         <iframe
           title="PDF Viewer"
@@ -236,7 +236,7 @@ const PageById = ({ params }: { params: any }) => {
           <DynamicCarousel variable={category} />
         </div>
       </div>
-      <Footer />
+      <DesktopFooter />
     </div>
   );
 };

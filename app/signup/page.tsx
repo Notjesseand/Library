@@ -60,9 +60,6 @@ export default function Page() {
         name: name,
       });
 
-      localStorage.setItem("username", name);
-
-      console.log("User signed up:", user);
       router.push("/interests");
     } catch (error: any) {
       // Handle specific error cases

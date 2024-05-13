@@ -6,14 +6,15 @@ import { IoSearchOutline } from "react-icons/io5";
 import { categories } from "../data";
 import Link from "next/link";
 import Sidebar from "@/components/sidebar";
+import DesktopFooter from "@/components/desktopFooter";
 
 export default function Page() {
-   const categorieswithId = categories.map((item, index) => ({
-     ...item,
-     id: item.category.toLowerCase().replace(/\s+/g, "_"),
-   }));
+  const categorieswithId = categories.map((item, index) => ({
+    ...item,
+    id: item.category.toLowerCase().replace(/\s+/g, "_"),
+  }));
 
-   console.log(categorieswithId, "data");
+  console.log(categorieswithId, "data");
 
   const [open, setOpen] = useState(false);
   const toggle = () => {
@@ -21,10 +22,10 @@ export default function Page() {
     console.log(open);
   };
   return (
-    <div className="pb-12">
+    <div className="">
       <div className="pt-7 md:py-9 px-4 sm:px-20 flex justify-between">
-        <Sidebar/>
-          
+        <Sidebar />
+
         {open ? (
           <RxCross2
             onClick={toggle}
@@ -61,8 +62,9 @@ export default function Page() {
 
         <div className="grid sm:grid-cols-3 grid-cols-2 pt-5 gap-4 gap-y-8 md:gap-7">
           {categories.map((item, index) => (
-            <Link href={`/categories/${item.category}`}
-            key={index}
+            <Link
+              href={`/categories/${item.category}`}
+              key={index}
               className="bg-pink-400 h-36 md:h-64 w-full rounded-lg flex flex-col justify-end bg-cover bg-center backdrop-blur-3xl relative cursor-pointer"
               style={{ backgroundImage: `url(${item.image})` }}
             >
@@ -73,9 +75,10 @@ export default function Page() {
               </p>
             </Link>
           ))}
-         
         </div>
       </div>
+
+      <DesktopFooter />
     </div>
   );
 }

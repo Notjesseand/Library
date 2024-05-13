@@ -21,7 +21,7 @@ import { fetchBookById } from "@/components/fetchBooks";
 import { Spinner } from "@material-tailwind/react";
 import axios from "axios";
 
-import imgplace from "@/public/booklogo.png"
+import imgplace from "@/public/booklogo.png";
 
 export default function Page() {
   const [open, setOpen] = useState(false);
@@ -32,25 +32,9 @@ export default function Page() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredBooks, setFilteredBooks] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       // Fetch books based on the search query
-  //       const books = await fetchBookById(searchQuery);
-  //       setFilteredBooks(books);
-  //     } catch (error) {
-  //       console.error("Error fetching books:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [searchQuery]);
-
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
   const [searchBook, setDataSearch] = useState([]);
-  // const [searchBook, setDataSearch] = useState<Book[]>([]);
 
   useEffect(() => {
     const searchBook = () => {
@@ -63,11 +47,6 @@ export default function Page() {
     };
     searchBook();
   }, [searchQuery]);
-
-  console.log(bookData);
-  console.log(searchBook, "sea");
-  console.log(searchQuery);
-  console.log(open, "open");
 
   const addData = async () => {
     categories.forEach(async (category) => {
@@ -124,7 +103,7 @@ export default function Page() {
     }
   };
 
-  const placeholder = ""
+  const placeholder = "";
 
   return (
     <div className="relative pb-24 md:pb-0">

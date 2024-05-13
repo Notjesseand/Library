@@ -28,15 +28,18 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/authorsCarousel.tsx",
-    "components/interests.jsx",
+    "components/interests.tsx",
     "app/favourites/choose/page.jsx",
     "app/authors/search/page.ts",
     "hooks/useSelected.ts",
     "components/sidebar.tsx",
-    "app/authors/page.jsx",
+    "app/authors/page.tsx",
     "app/authors/search/page.jsx",
     "app/viewpdf/page.jsx",
-    "components/featuredBooksCarousel.tsx"
-, "app/favourites/page.jsx", "app/continuereading/page.jsx", "components/fetchBooks.jsx"  ],
+    "components/featuredBooksCarousel.tsx",
+    "app/favourites/page.jsx",
+    "app/continuereading/page.jsx",
+    "components/fetchBooks.jsx"
+  ],
   "exclude": ["node_modules"]
 }

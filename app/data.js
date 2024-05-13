@@ -402,4 +402,3 @@ export const authors = [
     followers: "100k",
   },
 ];
-

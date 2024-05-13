@@ -37,9 +37,7 @@ const PageById = ({ params }: { params: any }) => {
     fetchData();
   }, [params.id]);
 
-  
-
-  const imageurl = filteredFavourites[0].image || "" ;
+  const imageurl = filteredFavourites[0].image || "";
   const author = filteredFavourites[0].author || "";
   const tags = filteredFavourites[0].tags || "";
 
@@ -63,20 +61,20 @@ const PageById = ({ params }: { params: any }) => {
 
   if (!bookData) {
     return (
-      <div className="h-full flex justify-center items-center">
-        <Spinner className="mx-auto mt-[22%]" />
+      <div className="h-screen flex justify-center items-center">
+        <Spinner className="mx-auto" />
       </div>
     );
   }
   return (
     <div className="pb-20">
-      {open && (
+      {/* {open && (
         <iframe
           title="PDF Viewer"
           src={filteredFavourites[0].url}
           className="h-screen w-screen absolute z-50 top-0 "
         />
-      )}
+      )} */}
 
       <div
         className="w-full bg-cover bg-center relative"
@@ -125,7 +123,7 @@ const PageById = ({ params }: { params: any }) => {
             onClick={toggleBook}
           >
             Read{" "}
-          </button> 
+          </button>
 
           <button
             className="text-base hover:text-white md:text-lg px-12 sm:px-20 py-3 rounded hover:bg-[#527853] border-2 border-[#527853]"
