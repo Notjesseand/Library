@@ -29,10 +29,6 @@ export default function Page() {
   const [open, setOpen] = useState(false);
   const user = auth.currentUser;
   const [searchData, setDataSearch] = useState([]);
-  // const[interests, setInterests] = useState();
-
-  // const [searchBook, setDataSearch] = useState([]);
-  // const [authorImage, setAuthorImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [userName, setUserName] = useState(null);
   const toggle = () => {
@@ -174,7 +170,7 @@ export default function Page() {
             //@ts-ignore
             (searchBook && searchBook.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-10">
-                {searchData.map((item: any, index) => (
+                {searchData?.map((item: any, index) => (
                   // grid
                   <div key={index}>
                     <Link
@@ -222,7 +218,7 @@ export default function Page() {
               {item.volumeInfo.authors}
             </Link>
             <img
-              src={item.volumeInfo.imageLinks.thumbnail}
+              src={item?.volumeInfo?.imageLinks?.thumbnail || imgplace}
               className="w-1/2 aspect-[2/3] object-cover rounded mx-auto"
               alt=""
             />

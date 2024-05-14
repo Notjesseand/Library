@@ -10,37 +10,47 @@ import "swiper/css/navigation";
 import Link from "next/link";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Spinner } from "@material-tailwind/react";
 
-export default function BrowseCarousel({ interests  }: { interests: any }) {
+export default function BrowseCarousel({ interests }: { interests: any }) {
   const [books, setBooks] = useState([]);
-   const [firstHalf, setFirstHalf] = useState([]);
-   const [secondHalf, setSecondHalf] = useState([]);
-   
-   useEffect(() => {
-     if (interests !== undefined) {
-       const search = interests?.interests;
-       fetchBookById(search)
-         .then((data) => {
-           setBooks(data);
-         })
-         .catch((error) => {
-           console.error("Error fetching books:", error);
-         });
-     }
-   }, [interests]);
+  const [firstHalf, setFirstHalf] = useState([]);
+  const [secondHalf, setSecondHalf] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-   useEffect(() => {
-     if (books) {
-       const halfIndex = Math.ceil(books.length / 2);
-       const firstHalf = books.slice(0, halfIndex);
-       const secondHalf = books.slice(halfIndex);
-       setFirstHalf(firstHalf);
-       setSecondHalf(secondHalf);
-     }
-   }, [books]);
+  useEffect(() => {
+    if (interests !== undefined) {
+      const search = interests?.interests;
+      fetchBookById(search)
+        .then((data) => {
+          setBooks(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching books:", error);
+        });
+    }
+  }, [interests]);
+
+  useEffect(() => {
+    if (books) {
+      const halfIndex = Math.ceil(books.length / 2);
+      const firstHalf = books.slice(0, halfIndex);
+      const secondHalf = books.slice(halfIndex);
+      setFirstHalf(firstHalf);
+      setSecondHalf(secondHalf);
+      setLoading(false)
+    }
+  }, [books]);
 
   return (
-    <div>
+    <div className="min-h-20">
+      {loading == true ? (
+        <div className="flex justify-center">
+          <Spinner className="animate-spin text-orange-600 h-20 w-20 text-4xl   " />
+        </div>
+      ) : (
+        ""
+      )}
       <Swiper
         spaceBetween={30}
         breakpoints={{
