@@ -94,9 +94,19 @@ export default function Page() {
       </div>
     );
   }
-  const interestsString = interests?.interests.join(",");
+  // const interestsString = interests?.interests.join(",");
 
-  console.log(interestsString, "stringify");
+  // const interestData = interests?.interests;
+
+  // const halfIndex = Math.ceil(interestz.length / 2);
+  // Divide the array into two arrays
+  // const firstHalf = interests.slice(0, halfIndex);
+  // const secondHalf = interests.slice(halfIndex);
+
+  // console.log(firstHalf);
+  // console.log(secondHalf);
+
+  // console.log(interestsString, "stringify");
 
   const placeholder = "";
 
@@ -185,7 +195,7 @@ export default function Page() {
 
       {/* end of searchbar */}
       <div className="px-5">
-        <BrowseCarousel interests={interestsString} />
+        <BrowseCarousel interests={interests} />
         {/* <BrowseCarousel2 /> */}
       </div>
 
