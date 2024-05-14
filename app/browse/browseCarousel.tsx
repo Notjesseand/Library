@@ -12,14 +12,7 @@ import Link from "next/link";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 export default function BrowseCarousel({ interests  }: { interests: any }) {
-  const [open, setOpen] = useState(true);
-
-  const pdf = ["/neck.pdf"];
-
   const [books, setBooks] = useState([]);
-
-  const [wait, setWait] = useState();
-
    const [firstHalf, setFirstHalf] = useState([]);
    const [secondHalf, setSecondHalf] = useState([]);
    
@@ -36,10 +29,6 @@ export default function BrowseCarousel({ interests  }: { interests: any }) {
      }
    }, [interests]);
 
-   console.log(interests)
- 
-  //  console.log(interests, "bu the jajaajaj interets");
-
    useEffect(() => {
      if (books) {
        const halfIndex = Math.ceil(books.length / 2);
@@ -50,15 +39,10 @@ export default function BrowseCarousel({ interests  }: { interests: any }) {
      }
    }, [books]);
 
-   console.log("bu the first half",firstHalf)
-
-
-
   return (
     <div>
       <Swiper
         spaceBetween={30}
-        // slidesPerView={3}
         breakpoints={{
           350: {
             slidesPerView: 2,
@@ -102,7 +86,9 @@ export default function BrowseCarousel({ interests  }: { interests: any }) {
                 //@ts-ignore
                 className="mt-3 capitalize text-xl"
               >
-                {item.title}
+                {item.title.length > 30
+                  ? `${item.title.substring(0, 30)}...`
+                  : item.title}
               </p>
               <p
                 //@ts-ignore
@@ -116,6 +102,7 @@ export default function BrowseCarousel({ interests  }: { interests: any }) {
         ))}
       </Swiper>
 
+      {/* second array */}
       <Swiper
         spaceBetween={30}
         // slidesPerView={3}
@@ -143,13 +130,13 @@ export default function BrowseCarousel({ interests  }: { interests: any }) {
         {secondHalf?.map((item: any, index) => (
           <SwiperSlide
             key={index}
-            className=" mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm  relative "
+            className=" h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm  relative "
             style={{ backgroundImage: "/drama.jpg" }}
           >
             <Link
               //@ts-ignore
               href={`/browse/google/${item.id}`}
-              className="flex h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-600"
+              className="flex h-44 sm:h-56 bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-600"
               //@ts-ignore
               style={{ backgroundImage: `url(${item.thumbnail})` }}
             ></Link>
@@ -162,7 +149,9 @@ export default function BrowseCarousel({ interests  }: { interests: any }) {
                 //@ts-ignore
                 className="mt-3 capitalize text-xl"
               >
-                {item.title}
+                {item.title.length > 30
+                  ? `${item.title.substring(0, 30)}...`
+                  : item.title}
               </p>
               <p
                 //@ts-ignore
