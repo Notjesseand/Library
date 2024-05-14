@@ -19,7 +19,7 @@ export default function BrowseCarousel2() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const search = "YOUR_SEARCH_QUERY"; 
+    const search = "drama";
     fetchBookById(search)
       .then((data) => {
         setBooks(data);

@@ -47,9 +47,6 @@ export default function Page() {
     return () => unsubscribe();
   }, [db, router]);
 
-  console.log(user);
-  console.log(userName, "jajaja");
-
   // Check if the user object exists before rendering the page
   if (loading) {
     return (

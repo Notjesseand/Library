@@ -10,9 +10,9 @@ import { RxCross2 } from "react-icons/rx";
 import AuthorsCarousel from "@/components/authorsCarousel";
 import FeaturedBooksCarousel from "@/components/featuredBooksCarousel";
 import Link from "next/link";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, getDoc } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "@/config/firebase";
+import { auth, db } from "../../config/firebase";
 import firebase from "firebase/app";
 import { categories } from "../data";
 import DesktopFooter from "@/components/desktopFooter";
@@ -34,8 +34,14 @@ export default function Page() {
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
-  const [searchBook, setDataSearch] = useState([]);
+  const [interests, setInterests] = useState<any>();
 
+  const [searchBook, setDataSearch] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [userName, setUserName] = useState(null);
+  const user = auth.currentUser;
+
+  // search and return books based on the search query
   useEffect(() => {
     const searchBook = () => {
       axios
@@ -48,60 +54,49 @@ export default function Page() {
     searchBook();
   }, [searchQuery]);
 
-  const addData = async () => {
-    categories.forEach(async (category) => {
-      try {
-        await setDoc(doc(db, "authors", category.category), {
-          category: category.category,
-          image: category.image,
-        });
-        console.log(`${category.category} added successfully`);
-      } catch (error) {
-        console.error(`Error adding ${category.category}:`, error);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, fetch user ID
+        const userId = user.uid;
+        // console.log("User ID:", userId);
+
+        // Fetch user interests
+        fetchInterests(userId);
+      } else {
+        // User is signed out
+        console.log("User is signed out");
       }
+      setLoading(false); // Set loading to false once authentication state is determined
     });
-  };
+  }, []); // Run this effect only once when the component mounts
 
-  // fetching data from firebase
-  interface Author {
-    books: string;
-    author: string;
-    category: string;
-    image: string;
-    tags: string[];
-    followers: string;
-  }
-
-  const fetchData = async (): Promise<Author[]> => {
+  const fetchInterests = async (userId: any) => {
     try {
-      // Get a reference to the "Authors" collection
-      const authorsCollection = collection(db, "Authors");
-
-      // Get all documents from the "Authors" collection
-      const querySnapshot = await getDocs(authorsCollection);
-
-      // Initialize an array to store the fetched data
-      const fetchedAuthors: Author[] = [];
-
-      // Loop through each document in the querySnapshot
-      querySnapshot.forEach((doc) => {
-        // Extract the data from each document
-        const authorData = doc.data() as Author;
-        // Push the data to the fetchedAuthors array
-        fetchedAuthors.push(authorData);
-      });
-
-      // Use the fetchedAuthors array in your application
-      console.log("Fetched authors data:", fetchedAuthors);
-
-      // Return the fetchedAuthors array
-      return fetchedAuthors;
+      // @ts-ignore
+      const docSnap = await getDoc(doc(db, "interests", userId));
+      if (docSnap.exists()) {
+        const interestsData = docSnap.data();
+        // @ts-ignore
+        setInterests(interestsData);
+      } else {
+        console.log("No interests document found for the user");
+      }
     } catch (error) {
-      console.error("Error fetching authors data:", error);
-      // Handle errors if necessary
-      return []; // Return an empty array in case of error
+      console.error("Error fetching interests:", error);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen min-w-screen bg-gray-100 flex items-center justify-center">
+        <Spinner className="spinner text-5xl h-12 w-12" />
+      </div>
+    );
+  }
+  const interestsString = interests?.interests.join(",");
+
+  console.log(interestsString, "stringify");
 
   const placeholder = "";
 
@@ -190,38 +185,8 @@ export default function Page() {
 
       {/* end of searchbar */}
       <div className="px-5">
-        {/* {searchQuery !== "" &&
-          (searchBook && searchBook.length > 0 ? (
-            <div>
-              {searchBook.map((item, index) => (
-                // grid
-                <div className="grid grid-cols-4 gap-4">
-                  <div
-                    key={index}
-                    className=" mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm   relative "
-                    style={{ backgroundImage: "/drama.jpg" }}
-                  >
-                    <div
-                      className="h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-600"
-                      style={{ backgroundImage: `url(${item.thumbnail})` }}
-                    ></div>
-                    <Link href={`/browse/google/${item.id}`}>
-                      <p className="mt-3 capitalize text-xl">{item.volumeInfo.title}</p>
-                      <p className="capitalize text-base text-gray-400">
-                        {item.authors}
-                      </p>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div>
-              <h4>no books with {searchQuery} found</h4>
-            </div>
-          ))} */}
-        <BrowseCarousel />
-        <BrowseCarousel2 />
+        <BrowseCarousel interests={interestsString} />
+        {/* <BrowseCarousel2 /> */}
       </div>
 
       <div className="px-6 sm:px-16 justify-between flex pt-6">

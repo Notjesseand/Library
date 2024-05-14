@@ -29,6 +29,7 @@ export default function Page() {
   const [open, setOpen] = useState(false);
   const user = auth.currentUser;
   const [searchData, setDataSearch] = useState([]);
+  // const[interests, setInterests] = useState();
 
   // const [searchBook, setDataSearch] = useState([]);
   // const [authorImage, setAuthorImage] = useState("");
@@ -92,6 +93,7 @@ export default function Page() {
     }
   }, [user]);
 
+  console.log(interests);
   // fetching books based on interests
   // const interestsString =
   //   interests && interests.interests && interests.interests.join(",");
@@ -113,32 +115,6 @@ export default function Page() {
   }, [searchQuery, interestsString]);
 
   console.log(searchData);
-
-  // fetch author image
-  // const fetchAuthorImage = async (author) => {
-  //   try {
-  //     const response = await axios.get(
-  //       `https://www.googleapis.com/books/v1/volumes?q=inauthor:"${author}"`
-  //     );
-
-  //     if (response.status === 200) {
-  //       const data = response.data;
-  //       if ("items" in data && data["items"].length > 0) {
-  //         const volume = data["items"][0];
-  //         if ("volumeInfo" in volume && "imageLinks" in volume["volumeInfo"]) {
-  //           setAuthorImage(volume["volumeInfo"]["imageLinks"]["thumbnail"]);
-  //         }
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // // Example usage:
-  // useEffect(() => {
-  //   fetchAuthorImage("Chinua Achebe");
-  // }, []);
 
   if (loading) {
     return (
