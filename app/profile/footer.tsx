@@ -13,12 +13,12 @@ export default function footer() {
         <FaSearch className="text-3xl font-bold" />
         <p className="text-[12px] font-custom">Browse</p>
       </Link>
-      <Link href="/books">
+      {/* <Link href="/books">
         <div className="flex flex-col items-center">
           <IoBookSharp className="text-3xl" />
           <p className="text-[12px] font-custom">Books</p>
         </div>
-      </Link>
+      </Link> */}
       <Link href="library">
         <div className="flex flex-col items-center">
           <LuLibrary className="text-3xl" />

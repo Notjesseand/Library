@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,8 +18,7 @@ import { favourites } from "../app/data";
 const FeaturedBooksCarousel = () => {
   const [open, setOpen] = useState(true);
 
-  const pdf = ["/neck.pdf"]
-
+  const pdf = ["/neck.pdf"];
 
   return (
     <div>
@@ -59,14 +58,11 @@ const FeaturedBooksCarousel = () => {
               style={{ backgroundImage: `url(${item.image})` }}
             ></div>
             <p className="mt-3 capitalize text-xl">{item.title}</p>
+            jaja
             <p className="capitalize text-base text-gray-400">{item.author}</p>
-
           </SwiperSlide>
         ))}
-           
       </Swiper>
-
-     
 
       {/* {open ? (
         <iframe
@@ -77,7 +73,7 @@ const FeaturedBooksCarousel = () => {
       ) : (
         ""
       )} */}
-     
+
       {/* <iframe
         title="PDF Viewer"
         src={pdf[0]}

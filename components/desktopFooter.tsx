@@ -9,9 +9,12 @@ export default function desktopFooter() {
           <Link href="/authors" className="flex font-custom">
             Authors
           </Link>
-          <Link href="/books" className="flex">
+          {/* <Link href="/books" className="flex">
             Books
-          </Link>{" "}
+          </Link>{" "} */}
+          <Link href="/categories" className="flex">
+            Categories
+          </Link>
           <Link href="/library" className="flex">
             Library
           </Link>
@@ -20,9 +23,6 @@ export default function desktopFooter() {
           </Link>
         </div>
         <div className="space-y-1.5  ml-24 font-poppins font-semibold gradient-text">
-          <Link href="/categories" className="flex">
-            Categories
-          </Link>
           <Link href="/favourites" className="flex">
             Favourites
           </Link>{" "}
