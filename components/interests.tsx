@@ -82,24 +82,23 @@ const Interests = () => {
           ))}
       </ToggleGroup>
 
-      {itemsToShow < categories.length && (
+      <div className="flex justify-center space-x-6">
         <button
           onClick={() => setItemsToShow((prev) => prev + 8)}
-          className="text-black bg-white mt-14 cursor-pointer px-10 mx-auto flex text-lg border-gray-500 border py-3 rounded-lg"
+          className="text-black bg-white mt-14 cursor-pointer px-10 text-lg border-gray-500 border py-3 rounded-lg"
         >
           See More
         </button>
-      )}
-      {itemsToShow >= categories.length && (
-        <div className="text-center" onClick={addData}>
+        {/* )} */}
+        <div className="" onClick={addData}>
           <Link
             href="/browse"
-            className="inline-block text-black bg-white mt-14 cursor-pointer px-10 text-lg border-gray-500 border py-3 rounded-lg mx-auto"
+            className="inline-block text-black bg-white mt-14 cursor-pointer px-10 text-lg border-gray-500 border py-3 rounded-lg"
           >
             Continue
           </Link>
         </div>
-      )}
+      </div>
     </div>
   );
 };

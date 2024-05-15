@@ -20,6 +20,7 @@ export default function Page() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const auth = getAuth();
@@ -50,18 +51,22 @@ export default function Page() {
       );
       const user = userCredential.user;
       // The onAuthStateChanged listener will handle the redirection on successful sign-in.
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error("Error signing in:", error.message);
-      } else if (error instanceof Object && "code" in error) {
-        console.error("Firebase error code:", (error as any).code);
+    } catch (error: any) {
+      setError(error.message);
+
+      if (error.code) {
+        setError(`${error.code}`);
+        console.error("Firebase error code:", error.code);
       } else {
-        console.error("Unknown error:", error);
+        setError(`${error.message}`);
+        console.error("Error signing in:", error.message);
       }
     } finally {
       setLoading(false);
     }
   };
+
+  console.log(error);
 
   return (
     <div className="font-custom text-base h-screen flex flex-col">
@@ -103,7 +108,10 @@ export default function Page() {
             <p className="cursor-pointer text-base text-blue-700 mt-1">
               forgot password?
             </p>
+            {error && <p className="text-red-500">{error}</p>}
+
             {/* submit */}
+
             <button
               value="Sign in"
               onClick={signIn}
@@ -115,13 +123,7 @@ export default function Page() {
                 "Sign In"
               )}
             </button>
-            {/* <p className="text-center mt-1">
-              or{" "}
-              <span className="text-blue-600 cursor-pointer">
-                Continue with Google
-              </span>
-            </p> */}
-            {/* sign up prompt */}
+
             <p className="text-center mt-9 sm:mt-4 ">
               Don&apos;t have an account?{" "}
               <Link href="signup" className="text-blue-600">

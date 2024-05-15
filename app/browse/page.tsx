@@ -16,7 +16,6 @@ import { auth, db } from "../../config/firebase";
 import firebase from "firebase/app";
 import { categories } from "../data";
 import DesktopFooter from "@/components/desktopFooter";
-import BrowseCarousel2 from "@/components/browseCarousel2";
 import { fetchBookById } from "@/components/fetchBooks";
 import { Spinner } from "@material-tailwind/react";
 import axios from "axios";
@@ -94,19 +93,6 @@ export default function Page() {
       </div>
     );
   }
-  // const interestsString = interests?.interests.join(",");
-
-  // const interestData = interests?.interests;
-
-  // const halfIndex = Math.ceil(interestz.length / 2);
-  // Divide the array into two arrays
-  // const firstHalf = interests.slice(0, halfIndex);
-  // const secondHalf = interests.slice(halfIndex);
-
-  // console.log(firstHalf);
-  // console.log(secondHalf);
-
-  // console.log(interestsString, "stringify");
 
   const placeholder = "";
 
@@ -122,7 +108,6 @@ export default function Page() {
           <p className="font-montserrat font-semibold text-2xl gradient-text sm:text-3xl text-center ">
             Browse
           </p>
-          {/* <img src="nacos.png" alt="" className="h-20 flex mx-auto" /> */}
         </div>
         <div className="flex justify-end">
           {open ? (
@@ -196,7 +181,6 @@ export default function Page() {
       {/* end of searchbar */}
       <div className="px-5">
         <BrowseCarousel interests={interests} />
-        {/* <BrowseCarousel2 /> */}
       </div>
 
       <div className="px-6 sm:px-16 justify-between flex pt-6">
@@ -211,13 +195,13 @@ export default function Page() {
       </div>
       <Categories />
 
-      <div className="px-6 sm:px-16 justify-between flex pt-10">
+      {/* <div className="px-6 sm:px-16 justify-between flex pt-10">
         <p className="font-montserrat text-xl font-semibold">Popular Authors</p>
         <p className="text-gray-400 font-montserrat flex items-center text-lg cursor-pointer hover:text-orange-600">
           See all
           <MdOutlineArrowForwardIos className="text-lg ml-1 mt-[1px] flex" />
         </p>
-      </div>
+      </div> */}
       {/* authors */}
       <div className="px-2">
         <AuthorsCarousel />

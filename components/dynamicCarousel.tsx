@@ -1,3 +1,4 @@
+// This page is used to render similar books in the same category in the app/browse/google/[id] directory
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,21 +12,14 @@ import "swiper/css/navigation";
 import Link from "next/link";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-
 interface ChildProps {
   variable: [];
 }
 
 const DynamicCarousel: React.FC<ChildProps> = ({ variable }) => {
-
   const category = variable;
 
-  // console.log(newVariable)
-    // const [category, setCategory] = useState<[]>([]);
-
-    console.log("yoyoyoy" + category) 
-
-   const [bookCategory, setBookCategory] = useState([]);
+  const [bookCategory, setBookCategory] = useState([]);
 
   // fetching data based on categories
   useEffect(() => {
@@ -66,7 +60,7 @@ const DynamicCarousel: React.FC<ChildProps> = ({ variable }) => {
         modules={[Autoplay, Pagination]}
         className="mySwiper flex font-open gap-0"
       >
-        {bookCategory?.map((item : any, index) => (
+        {bookCategory?.map((item: any, index) => (
           <SwiperSlide
             key={index}
             className=" mt-12 h-[40px] inline-block cursor-pointer text-center w-full backdrop-blur-sm rounded-sm   relative "
@@ -92,6 +86,6 @@ const DynamicCarousel: React.FC<ChildProps> = ({ variable }) => {
       </Swiper>
     </div>
   );
-}
+};
 
 export default DynamicCarousel;

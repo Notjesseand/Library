@@ -10,7 +10,6 @@ import { favourites } from "@/app/data";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchBookById } from "@/components/fetchBooks";
 import { Spinner } from "@material-tailwind/react";
-import BrowseCarousel2 from "@/components/browseCarousel2";
 import axios from "axios";
 import { google } from "googleapis";
 import DynamicCarousel from "@/components/dynamicCarousel";
@@ -231,8 +230,6 @@ const PageById = ({ params }: { params: any }) => {
 
           {/* featuredbooks */}
           <p className="text-center text-lg mt-10">More {category} Books</p>
-
-          {/* <BrowseCarousel2 /> */}
           <DynamicCarousel variable={category} />
         </div>
       </div>

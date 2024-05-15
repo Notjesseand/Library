@@ -38,19 +38,18 @@ export default function BrowseCarousel({ interests }: { interests: any }) {
       const secondHalf = books.slice(halfIndex);
       setFirstHalf(firstHalf);
       setSecondHalf(secondHalf);
-      setLoading(false)
+      setLoading(false);
     }
   }, [books]);
 
   return (
-    <div className="min-h-20">
-      {loading == true ? (
-        <div className="flex justify-center">
-          <Spinner className="animate-spin text-orange-600 h-20 w-20 text-4xl   " />
+    <div className="">
+      {/* {loading && (
+        <div className="flex justify-center h-full w-screen absolute bg-white z-50 inset-0">
+          <Spinner className="animate-spin text-orange-600 h-14 w-14 inset-0 mt-[40vh]" />
         </div>
-      ) : (
-        ""
-      )}
+      )} */}
+
       <Swiper
         spaceBetween={30}
         breakpoints={{
@@ -135,7 +134,7 @@ export default function BrowseCarousel({ interests }: { interests: any }) {
         }}
         // pagination={{ type: "progressbar" }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper flex font-open gap-0"
+        className="mySwiper flex font-open gap-0 mt-7"
       >
         {secondHalf?.map((item: any, index) => (
           <SwiperSlide
