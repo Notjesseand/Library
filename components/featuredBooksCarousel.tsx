@@ -8,17 +8,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import PDFViewer from "./viewPdf";
+import Link from "next/link";
+import { FeaturedBooks } from "../app/data";
 
 // import required modules
 // import { Pagination, Navigation } from "swiper/modules";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import { favourites } from "../app/data";
+import { url } from "inspector";
 
 const FeaturedBooksCarousel = () => {
   const [open, setOpen] = useState(true);
 
   const pdf = ["/neck.pdf"];
+
+  const img =
+    "https://res.cloudinary.com/dv62ty87r/image/upload/v1715847628/Pdf_File_Vector_Hd_Images_Pdf_File_Document_Icon_Document_Icons_File_Icons_Pdf_PNG_Image_For_Free_Download_foijxg.jpg";
 
   return (
     <div>
@@ -58,27 +64,29 @@ const FeaturedBooksCarousel = () => {
               style={{ backgroundImage: `url(${item.image})` }}
             ></div>
             <p className="mt-3 capitalize text-xl">{item.title}</p>
-            jaja
+
             <p className="capitalize text-base text-gray-400">{item.author}</p>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* {open ? (
-        <iframe
-          title="PDF Viewer"
-          src="/neck.pdf"
-          className="h-screen w-screen bg-pink-700 block"
-        />
-      ) : (
-        ""
-      )} */}
-
-      {/* <iframe
-        title="PDF Viewer"
-        src={pdf[0]}
-        className="h-screen w-screen"
-      /> */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 px-16 gap-14 mt-8">
+        {FeaturedBooks.map((item, index) => (
+          <div
+            key={index}
+            className="h-full text-center justify-center inline "
+          >
+            <Link
+              className="flex h-56 aspect-[3/4] rounded-lg bg-pink-300 bg-cover mx-auto bg-center"
+              href={item.link}
+              style={{ backgroundImage: `url(${item.image})` }}
+            >
+              {/* Download File */}
+            </Link>
+            <p className="mt-2">{item.title}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -402,3 +402,20 @@ export const authors = [
     followers: "100k",
   },
 ];
+
+export const FeaturedBooks = [
+  {
+    title: "The thing around your neck",
+    author: "Chimamanda Ngozi Adichie",
+    image:
+      "https://res.cloudinary.com/dv62ty87r/image/upload/v1715845439/Screenshot_2024-05-16_023137_jjwlw3.png",
+    link: "/neck.pdf",
+  },
+  {
+    title: "Personalized Digital Library",
+    author: "Nnorom Jesse",
+    image:
+      "https://res.cloudinary.com/dv62ty87r/image/upload/v1715847628/Pdf_File_Vector_Hd_Images_Pdf_File_Document_Icon_Document_Icons_File_Icons_Pdf_PNG_Image_For_Free_Download_foijxg.jpg",
+    link: "/Personalized-Digital-Library-by-Jesse-Nnorom.pdf",
+  },
+];

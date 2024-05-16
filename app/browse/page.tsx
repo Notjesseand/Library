@@ -195,18 +195,6 @@ export default function Page() {
       </div>
       <Categories />
 
-      {/* <div className="px-6 sm:px-16 justify-between flex pt-10">
-        <p className="font-montserrat text-xl font-semibold">Popular Authors</p>
-        <p className="text-gray-400 font-montserrat flex items-center text-lg cursor-pointer hover:text-orange-600">
-          See all
-          <MdOutlineArrowForwardIos className="text-lg ml-1 mt-[1px] flex" />
-        </p>
-      </div> */}
-      {/* authors */}
-      <div className="px-2">
-        <AuthorsCarousel />
-      </div>
-
       {/* featured books */}
       <div className="px-6 sm:px-16 justify-between flex pt-10">
         <p className="font-montserrat  text-xl font-semibold">Featured Books</p>
@@ -218,6 +206,13 @@ export default function Page() {
       <div>
         <FeaturedBooksCarousel />
       </div>
+
+      {/* <iframe
+        className="w-24 h-36 rounded-lg"
+        src="https://res.cloudinary.com/dv62ty87r/image/upload/v1715788788/Personalized_Digital_Library_by_Jesse_Nnorom_x33bje.pdf"
+        frameborder="0"
+      ></iframe> */}
+
       {/* <Link href="/continuereading">Continue Reading </Link>
       <button onClick={addData}>click me!</button> */}
       <Footer />

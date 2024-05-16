@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { GiBlackBook } from "react-icons/gi";
 import Carousel from "@/components/introCarousel";
 import Link from "next/link";
+import { Spinner } from "@material-tailwind/react";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -22,6 +23,12 @@ export default function Home() {
   const [showSection1, setShowSection1] = useState(true);
   const [showSection2, setShowSection2] = useState(false);
   const [showSection3, setShowSection3] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+
+  const spinner = () => {
+    setLoading(true);
+  };
 
   const handleNext = () => {
     if (showSection1) {
@@ -56,7 +63,6 @@ export default function Home() {
               <div className="flex justify-start  sm:px-24 pt-20 sm:w-full w-5/6 mx-auto sm:mx-0 text-white">
                 <GiBlackBook className="text-3xl sm:text-5xl " />{" "}
                 {/* <img src="nacos.png" alt="" className="h-20 mt-3" /> */}
-
                 <p className="px-3 text-3xl flex justify-center items-center sm:text-5xl text-white">
                   Digital Library
                 </p>
@@ -150,10 +156,11 @@ export default function Home() {
       {showSection3 && (
         <div className="flex">
           <Link
+            onClick={spinner}
             href="/login"
             className="font-custom text-white bg-[#294246] px-0 w-5/6 sm:w-1/2 justify-center sm:px-44 py-4 rounded-md mt-20 hover:bg-slate-600 transition duration-500 z-50 mx-auto flex absolute bottom-5 left-1/2 transform -translate-x-1/2"
           >
-            Sign Up
+            {loading ? <Spinner /> : "Sign Up"}
           </Link>
         </div>
       )}
