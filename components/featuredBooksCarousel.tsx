@@ -83,7 +83,10 @@ const FeaturedBooksCarousel = () => {
             >
               {/* Download File */}
             </Link>
-            <p className="mt-2">{item.title}</p>
+            <p className="mt-2 text-lg md:text-xl gradient-text font-custom font-semibold">
+              {item.title}
+            </p>
+            <p className="text-center text-gray-400">{item.author}</p>
           </div>
         ))}
       </div>
