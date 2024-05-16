@@ -82,7 +82,7 @@ export default function BrowseCarousel({ interests }: { interests: any }) {
             <Link
               //@ts-ignore
               href={`/browse/google/${item.id}`}
-              className="flex h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded bg-purple-600"
+              className="flex h-44 sm:h-56 bg-gray- bg-cover w-36 sm:w-44 bg-center mx-auto rounded "
               //@ts-ignore
               style={{ backgroundImage: `url(${item.thumbnail})` }}
             ></Link>

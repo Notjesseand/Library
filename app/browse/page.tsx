@@ -100,7 +100,7 @@ export default function Page() {
     <div className="relative pb-24 md:pb-0">
       <div className="grid grid-cols-3 pt-6 px-4 sm:px-16 relative">
         <div>
-          <div className="md:block">
+          <div className="md:block ">
             <Sidebar />
           </div>
         </div>

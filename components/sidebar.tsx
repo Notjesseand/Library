@@ -38,8 +38,8 @@ export default function sidebar() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="font-custom bg-transparent hover:text-orange-600 outline-none focus:outline-none hover:bg-transparent">
-          <FaBars className="text-3xl cursor-pointers" />
+        <Button className="font-custom  outline-none focus:outline-none">
+          <FaBars className="text-3xl cursor-pointers " />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-64  ">
