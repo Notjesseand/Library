@@ -68,14 +68,6 @@ const PageById = ({ params }: { params: any }) => {
   }
   return (
     <div className="pb-20">
-      {/* {open && (
-        <iframe
-          title="PDF Viewer"
-          src={filteredFavourites[0].url}
-          className="h-screen w-screen absolute z-50 top-0 "
-        />
-      )} */}
-
       <div
         className="w-full bg-cover bg-center relative"
         style={{ backgroundImage: `url(${imageurl})` }}
