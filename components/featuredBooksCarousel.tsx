@@ -86,7 +86,7 @@ const FeaturedBooksCarousel = () => {
             <p className="mt-2 text-lg md:text-xl gradient-text font-custom font-semibold">
               {item.title}
             </p>
-            <p className="text-center text-gray-400">{item.author}</p>
+            <p className="text-center text-gray-400 text-sm">{item.author}</p>
           </div>
         ))}
       </div>
